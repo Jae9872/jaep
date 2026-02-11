@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jae Pasha | Cloud and Data Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f6f2;
+      --panel: #ffffff;
+      --ink: #0e1116;
+      --muted: #5a6575;
+      --line: #e4e0d9;
+      --accent: #1b6cff;
+      --accent-2: #ff6a3d;
+      --shadow: 0 22px 60px rgba(10, 15, 20, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      background: radial-gradient(600px 400px at 0% -10%, rgba(27,108,255,0.08), transparent), var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.4rem;
+      background: rgba(248, 246, 242, 0.85);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(27,108,255,0.18);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    header.hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 6rem 2.4rem 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 4.6vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 520px; }
+
+    .hero-actions {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .info-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 0.6rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .info-list strong { color: var(--ink); }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.6rem 2.4rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-lead { color: var(--muted); max-width: 760px; margin-bottom: 2rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      min-height: 190px;
+    }
+
+    .card h3 { margin-bottom: 0.6rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(27,108,255,0.1);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.4rem;
+      border-left: 2px solid var(--line);
+      padding-left: 1.4rem;
+    }
+
+    .role {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .role h3 { margin-bottom: 0.3rem; font-size: 1.1rem; }
+    .role span { color: var(--muted); font-size: 0.9rem; }
+    .role ul { margin-top: 0.7rem; padding-left: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .role li { margin-bottom: 0.4rem; }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .list-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .list-card h3 { margin-bottom: 0.8rem; }
+    .list-card ul { padding-left: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .list-card li { margin-bottom: 0.45rem; }
+
+    .cta {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 2.6rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    footer {
+      padding: 2.4rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav { flex-direction: column; gap: 0.8rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .hero-actions { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Jae Pasha</div>
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-primary" href="mailto:pasha.jamal@icloud.com">Start a contract</a>
+  </nav>
+
+  <header class="hero" id="profile">
+    <div>
+      <div class="eyebrow">Cloud and data contractor</div>
+      <h1>Jae Pasha</h1>
+      <p>
+        Cloud and Data Engineer with 5+ years designing secure, scalable systems across Azure, AWS, and GCP.
+        Certified Azure Solutions Architect (AZ-305). Strong in data pipelines, hybrid cloud, and AI automation.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:pasha.jamal@icloud.com">pasha.jamal@icloud.com</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/jamal-pasha" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn btn-ghost" href="consulting.html">Consulting site</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>Contact and location</h3>
+      <div class="info-list">
+        <div><strong>Phone:</strong> +44 7397 142045</div>
+        <div><strong>Email:</strong> pasha.jamal@icloud.com</div>
+        <div><strong>Website:</strong> jaepasha.com</div>
+        <div><strong>Location:</strong> London, UK</div>
+        <div><strong>Availability:</strong> Contract and consulting</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <h2 class="section-title">Core competencies</h2>
+    <p class="section-lead">Hands-on delivery across cloud platforms, data engineering, security, and automation.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Cloud platforms</h3>
+        <p>Azure, AWS, and GCP with production delivery across compute, data, and networking.</p>
+        <div class="tag-row">
+          <span class="tag">AKS</span><span class="tag">App Services</span><span class="tag">Cosmos DB</span><span class="tag">Lambda</span><span class="tag">BigQuery</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Architecture and IaC</h3>
+        <p>Infrastructure as code, platform design, and repeatable environments.</p>
+        <div class="tag-row">
+          <span class="tag">Terraform</span><span class="tag">Bicep</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">VNETs</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>DevOps and CI/CD</h3>
+        <p>Automation pipelines and release engineering for stable production delivery.</p>
+        <div class="tag-row">
+          <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Azure DevOps</span><span class="tag">Helm</span><span class="tag">ServiceNow</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Security and compliance</h3>
+        <p>Identity, policy, and audit ready environments aligned with enterprise standards.</p>
+        <div class="tag-row">
+          <span class="tag">IAM</span><span class="tag">RBAC</span><span class="tag">SOC2</span><span class="tag">ISO</span><span class="tag">Vault</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Programming and data</h3>
+        <p>Engineering in Python, C#, PowerShell, SQL, and Java for data and automation workloads.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">C#</span><span class="tag">PowerShell</span><span class="tag">SQL</span><span class="tag">Java</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Monitoring and cost ops</h3>
+        <p>Production monitoring with cost visibility and performance telemetry.</p>
+        <div class="tag-row">
+          <span class="tag">Azure Monitor</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">FinOps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Professional experience</h2>
+    <p class="section-lead">Selected roles with impact-focused delivery and measurable results.</p>
+    <div class="timeline">
+      <div class="role">
+        <h3>Dye and Durham Corporation - Cloud Data Engineer</h3>
+        <span>07/2025 - Present | Cardiff, UK</span>
+        <ul>
+          <li>Own production database reliability for compliance critical identity verification platforms.</li>
+          <li>Delivered 24/7 health monitoring and alerting, cutting incident detection from hours to minutes.</li>
+          <li>Reduced cloud costs by about GBP 3,000 per month through diagnostic logging and retention tuning.</li>
+          <li>Automated index maintenance and integrity checks with audit-ready CommandLog trails.</li>
+          <li>Produce executive reporting on capacity, growth trends, and infrastructure risk.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Huxan Holdings Group - Managing Director and Founder</h3>
+        <span>04/2024 - 07/2025 | London, UK</span>
+        <ul>
+          <li>Founded a UK technology company focused on applied AI, automation, and cloud products.</li>
+          <li>Led architecture, delivery planning, and early stage product execution.</li>
+          <li>Built a distributed team across UK and India for engineering, design, and marketing.</li>
+          <li>Delivered AI and cloud prototypes from concept to validation.</li>
+          <li>Participated in Microsoft for Startups, Amazon for Startups, and HSBC-backed BayHQ.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>The House of qAmi - Solutions Engineer</h3>
+        <span>12/2022 - 01/2024 | UK, US, Nigeria</span>
+        <ul>
+          <li>Owned end-to-end delivery for multiple mobile products across iOS and Android.</li>
+          <li>Built cloud backends on AWS and GCP with autoscaling, load balancing, and monitoring.</li>
+          <li>Implemented CI/CD pipelines and managed B2B integrations with SSL and AS2 security.</li>
+          <li>Led code reviews and mentored junior developers across regions.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Google via Software AG - Assistant Software Consultant</h3>
+        <span>09/2021 - 09/2022 | Remote, US</span>
+        <ul>
+          <li>Maintained 100 percent SLA and achieved a 5-star rating from Google executives.</li>
+          <li>Executed a zero downtime GCP migration and integration server upgrade.</li>
+          <li>Managed B2B integration security profiles, SSL and AS2 certificates, and partner connectivity.</li>
+          <li>Used Gerrit and Jenkins for CI/CD, load balancing, autoscaling, and cost analysis.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>IEEE and PES University - Research Project Team Lead</h3>
+        <span>08/2020 - 08/2021 | Bangalore</span>
+        <ul>
+          <li>Built autonomous robotics systems using OpenCV, ROS, and TensorFlow.</li>
+          <li>Authored IEEE-cited research on deep learning for visual detection.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Education and certifications</h2>
+    <p class="section-lead">Academic background and key credentials.</p>
+    <div class="split">
+      <div class="list-card">
+        <h3>Education</h3>
+        <ul>
+          <li>Brunel University London - Masters in International Business, 2:1</li>
+          <li>PES University - BTech in Electronics Engineering, 2:1</li>
+          <li>PVP Polytechnic - Diploma in Electronics Engineering, First</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <h3>Certifications</h3>
+        <ul>
+          <li>Microsoft Azure Solutions Architect Expert (AZ-305)</li>
+          <li>Microsoft Azure Administrator (AZ-104)</li>
+          <li>PRINCE2 Certified Professional</li>
+          <li>ITIL v4</li>
+          <li>Certified Ethical Hacker</li>
+          <li>AI Security and Governance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Other experience</h2>
+    <p class="section-lead">Leadership, research, and community work that informs delivery style.</p>
+    <div class="split">
+      <div class="list-card">
+        <h3>Leadership and programs</h3>
+        <ul>
+          <li>Non-Profit Director, London Future Estd CIC - EcoZex AI platform (SME energy cost reduction)</li>
+          <li>General Manager, Mentorship and Startups - Microsoft for Startups, Amazon for Startups, BayHQ</li>
+          <li>Debater and Policy Maker, United Nations - UNPRME strategy challenge</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <h3>Innovation and research</h3>
+        <ul>
+          <li>Human-Centered Design and Innovation, D-Ford - AI mobility prototypes using Python and Azure IoT</li>
+          <li>Research in robotics and computer vision using OpenCV, ROS, and TensorFlow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cta">
+      <h2 class="section-title">Available for contract work</h2>
+      <p class="section-lead">Best fit: cloud reliability, data platforms, SQL automation, and monitoring.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a class="btn btn-primary" href="mailto:pasha.jamal@icloud.com">Email Jae</a>
+        <a class="btn btn-ghost" href="https://jaepasha.com" target="_blank" rel="noreferrer">jaepasha.com</a>
+        <a class="btn btn-ghost" href="consulting.html">Consulting services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Jae Pasha | Cloud and Data Engineer</div>
+    <div>London, UK</div>
+  </footer>
+</body>
+</html>
