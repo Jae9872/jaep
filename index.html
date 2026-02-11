@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jae Pasha Consulting | Cloud, Data, and AI Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-2: #0d111a;
+      --panel: #121826;
+      --panel-2: #162033;
+      --accent: #3bf7c6;
+      --accent-2: #4f8cff;
+      --accent-3: #ffb347;
+      --text: #edf2f8;
+      --muted: #9fb0c6;
+      --line: #1b2638;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Outfit", sans-serif;
+      background:
+        radial-gradient(900px 520px at 10% -10%, rgba(59,247,198,0.16), transparent),
+        radial-gradient(780px 520px at 90% 0%, rgba(79,140,255,0.16), transparent),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.35"/></svg>');
+      mix-blend-mode: soft-light;
+      z-index: 0;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.4rem;
+      background: rgba(7,11,18,0.7);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      font-size: 1.1rem;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #03080f;
+      box-shadow: 0 18px 38px rgba(59,247,198,0.2);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(18,24,38,0.7);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    header.hero {
+      position: relative;
+      padding: 6.5rem 2.4rem 4.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.6rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 4.6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .status-panel {
+      background: linear-gradient(155deg, rgba(22,32,51,0.92), rgba(12,18,30,0.92));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .status-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40% 40% 50% -40%;
+      background: radial-gradient(circle, rgba(59,247,198,0.25), transparent 65%);
+      animation: drift 12s ease-in-out infinite;
+    }
+
+    .status-panel::after {
+      content: "";
+      position: absolute;
+      inset: 10% -20% 40% 40%;
+      background: radial-gradient(circle, rgba(79,140,255,0.2), transparent 65%);
+      animation: drift 14s ease-in-out infinite reverse;
+    }
+
+    .status-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat {
+      background: rgba(8,12,20,0.7);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.9rem;
+    }
+
+    .stat h3 { font-size: 1.4rem; margin-bottom: 0.2rem; }
+    .stat p { font-size: 0.85rem; color: var(--muted); }
+
+    .ticker {
+      margin-top: 1.4rem;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      background: rgba(15,22,36,0.7);
+      border: 1px solid var(--line);
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticker span {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 14s linear infinite;
+    }
+
+    section {
+      padding: 4.6rem 2.4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 2.4rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.6rem;
+      min-height: 200px;
+      animation: rise 0.8s ease both;
+    }
+
+    .card h3 { margin-bottom: 0.6rem; font-size: 1.1rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    .pill-row {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(59,247,198,0.12);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .logo-marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 1.2rem 0;
+      overflow: hidden;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 1.6rem;
+      min-width: 100%;
+      animation: scroll 18s linear infinite;
+    }
+
+    .logo-pill {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(12,18,30,0.7);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .domain {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 2.6rem;
+      background: linear-gradient(160deg, rgba(18,24,38,0.92), rgba(10,15,24,0.92));
+      display: grid;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .domain::after {
+      content: "";
+      position: absolute;
+      inset: 40% -10% -60% 40%;
+      background: radial-gradient(circle, rgba(255,179,71,0.18), transparent 60%);
+      opacity: 0.8;
+    }
+
+    .domain-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .domain-title {
+      font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+    }
+
+    .domain-kicker {
+      font-family: "Space Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-3);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case {
+      background: rgba(12,18,30,0.82);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem;
+    }
+
+    .case h4 { margin-bottom: 0.5rem; font-size: 1rem; }
+    .case p { color: var(--muted); font-size: 0.92rem; }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .stack span {
+      border: 1px solid rgba(79,140,255,0.3);
+      color: #b7c8ff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.6rem;
+      border-left: 2px solid var(--line);
+      padding-left: 1.6rem;
+    }
+
+    .timeline-item h4 { margin-bottom: 0.4rem; }
+    .timeline-item span { color: var(--muted); font-size: 0.9rem; }
+
+    .cta {
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      padding: 3rem;
+      background: radial-gradient(500px 260px at 10% 0%, rgba(59,247,198,0.2), transparent),
+        linear-gradient(150deg, #121a28, #0a0f18);
+      text-align: center;
+    }
+
+    footer {
+      padding: 2.4rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+
+    .float-sphere {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,140,255,0.2), transparent 65%);
+      filter: blur(1px);
+      animation: drift 12s ease-in-out infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .sphere-1 { top: -60px; right: 12%; }
+    .sphere-2 { bottom: -70px; left: 8%; animation-delay: -5s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(18px) translateX(-12px); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 900px) {
+      .nav { flex-direction: column; gap: 0.8rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .hero-actions { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <nav class="nav">
+    <div class="logo">Jae Pasha <span>Consulting</span></div>
+    <div class="nav-links">
+      <a href="#what">What we do</a>
+      <a href="#domains">Domains</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-primary" href="mailto:pasha.jamal@icloud.com">Start a project</a>
+  </nav>
+
+  <header class="hero">
+    <div class="float-sphere sphere-1"></div>
+    <div class="float-sphere sphere-2"></div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Cloud, data, AI delivery</div>
+        <h1>Production grade reliability and analytics for cloud businesses.</h1>
+        <p>
+          Jae Pasha Consulting is a hands-on engineering partner. We build SQL reliability systems, Azure data platforms,
+          and AI automation that stays auditable, fast, and resilient under real load.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See proof</a>
+          <a class="btn btn-secondary" href="#domains">Explore domains</a>
+        </div>
+      </div>
+      <div class="status-panel">
+        <div class="status-grid">
+          <div class="stat">
+            <h3>5 min</h3>
+            <p>Critical alert detection</p>
+          </div>
+          <div class="stat">
+            <h3>730 days</h3>
+            <p>Log Analytics retention</p>
+          </div>
+          <div class="stat">
+            <h3>15-20%</h3>
+            <p>CPU gain from automation</p>
+          </div>
+          <div class="stat">
+            <h3>12-18 mo</h3>
+            <p>Capacity runway mapped</p>
+          </div>
+        </div>
+        <div class="ticker">
+          <span>STATUS STREAM: SQL health email sent | KQL trend export complete | ADLS ingest stable | Power BI refresh OK</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="what">
+    <h2 class="section-title">What we do</h2>
+    <p class="section-lead">
+      We help teams with SQL Server estates, Azure platforms, and AI automation run faster, safer, and with clear telemetry.
+    </p>
+    <div class="grid">
+      <div class="card" style="animation-delay: 0.05s;">
+        <h3>Reliability engineering</h3>
+        <p>Automation for health checks, index and stats maintenance, and audit ready operations on SQL Server and Azure SQL.</p>
+        <div class="pill-row">
+          <span class="pill">Ola Hallengren</span><span class="pill">Azure Automation</span><span class="pill">Runbooks</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.1s;">
+        <h3>Observability and alerting</h3>
+        <p>Azure Monitor, Log Analytics, and KQL driven incident response with 5 minute evaluation windows.</p>
+        <div class="pill-row">
+          <span class="pill">Azure Monitor</span><span class="pill">KQL</span><span class="pill">Action Groups</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.15s;">
+        <h3>Data platforms</h3>
+        <p>Lake to medallion to warehouse architecture using ADLS Gen2, Databricks, ADF, Synapse or Snowflake.</p>
+        <div class="pill-row">
+          <span class="pill">ADLS Gen2</span><span class="pill">Databricks</span><span class="pill">ADF</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.2s;">
+        <h3>BI and analytics</h3>
+        <p>Power BI reporting with M scripts and KQL exports for long term performance trends and forecasting.</p>
+        <div class="pill-row">
+          <span class="pill">Power BI</span><span class="pill">M Queries</span><span class="pill">AzureDiagnostics</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.25s;">
+        <h3>Cloud operations</h3>
+        <p>Capacity planning, cost tuning, and secure environments with RBAC, policy, and compliance-ready logging.</p>
+        <div class="pill-row">
+          <span class="pill">FinOps</span><span class="pill">RBAC</span><span class="pill">Azure Policy</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.3s;">
+        <h3>AI automation</h3>
+        <p>AI agents that automate reporting, monitoring, and operational triage with clear human oversight.</p>
+        <div class="pill-row">
+          <span class="pill">LLM Ops</span><span class="pill">Automation</span><span class="pill">Decision Trees</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Teams we have supported</h2>
+    <p class="section-lead">Client experience across enterprise, SaaS, and integration heavy environments.</p>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div class="logo-pill">Google</div>
+        <div class="logo-pill">Software AG</div>
+        <div class="logo-pill">Dye and Durham</div>
+        <div class="logo-pill">Credas</div>
+        <div class="logo-pill">KEMET Electronics</div>
+        <div class="logo-pill">Mondi Group</div>
+        <div class="logo-pill">BG Foods</div>
+        <div class="logo-pill">House of qAmi</div>
+        <div class="logo-pill">Huxan Holdings</div>
+        <div class="logo-pill">Google</div>
+        <div class="logo-pill">Software AG</div>
+        <div class="logo-pill">Dye and Durham</div>
+        <div class="logo-pill">Credas</div>
+        <div class="logo-pill">KEMET Electronics</div>
+        <div class="logo-pill">Mondi Group</div>
+        <div class="logo-pill">BG Foods</div>
+        <div class="logo-pill">House of qAmi</div>
+        <div class="logo-pill">Huxan Holdings</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="domains">
+    <h2 class="section-title">Domain focus</h2>
+    <p class="section-lead">Think of these as dedicated pages within one experience: AI, data, and cloud.</p>
+
+    <div class="domain" id="ai">
+      <div class="domain-header">
+        <div>
+          <div class="domain-kicker">AI and automation</div>
+          <h3 class="domain-title">AI agents for ops, reporting, and decision support.</h3>
+        </div>
+        <a class="btn btn-secondary" href="#projects">See AI projects</a>
+      </div>
+      <div class="case-grid">
+        <div class="case">
+          <h4>Operational triage guides</h4>
+          <p>Decision trees linked to KQL and SQL checks for CPU, blocking, and storage incidents.</p>
+        </div>
+        <div class="case">
+          <h4>Human-in-the-loop reporting</h4>
+          <p>Automated HTML health summaries with clear owner actions and escalation paths.</p>
+        </div>
+        <div class="case">
+          <h4>Automation foundations</h4>
+          <p>PowerShell runbooks and Logic Apps used as the control plane for safe AI adoption.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <span>PowerShell</span><span>Logic Apps</span><span>Azure Automation</span><span>LLM Ops</span>
+      </div>
+    </div>
+
+    <div class="domain" id="data">
+      <div class="domain-header">
+        <div>
+          <div class="domain-kicker">Data engineering</div>
+          <h3 class="domain-title">Lakehouse architecture and analytics with clear lineage.</h3>
+        </div>
+        <a class="btn btn-secondary" href="#projects">See data projects</a>
+      </div>
+      <div class="case-grid">
+        <div class="case">
+          <h4>Lake to medallion to warehouse</h4>
+          <p>ADLS Gen2, Databricks medallion layers, and ADF silver transformations.</p>
+        </div>
+        <div class="case">
+          <h4>2 year trend analytics</h4>
+          <p>KQL exports to M scripts feeding Power BI for long term forecasting.</p>
+        </div>
+        <div class="case">
+          <h4>CSV exports for BI</h4>
+          <p>Daily performance datasets posted to SharePoint via Logic Apps for reporting.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <span>ADLS Gen2</span><span>Databricks</span><span>ADF</span><span>Power BI</span><span>Snowflake</span>
+      </div>
+    </div>
+
+    <div class="domain" id="cloud">
+      <div class="domain-header">
+        <div>
+          <div class="domain-kicker">Cloud engineering</div>
+          <h3 class="domain-title">SQL reliability, monitoring, and secure operations at scale.</h3>
+        </div>
+        <a class="btn btn-secondary" href="#projects">See cloud projects</a>
+      </div>
+      <div class="case-grid">
+        <div class="case">
+          <h4>Health monitoring automation</h4>
+          <p>HTML health emails with CPU, blocking, deadlocks, failed jobs, and storage snapshots.</p>
+        </div>
+        <div class="case">
+          <h4>Azure Monitor alerts</h4>
+          <p>Critical and warning rules for CPU, vCore, storage, deadlocks, and connectivity.</p>
+        </div>
+        <div class="case">
+          <h4>Capacity planning</h4>
+          <p>12 to 18 month growth projections with tiering and scaling options.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <span>Azure SQL</span><span>Log Analytics</span><span>Azure Monitor</span><span>RBAC</span><span>FinOps</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Selected project delivery</h2>
+    <p class="section-lead">Real outcomes from production environments and long running platforms.</p>
+    <div class="grid">
+      <div class="card" style="animation-delay: 0.05s;">
+        <h3>24/7 health monitoring dashboard</h3>
+        <p>Azure Automation + PowerShell health pipeline with daily HTML email for CPU, blocking, deadlocks, failed jobs, and space.</p>
+        <div class="pill-row">
+          <span class="pill">Azure Automation</span><span class="pill">PowerShell</span><span class="pill">HTML Email</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.1s;">
+        <h3>Production DB architecture docs</h3>
+        <p>Documented 362 tables, 486.6M records, and 268 foreign keys with diagrams and glossary.</p>
+        <div class="pill-row">
+          <span class="pill">Schema Mapping</span><span class="pill">Dependency Graphs</span><span class="pill">Glossary</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.15s;">
+        <h3>Azure Monitor alert rules</h3>
+        <p>6 alert rules with 5 minute evaluation, action groups for SMS and email, and incident playbooks.</p>
+        <div class="pill-row">
+          <span class="pill">Azure Monitor</span><span class="pill">Action Groups</span><span class="pill">SLA</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.2s;">
+        <h3>Ola Hallengren automation</h3>
+        <p>Index and stats maintenance runbooks with CommandLog audit trails and off peak schedules.</p>
+        <div class="pill-row">
+          <span class="pill">Ola Hallengren</span><span class="pill">CommandLog</span><span class="pill">Runbooks</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.25s;">
+        <h3>Performance metric definitions</h3>
+        <p>Plain language metrics for P50, P95, P99 latency, deadlocks, blocking, and timeouts.</p>
+        <div class="pill-row">
+          <span class="pill">P50 P95 P99</span><span class="pill">SQL Latency</span><span class="pill">Docs</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.3s;">
+        <h3>Troubleshooting guide</h3>
+        <p>Operational decision trees for high CPU, long queries, blocking, and storage pressure.</p>
+        <div class="pill-row">
+          <span class="pill">KQL</span><span class="pill">SQL Checks</span><span class="pill">Runbooks</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.35s;">
+        <h3>Capacity and growth planning</h3>
+        <p>Historical growth analysis, 12 to 18 month runway projections, and tiering options.</p>
+        <div class="pill-row">
+          <span class="pill">Forecasting</span><span class="pill">Tiering</span><span class="pill">FinOps</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.4s;">
+        <h3>2 year analytics in Power BI</h3>
+        <p>Extended Log Analytics retention to 730 days, KQL exports to M scripts, and trend reporting.</p>
+        <div class="pill-row">
+          <span class="pill">Log Analytics</span><span class="pill">Power BI</span><span class="pill">M Scripts</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.45s;">
+        <h3>Performance CSV exports</h3>
+        <p>PowerShell runbook exports with Logic App delivery to SharePoint for BI ready datasets.</p>
+        <div class="pill-row">
+          <span class="pill">Logic Apps</span><span class="pill">SharePoint</span><span class="pill">CSV</span>
+        </div>
+      </div>
+      <div class="card" style="animation-delay: 0.5s;">
+        <h3>Wallet DB monitoring history</h3>
+        <p>Daily performance snapshots and top query tracking stored as CSV time series.</p>
+        <div class="pill-row">
+          <span class="pill">Azure SQL</span><span class="pill">Automation</span><span class="pill">Reporting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Engagement model</h2>
+    <p class="section-lead">A clear delivery flow that moves from assessment to measurable outcomes.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Audit and roadmap</h4>
+        <span>2 to 4 weeks</span>
+        <p>Environment review, telemetry map, risk assessment, and prioritized delivery plan.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Build and automate</h4>
+        <span>4 to 12 weeks</span>
+        <p>Runbooks, alerting, data pipelines, and dashboards shipped in production with tests.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Operate and optimize</h4>
+        <span>Ongoing</span>
+        <p>Capacity reviews, cost tuning, and continuous reliability improvements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cta">
+      <h2>Ready to build a reliable data platform?</h2>
+      <p>Direct delivery led by Jamal Pasha. Cloud and data engineering, end to end.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a class="btn btn-primary" href="mailto:pasha.jamal@icloud.com">Book a discovery call</a>
+        <a class="btn btn-secondary" href="contractor.html">Contractor profile</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Jae Pasha Consulting | Cloud, Data, and AI Engineering</div>
+    <div>London, UK</div>
+  </footer>
+</body>
+</html>
