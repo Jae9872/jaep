@@ -1,0 +1,323 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "489fd15a-73ee-4b2e-abf8-f1acdf9deb65",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Egress",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "bytes",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Egress",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "c5c84a61-a217-494c-9119-62877836218d",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Ingress",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "bytes",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Ingress",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "9f8845c2-e170-4f7a-8f67-23dd4824113c",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Transactions",
+            "split": "show",
+            "top": "2",
+            "filterProperty": [],
+            "aggregation": "Total",
+            "sort": "desc",
+            "dimension": "ResponseType",
+            "rollUp": "true"
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Transactions by Response Type",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "9364cbba-5f6a-436c-816a-c5c4fbdd0a1a",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Transactions",
+            "split": "show",
+            "top": "3",
+            "filterProperty": [],
+            "aggregation": "Total",
+            "sort": "desc",
+            "dimension": "TransactionType",
+            "rollUp": "true"
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Transactions by Transaction Type",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "04cde0fd-163d-4fa0-807e-0897c1b346e7",
+      "y": 4,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "SuccessE2ELatency",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Success E2E Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "45ebf036-22d1-4283-a26c-4a308622b913",
+      "y": 4,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-WX1wKD4SbCvQJS5YgKvU"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "SuccessServerLatency",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-rfL8I8gFsM21IYp4BpRD"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Success Server Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 54,
+  "columns": 4
+}

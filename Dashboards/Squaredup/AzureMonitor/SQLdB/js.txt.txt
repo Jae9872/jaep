@@ -1,0 +1,419 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 1,
+      "x": 0,
+      "y": 0,
+      "i": "1",
+      "z": 0,
+      "config": {
+        "timeframe": "none",
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "health",
+          "id": "datastream-health"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "title": "Health",
+        "visualisation": {
+          "type": "data-stream-blocks",
+          "config": {
+            "data-stream-blocks": {
+              "blockHeight": "50",
+              "sublabel": "data.sourceId"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 3,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 1,
+      "i": "b2fa181e-e76e-4ded-9820-5f3b83497ca0",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-5m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_VMlCogs1Tir3K1Qb0xYA))",
+          "bindings": {
+            "ids_VMlCogs1Tir3K1Qb0xYA": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconconnect"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "cpu_percent",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "CPU Percentage in the last 5 minutes",
+        "monitor": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [
+              "timeseries.data.average_mean"
+            ],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    70
+                  ]
+                },
+                "error",
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    40
+                  ]
+                },
+                "warning"
+              ]
+            }
+          },
+          "_type": "simple",
+          "column": "timeseries.data.average_mean",
+          "aggregation": "top",
+          "groupBy": "__group_by_none__",
+          "frequency": 15
+        },
+        "title": "CPU Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "maximum": 4.616666666666666,
+              "maximumColumn": "__fixed__",
+              "label": "%",
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "timeseries.data.average_mean"
+                ]
+              },
+              "minimum": 4.616666666666666,
+              "minimumColumn": "__fixed__"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 3,
+      "i": "6f341bd0-e7b0-45e4-bafe-1997e6c3b377",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "cpu_percent",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "CPU Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 5,
+      "i": "4df72ab2-b090-42e9-b9fa-0472c5c47952",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricSelectionType": "single",
+            "metricNames": "cpu_percent",
+            "aggregation": "Maximum",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "CPU Percentage (Max)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "seriesColumn": "resource",
+              "legendPosition": "bottom",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": [
+                "timeseries.data.maximum"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 7,
+      "i": "ab18eb4b-2869-4ded-9d7b-41f367bdac99",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "connection_successful",
+            "aggregation": "Count",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "value",
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Successful Connections",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 9,
+      "i": "c1e7b339-8d1e-4c62-bf70-ffaaa9ea2bf7",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "workers_percent",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Workers Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 208,
+  "columns": 9
+}

@@ -1,0 +1,418 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 2,
+      "y": 0,
+      "i": "973447a6-6a5f-4263-adb6-28095c50268d",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_HmOyCbjYuYRsoq9ENKbV))",
+          "bindings": {
+            "ids_HmOyCbjYuYRsoq9ENKbV": [
+              "node-taFrcWpT1KlmCpHrF4qah6uOpNkfcL2vBZLSURH6hMe0dijVUCAhGUi63pHU3g9z4B2ag5JQSd8Ws4ZCj9MvQLntsV8a3BhMj4msxkES70TN6DZtlDFrEwR4ckFeHdFCq63dV4uRRtgLsqIY3hPFtbMs5dAu11C3tOgmOCQo5KSw7gS880WIyKOtk8FcvABSbiUH46hMGDZ1-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-taFrcWpT1KlmCpHrF4qah6uOpNkfcL2vBZLSURH6hMe0dijVUCAhGUi63pHU3g9z4B2ag5JQSd8Ws4ZCj9MvQLntsV8a3BhMj4msxkES70TN6DZtlDFrEwR4ckFeHdFCq63dV4uRRtgLsqIY3hPFtbMs5dAu11C3tOgmOCQo5KSw7gS880WIyKOtk8FcvABSbiUH46hMGDZ1-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconappins"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "requests/duration",
+            "aggregation": "Average",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "last 15m average in ms",
+        "monitor": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [
+              "timeseries.data.average_mean"
+            ],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    1000
+                  ]
+                },
+                "error",
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    500
+                  ]
+                },
+                "warning"
+              ]
+            }
+          },
+          "_type": "simple",
+          "column": "timeseries.data.average_mean",
+          "aggregation": "top",
+          "groupBy": "__group_by_none__",
+          "frequency": 15
+        },
+        "title": "Average Response Time",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "maximum": 133.6885179820142,
+              "maximumColumn": "__fixed__",
+              "label": "ms",
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "timeseries.data.average_mean"
+                ]
+              },
+              "minimum": 133.6885179820142,
+              "minimumColumn": "__fixed__"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 2,
+      "moved": false,
+      "h": 4,
+      "x": 0,
+      "y": 0,
+      "i": "db2b6a93-c401-43ef-ad39-e3ee7c100ddd",
+      "z": 0,
+      "config": {
+        "_type": "tile/image",
+        "description": "",
+        "title": "Connect Health Check",
+        "visualisation": {
+          "config": {
+            "uploaded": 1751638116551,
+            "showHealthState": true,
+            "title": "",
+            "healthStateMode": [
+              "glow"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 3,
+      "y": 0,
+      "i": "78545ff3-7ba2-44d0-b051-39b426d6ead4",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_M3jFlAVJxV3l3bGAjApJ))",
+          "bindings": {
+            "ids_M3jFlAVJxV3l3bGAjApJ": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) contains \"500\"\r\n| summarize 500Count = count()\r\n",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Today's 500 Errors",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {
+              "comparisonColumn": "none",
+              "label": "Today's 500 Errors",
+              "value": "500Count",
+              "labelPosition": "top",
+              "formatted": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 2,
+      "y": 2,
+      "i": "c7f5df10-58ff-4ab5-a140-1e9abad6ab49",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_t1TdfA0VFmmouNLI7ojU))",
+          "bindings": {
+            "ids_t1TdfA0VFmmouNLI7ojU": [
+              "node-1vqXRrzFUOroKJ6NgdH7VbDyTQSPyCvaBXFVAwKHaRFypODDcWhXnVA1lhLNrMgTPBfvlBd7XhR1wtuyhTyhLfqLv03t1PfI5CkNpnwvPnoa0qcpM7rugXbyjNtDRvlT6nd3O7ZVZgXzGBRSoPwZRWzBXkdrwBE46cej6daNjtuCfeLAPINRqMSkLc8NtKPxkSRjSq-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-1vqXRrzFUOroKJ6NgdH7VbDyTQSPyCvaBXFVAwKHaRFypODDcWhXnVA1lhLNrMgTPBfvlBd7XhR1wtuyhTyhLfqLv03t1PfI5CkNpnwvPnoa0qcpM7rugXbyjNtDRvlT6nd3O7ZVZgXzGBRSoPwZRWzBXkdrwBE46cej6daNjtuCfeLAPINRqMSkLc8NtKPxkSRjSq-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creconnec"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "filter": {
+            "multiOperation": "and",
+            "filters": []
+          },
+          "dataSourceConfig": {
+            "metricNames": "Percentage5XX",
+            "aggregation": "Average",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "Average % of Today's 500 errors",
+        "title": "Today's Error Rate",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.average"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 3,
+      "y": 2,
+      "i": "b4ede098-e1e6-4bc6-aad4-340701be0a39",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d-1d",
+          "type": "custom",
+          "end": "@d-"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_M3jFlAVJxV3l3bGAjApJ))",
+          "bindings": {
+            "ids_M3jFlAVJxV3l3bGAjApJ": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) contains \"500\"\r\n| summarize 500Count = count()\r\n",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Yesterday's 500 Errors",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {
+              "comparisonColumn": "none",
+              "label": "Yesterday's 500 Errors",
+              "value": "500Count",
+              "labelPosition": "top",
+              "formatted": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 3,
+      "y": 4,
+      "i": "0336895d-2483-4259-8c3a-94b54c80b9aa",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_nbEFmUORwppKqAo08bD8))",
+          "bindings": {
+            "ids_nbEFmUORwppKqAo08bD8": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| summarize\r\n    totalSuccessfulRequests = countif(httpStatusCode_d == 200),\r\n    totalRequests = count(),\r\n    totalApplicationErrors = countif(tostring(httpStatusCode_d) contains \"50\")\r\n| extend successRate = round(1.0*totalSuccessfulRequests/(totalSuccessfulRequests + totalApplicationErrors), 4) * 100\r\n| project successRate",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "Percentage % (Today)",
+        "title": "Request Success Rate",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {
+              "comparisonColumn": "none",
+              "label": "%",
+              "value": "successRate",
+              "labelPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 6,
+      "i": "76c42a1c-c55b-4de3-af39-b353f655203f",
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "Last 24h in ms",
+        "title": "Average Response Time",
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "requests/duration",
+            "aggregation": "Average",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_HR4Klww0d03tLJf1MW91))",
+          "bindings": {
+            "ids_HR4Klww0d03tLJf1MW91": [
+              "node-taFrcWpT1KlmCpHrF4qah6uOpNkfcL2vBZLSURH6hMe0dijVUCAhGUi63pHU3g9z4B2ag5JQSd8Ws4ZCj9MvQLntsV8a3BhMj4msxkES70TN6DZtlDFrEwR4ckFeHdFCq63dV4uRRtgLsqIY3hPFtbMs5dAu11C3tOgmOCQo5KSw7gS880WIyKOtk8FcvABSbiUH46hMGDZ1-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-taFrcWpT1KlmCpHrF4qah6uOpNkfcL2vBZLSURH6hMe0dijVUCAhGUi63pHU3g9z4B2ag5JQSd8Ws4ZCj9MvQLntsV8a3BhMj4msxkES70TN6DZtlDFrEwR4ckFeHdFCq63dV4uRRtgLsqIY3hPFtbMs5dAu11C3tOgmOCQo5KSw7gS880WIyKOtk8FcvABSbiUH46hMGDZ1-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "resource",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": "timeseries.data.average"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 108,
+  "columns": 4
+}

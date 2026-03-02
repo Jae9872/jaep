@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB Maintenance Report - 25 Jan 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080e17;
+    color: #c9d3e0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 32px 16px 64px;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* Header */
+  .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 28px 32px;
+    background: #0d1b2a;
+    border-radius: 12px;
+    border-left: 4px solid #27AE60;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .report-header h1 { font-size: 1.4rem; font-weight: 700; color: #f0f4f8; margin-bottom: 4px; }
+  .report-header .sub { color: #6b7b8d; font-size: 0.9rem; }
+  .status-badge {
+    background: rgba(39,174,96,0.15);
+    color: #27AE60;
+    border: 1px solid rgba(39,174,96,0.35);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .report-note {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(39,174,96,0.06);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #9aabb8;
+    width: 100%;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4a5568;
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  /* Stat tiles row */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card {
+    background: #0d1b2a;
+    border-radius: 10px;
+    padding: 20px 18px;
+    border: 1px solid #14263a;
+  }
+  .stat-card .label { font-size: 0.78rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 1.65rem; font-weight: 700; color: #E5A93B; line-height: 1.1; }
+  .stat-card .value.green { color: #27AE60; }
+  .stat-card .note { font-size: 0.78rem; color: #6b7b8d; margin-top: 4px; }
+
+  /* Card */
+  .card {
+    background: #0d1b2a;
+    border-radius: 10px;
+    border: 1px solid #14263a;
+    padding: 20px 22px;
+  }
+  .card h3 { font-size: 0.9rem; font-weight: 600; color: #b0bec5; margin-bottom: 16px; }
+  .full-card { background: #0d1b2a; border-radius: 10px; border: 1px solid #14263a; padding: 20px 22px; }
+  .full-card h3 { font-size: 0.9rem; font-weight: 600; color: #b0bec5; margin-bottom: 16px; }
+
+  /* Two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Key-value list */
+  .kv-list { display: flex; flex-direction: column; gap: 1px; }
+  .kv-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-top: 1px solid #0f1e2d; font-size: 0.88rem; }
+  .kv-row:first-child { border-top: none; }
+  .kv-row .k { color: #6b7b8d; }
+  .kv-row .v { color: #f0f4f8; font-weight: 500; text-align: right; }
+  .kv-row .v.green { color: #27AE60; }
+  .kv-row .v.amber { color: #E5A93B; }
+
+  /* Progress bars */
+  .storage-block { margin-bottom: 18px; }
+  .storage-block:last-child { margin-bottom: 0; }
+  .storage-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 5px; }
+  .storage-label .name { color: #b0bec5; }
+  .storage-label .pct { font-weight: 600; }
+  .storage-label .pct.green { color: #27AE60; }
+  .storage-label .pct.amber { color: #E5A93B; }
+  .storage-label .pct.red { color: #e74c3c; }
+  .progress-track { height: 10px; background: #0a1320; border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; background: #27AE60; }
+  .progress-fill.amber { background: #E5A93B; }
+  .progress-fill.red { background: #e74c3c; }
+  .storage-detail { font-size: 0.76rem; color: #4a5568; margin-top: 3px; }
+
+  /* Before / After compare */
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .compare-row:last-child { margin-bottom: 0; }
+  .compare-arrow { color: #4a5568; font-size: 1.1rem; text-align: center; }
+  .compare-side .cs-label { font-size: 0.75rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+
+  /* Data table */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .data-table th { text-align: left; font-size: 0.73rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 12px 10px 0; font-weight: 600; }
+  .data-table td { padding: 9px 12px 9px 0; border-top: 1px solid #0f1e2d; vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: 1px solid #0f1e2d; }
+  .data-table .amber { color: #E5A93B; font-weight: 600; }
+  .data-table .muted { color: #4a5568; }
+  .data-table .red { color: #e74c3c; font-weight: 600; }
+  .data-table .green { color: #27AE60; font-weight: 600; }
+  .data-table .warn { color: #E5A93B; }
+
+  /* Op summary tiles */
+  .op-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 600px) { .op-row { grid-template-columns: 1fr; } }
+  .op-tile {
+    background: #0d1b2a;
+    border-radius: 10px;
+    padding: 20px 18px;
+    border: 1px solid #14263a;
+    text-align: center;
+  }
+  .op-tile .ov { font-size: 2rem; font-weight: 700; color: #E5A93B; }
+  .op-tile .ol { font-size: 0.82rem; color: #6b7b8d; margin-top: 4px; }
+  .op-tile .od { font-size: 0.76rem; color: #4a5568; margin-top: 4px; }
+
+  /* Footer */
+  .report-footer { margin-top: 40px; text-align: center; font-size: 0.78rem; color: #2d3d4d; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div>
+      <h1>Database Maintenance Report</h1>
+      <div class="sub">Sunday, 25 January 2026 &nbsp;|&nbsp; Started 04:00:43 UTC, finished 04:29:28 UTC</div>
+      <div class="sub" style="margin-top:3px;">Production Database &nbsp;|&nbsp; Full maintenance run</div>
+      <div class="report-note">
+        Maintenance finished cleanly in just under 29 minutes. 14 indexes were fully rebuilt, 49 got a lighter reorganisation, and 788 statistics were refreshed. As expected, the transaction log grew during the run - it will clear down on its own.
+      </div>
+    </div>
+    <span class="status-badge">Completed Successfully</span>
+  </div>
+
+  <!-- Headline stats -->
+  <div class="section-label">Run summary</div>
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="label">Duration</div>
+      <div class="value green">28 min 45 s</div>
+      <div class="note">04:00:43 to 04:29:28</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Indexes rebuilt</div>
+      <div class="value">14</div>
+      <div class="note">Heavy fragmentation</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Indexes reorganised</div>
+      <div class="value">49</div>
+      <div class="note">Light fragmentation</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Stats updated</div>
+      <div class="value">788</div>
+      <div class="note">Query plans refreshed</div>
+    </div>
+  </div>
+
+  <!-- Run details -->
+  <div class="section-label">Run details</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>Job configuration</h3>
+      <div class="kv-list">
+        <div class="kv-row"><span class="k">Mode</span><span class="v">Full Maintenance</span></div>
+        <div class="kv-row"><span class="k">Test mode</span><span class="v green">No - changes were applied</span></div>
+        <div class="kv-row"><span class="k">Start time</span><span class="v">04:00:43 UTC</span></div>
+        <div class="kv-row"><span class="k">End time</span><span class="v">04:29:28 UTC</span></div>
+        <div class="kv-row"><span class="k">Total duration</span><span class="v amber">00:28:45</span></div>
+        <div class="kv-row"><span class="k">Status</span><span class="v green">Completed Successfully</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>What was done</h3>
+      <div class="kv-list">
+        <div class="kv-row"><span class="k">Indexes rebuilt</span><span class="v amber">14</span></div>
+        <div class="kv-row"><span class="k">Indexes reorganised</span><span class="v amber">49</span></div>
+        <div class="kv-row"><span class="k">Statistics updated</span><span class="v amber">788</span></div>
+      </div>
+      <div style="margin-top:14px; padding:10px 12px; background:#0a1320; border-radius:6px; font-size:0.82rem; color:#9aabb8; line-height:1.6;">
+        Rebuilt = the index was taken apart and put back together from scratch (used for heavy fragmentation). Reorganised = lighter defragmentation in place. Statistics updates help the database pick better query plans.
+      </div>
+    </div>
+  </div>
+
+  <!-- Storage before and after -->
+  <div class="section-label">Storage before and after</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>Before maintenance</h3>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Total storage used</span><span class="pct amber">83%</span></div>
+        <div class="progress-track"><div class="progress-fill amber" style="width:83%"></div></div>
+        <div class="storage-detail">150,576 MB used of 181,352 MB allocated &nbsp;|&nbsp; 30,776 MB free</div>
+      </div>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Data files</span><span class="pct red">98%</span></div>
+        <div class="progress-track"><div class="progress-fill red" style="width:98%"></div></div>
+        <div class="storage-detail">150,184 MB of 152,736 MB &nbsp;|&nbsp; 2,552 MB free</div>
+      </div>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Transaction log</span><span class="pct green">1%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:1%"></div></div>
+        <div class="storage-detail">392 MB of 28,616 MB &nbsp;|&nbsp; 28,224 MB free</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>After maintenance</h3>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Total storage used</span><span class="pct amber">88%</span></div>
+        <div class="progress-track"><div class="progress-fill amber" style="width:88%"></div></div>
+        <div class="storage-detail">159,291 MB used of 181,352 MB allocated &nbsp;|&nbsp; 22,061 MB free</div>
+      </div>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Data files</span><span class="pct red">98%</span></div>
+        <div class="progress-track"><div class="progress-fill red" style="width:98%"></div></div>
+        <div class="storage-detail">149,334 MB of 152,736 MB &nbsp;|&nbsp; 3,402 MB free</div>
+      </div>
+      <div class="storage-block">
+        <div class="storage-label"><span class="name">Transaction log</span><span class="pct warn">35%</span></div>
+        <div class="progress-track"><div class="progress-fill amber" style="width:35%"></div></div>
+        <div class="storage-detail">9,956 MB of 28,616 MB &nbsp;|&nbsp; 18,660 MB free</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Storage summary table -->
+  <div class="section-label">Storage change summary</div>
+  <div class="full-card">
+    <h3>Impact of this maintenance run</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Before</th>
+          <th>After</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total allocated</td>
+          <td class="muted">181,352 MB</td>
+          <td class="muted">181,352 MB</td>
+          <td class="muted">No change</td>
+        </tr>
+        <tr>
+          <td>Total used</td>
+          <td class="muted">150,576 MB</td>
+          <td class="muted">159,291 MB</td>
+          <td class="warn">+8,714 MB</td>
+        </tr>
+        <tr>
+          <td>Usage percentage</td>
+          <td class="muted">83.03%</td>
+          <td class="muted">87.84%</td>
+          <td class="warn">+4.81%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:10px 14px; background:#0a1320; border-radius:6px; font-size:0.82rem; color:#9aabb8; line-height:1.6;">
+      The increase comes mostly from the transaction log expanding during the rebuild operations. The log will shrink again on the next scheduled backup. Data files actually freed up a small amount of space (150,184 MB down to 149,334 MB) as fragmentation was removed.
+    </div>
+  </div>
+
+  <div class="report-footer">
+    Automated report &nbsp;|&nbsp; Production DB &nbsp;|&nbsp; Run completed 04:29:28 UTC on 25 Jan 2026
+  </div>
+
+</div>
+</body>
+</html>
+
+
+

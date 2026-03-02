@@ -1,0 +1,191 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 1,
+      "h": 2,
+      "x": 0,
+      "i": "5775bbcc-ab7d-4474-a79c-657fec5f34e1",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-7AARTehkb18zljMqi0xX"
+        ],
+        "dataStream": {
+          "filter": {
+            "multiOperation": "and",
+            "filters": []
+          },
+          "name": "alerts",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "severity": [],
+            "condition": []
+          },
+          "id": "datastream-LfmrEIoNBRZANJzEXjW7",
+          "group": {
+            "aggregate": [
+              {
+                "type": "count",
+                "names": []
+              }
+            ],
+            "by": [
+              "properties.essentials.severity",
+              "uniqueValues"
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-iTVGfq1kkDftOdiSzGSx"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Alerts by Severity",
+        "visualisation": {
+          "type": "data-stream-donut-chart"
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 1,
+      "h": 2,
+      "x": 1,
+      "i": "ace7508f-791e-40fa-8b0a-b838e9b557c9",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-7AARTehkb18zljMqi0xX"
+        ],
+        "dataStream": {
+          "filter": {
+            "multiOperation": "and",
+            "filters": []
+          },
+          "name": "alerts",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "condition": []
+          },
+          "id": "datastream-LfmrEIoNBRZANJzEXjW7",
+          "group": {
+            "aggregate": [
+              {
+                "type": "count",
+                "names": []
+              }
+            ],
+            "by": [
+              "properties.essentials.monitorCondition",
+              "uniqueValues"
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-iTVGfq1kkDftOdiSzGSx"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Alerts by Condition",
+        "visualisation": {
+          "type": "data-stream-donut-chart"
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "fa93e3d2-6b56-41c7-9cb6-917365e24dff",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-7AARTehkb18zljMqi0xX"
+        ],
+        "dataStream": {
+          "filter": {
+            "multiOperation": "and",
+            "filters": []
+          },
+          "name": "alerts",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "condition": []
+          },
+          "id": "datastream-LfmrEIoNBRZANJzEXjW7",
+          "group": {
+            "aggregate": [
+              {
+                "type": "count"
+              }
+            ],
+            "by": [
+              "properties.essentials.startDateTime",
+              "byHour"
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-iTVGfq1kkDftOdiSzGSx"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Alerts Fired Over Time",
+        "visualisation": {
+          "type": "data-stream-line-graph"
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 4,
+      "h": 3,
+      "x": 0,
+      "i": "9f9f6d97-6888-4041-bdb4-eac657ad837c",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-7AARTehkb18zljMqi0xX"
+        ],
+        "dataStream": {
+          "filter": {
+            "multiOperation": "and",
+            "filters": []
+          },
+          "name": "alerts",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "condition": []
+          },
+          "id": "datastream-LfmrEIoNBRZANJzEXjW7"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-iTVGfq1kkDftOdiSzGSx"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Alerts List",
+        "visualisation": {
+          "type": "data-stream-table"
+        }
+      }
+    }
+  ],
+  "version": 67,
+  "columns": 4
+}

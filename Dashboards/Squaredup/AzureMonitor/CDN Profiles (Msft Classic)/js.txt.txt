@@ -1,0 +1,208 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "6895b076-d993-4fd0-bbc5-7eebeb7947df",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-ZkNjs3npUB4awNAOQNe2"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ByteHitRatio",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 0
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-j9UM3wDU5EgMvTB5irZl"
+        },
+        "_type": "tile/data-stream",
+        "description": "This is the ratio of the total bytes served from the cache compared to the total response bytes",
+        "title": "Byte Hit Ratio",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "ef099dc8-60f2-479c-baf2-6d4514494f26",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-ZkNjs3npUB4awNAOQNe2"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "RequestCount",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.total",
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 0
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-j9UM3wDU5EgMvTB5irZl"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Request Count",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "6692d681-ea31-4d53-92d4-9b72666b1a57",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-ZkNjs3npUB4awNAOQNe2"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ResponseSize",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.total",
+              "shape": [
+                "bytes",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-j9UM3wDU5EgMvTB5irZl"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Response Size",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "h": 2,
+      "x": 2,
+      "i": "77b6ba7d-52f4-422f-809a-5b46ebadd3b7",
+      "y": 2,
+      "config": {
+        "variables": [
+          "var-ZkNjs3npUB4awNAOQNe2"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "TotalLatency",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-j9UM3wDU5EgMvTB5irZl"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Total Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      },
+      "w": 2
+    }
+  ],
+  "version": 14,
+  "columns": 4
+}

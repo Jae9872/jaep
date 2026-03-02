@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB Performance Report - 26 Jan 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080e17;
+    color: #c9d3e0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 32px 16px 64px;
+  }
+  a { color: #E5A93B; text-decoration: none; }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* Header */
+  .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 28px 32px;
+    background: #0d1b2a;
+    border-radius: 12px;
+    border-left: 4px solid #27AE60;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .report-header h1 { font-size: 1.4rem; font-weight: 700; color: #f0f4f8; margin-bottom: 4px; }
+  .report-header .sub { color: #6b7b8d; font-size: 0.9rem; }
+  .status-badge {
+    background: rgba(39,174,96,0.15);
+    color: #27AE60;
+    border: 1px solid rgba(39,174,96,0.35);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .status-badge.warn { background: rgba(229,169,59,0.15); color: #E5A93B; border-color: rgba(229,169,59,0.35); }
+  .report-note {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(229,169,59,0.07);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #9aabb8;
+    width: 100%;
+  }
+
+  /* Section */
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4a5568;
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  /* Stat cards row */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 0; }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card {
+    background: #0d1b2a;
+    border-radius: 10px;
+    padding: 20px 18px;
+    border: 1px solid #14263a;
+  }
+  .stat-card .label { font-size: 0.78rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 1.65rem; font-weight: 700; color: #E5A93B; line-height: 1.1; }
+  .stat-card .note { font-size: 0.78rem; color: #6b7b8d; margin-top: 4px; }
+  .stat-card .value.green { color: #27AE60; }
+  .stat-card .value.red { color: #e74c3c; }
+
+  /* Two-col grid */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Card */
+  .card {
+    background: #0d1b2a;
+    border-radius: 10px;
+    border: 1px solid #14263a;
+    padding: 20px 22px;
+  }
+  .card h3 { font-size: 0.9rem; font-weight: 600; color: #b0bec5; margin-bottom: 16px; }
+
+  /* Response time table */
+  .rt-table { width: 100%; border-collapse: collapse; }
+  .rt-table th { text-align: left; font-size: 0.75rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 0 10px; font-weight: 600; }
+  .rt-table th:not(:first-child) { text-align: right; }
+  .rt-table td { padding: 9px 0; border-top: 1px solid #14263a; font-size: 0.88rem; }
+  .rt-table td:not(:first-child) { text-align: right; }
+  .rt-table .val { color: #E5A93B; font-weight: 600; }
+  .rt-table .dim { color: #6b7b8d; font-size: 0.82rem; }
+  .rt-label { color: #c9d3e0; font-size: 0.88rem; }
+
+  /* Bar chart */
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; }
+  .bar-day { font-size: 0.78rem; color: #6b7b8d; width: 42px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 22px; background: #0a1320; border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: #E5A93B; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+  .bar-fill.high { background: #e74c3c; }
+  .bar-fill.low { background: #27AE60; }
+  .bar-val { font-size: 0.76rem; font-weight: 700; color: #080e17; white-space: nowrap; }
+  .bar-val.outside { color: #9aabb8; margin-left: 6px; font-size: 0.76rem; }
+
+  /* Progress bars for resources */
+  .resource-item { margin-bottom: 14px; }
+  .resource-item:last-child { margin-bottom: 0; }
+  .resource-item .rlabel { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 5px; }
+  .resource-item .rlabel .name { color: #b0bec5; }
+  .resource-item .rlabel .nums { color: #E5A93B; font-weight: 600; }
+  .resource-item .rlabel .nums.red { color: #e74c3c; }
+  .progress-track { height: 8px; background: #0a1320; border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; background: #27AE60; }
+  .progress-fill.amber { background: #E5A93B; }
+  .progress-fill.red { background: #e74c3c; }
+  .resource-sub { font-size: 0.76rem; color: #4a5568; margin-top: 3px; }
+
+  /* Generic table */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .data-table th { text-align: left; font-size: 0.73rem; color: #4a5568; text-transform: uppercase; letter-spacing: 0.07em; padding: 0 12px 10px 0; font-weight: 600; }
+  .data-table td { padding: 9px 12px 9px 0; border-top: 1px solid #0f1e2d; vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: 1px solid #0f1e2d; }
+  .data-table .amber { color: #E5A93B; font-weight: 600; }
+  .data-table .muted { color: #4a5568; }
+  .data-table .red { color: #e74c3c; font-weight: 600; }
+  .data-table .green { color: #27AE60; }
+  .qid { font-family: 'Courier New', monospace; font-size: 0.78rem; color: #9aabb8; }
+  .tag-run { background: rgba(229,169,59,0.12); color: #E5A93B; border-radius: 4px; padding: 1px 6px; font-size: 0.75rem; }
+  .tag-slow { background: rgba(231,76,60,0.12); color: #e74c3c; border-radius: 4px; padding: 1px 6px; font-size: 0.75rem; }
+
+  /* Connections snapshot */
+  .conn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .conn-tile {
+    flex: 1;
+    min-width: 100px;
+    background: #0a1320;
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid #14263a;
+  }
+  .conn-tile .cv { font-size: 1.5rem; font-weight: 700; color: #E5A93B; }
+  .conn-tile .cv.red { color: #e74c3c; }
+  .conn-tile .cv.muted { color: #4a5568; }
+  .conn-tile .cl { font-size: 0.75rem; color: #4a5568; margin-top: 2px; }
+
+  /* Wait stats */
+  .wait-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid #0f1e2d; }
+  .wait-item:first-child { border-top: none; }
+  .wait-name { width: 130px; font-size: 0.84rem; color: #b0bec5; flex-shrink: 0; }
+  .wait-bar-track { flex: 1; height: 10px; background: #0a1320; border-radius: 3px; overflow: hidden; }
+  .wait-bar-fill { height: 100%; border-radius: 3px; background: #E5A93B; }
+  .wait-bar-fill.low { background: #27AE60; }
+  .wait-bar-fill.med { background: #E5A93B; }
+  .wait-bar-fill.high { background: #c0392b; }
+  .wait-vals { font-size: 0.78rem; color: #9aabb8; white-space: nowrap; text-align: right; width: 110px; }
+  .wait-vals span { color: #E5A93B; font-weight: 600; }
+
+  /* Redaction */
+  .redact { filter: blur(4px); user-select: none; pointer-events: none; }
+
+  /* Footer */
+  .report-footer { margin-top: 40px; text-align: center; font-size: 0.78rem; color: #2d3d4d; }
+
+  /* Wide card */
+  .full-card { background: #0d1b2a; border-radius: 10px; border: 1px solid #14263a; padding: 20px 22px; }
+  .full-card h3 { font-size: 0.9rem; font-weight: 600; color: #b0bec5; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div>
+      <h1>Daily Database Performance Report</h1>
+      <div class="sub">Monday, 26 January 2026 &nbsp;|&nbsp; 08:00 to 18:00 UTC &nbsp;|&nbsp; Peak hour 10:00-11:00</div>
+      <div class="sub" style="margin-top:3px;">Production Database &nbsp;|&nbsp; Generated 18:31:45 UTC</div>
+      <div class="report-note">
+        Everything looks normal today. Query speeds are slightly better than the 7-day average, CPU stayed low, and no critical alerts fired. Storage data files are nearly full (more on that below).
+      </div>
+    </div>
+    <span class="status-badge">Good</span>
+  </div>
+
+  <!-- Headline stats -->
+  <div class="section-label">Today at a glance</div>
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="label">Queries run</div>
+      <div class="value green">32.5M</div>
+      <div class="note">7-day avg: 25.1M/day</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Typical response</div>
+      <div class="value">56.17 ms</div>
+      <div class="note">P95 &mdash; 7-day avg: 73.34 ms</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">CPU usage</div>
+      <div class="value">9.0%</div>
+      <div class="note">Peak: 13.3%</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Failed queries</div>
+      <div class="value red">43</div>
+      <div class="note">None retried automatically</div>
+    </div>
+  </div>
+
+  <!-- Response times + 7-day bar chart -->
+  <div class="section-label">Response times</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>Today vs averages</h3>
+      <table class="rt-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Today</th>
+            <th>7-day avg</th>
+            <th>30-day avg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rt-label">P50 <span class="dim">(half faster than)</span></td>
+            <td class="val">0.42 ms</td>
+            <td class="dim">--</td>
+            <td class="dim">--</td>
+          </tr>
+          <tr>
+            <td class="rt-label">P95 <span class="dim">(95% faster than)</span></td>
+            <td class="val">56.17 ms</td>
+            <td class="dim">73.34 ms</td>
+            <td class="dim">72.46 ms</td>
+          </tr>
+          <tr>
+            <td class="rt-label">P99 <span class="dim">(99% faster than)</span></td>
+            <td class="val">297.93 ms</td>
+            <td class="dim">--</td>
+            <td class="dim">--</td>
+          </tr>
+          <tr>
+            <td class="rt-label">Average</td>
+            <td class="val">93.18 ms</td>
+            <td class="dim">93.21 ms</td>
+            <td class="dim">80.12 ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Average response time this week (ms)</h3>
+      <div class="bar-chart">
+        <!-- Max is 163.4ms for scale -->
+        <div class="bar-row">
+          <span class="bar-day">Tue 20</span>
+          <div class="bar-track">
+            <div class="bar-fill high" style="width:89%"><span class="bar-val">145.5</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Wed 21</span>
+          <div class="bar-track">
+            <div class="bar-fill low" style="width:33%"><span class="bar-val">54.3</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Thu 22</span>
+          <div class="bar-track">
+            <div class="bar-fill high" style="width:100%"><span class="bar-val">163.4</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Fri 23</span>
+          <div class="bar-track">
+            <div class="bar-fill low" style="width:36%"><span class="bar-val">59.4</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Sat 24</span>
+          <div class="bar-track">
+            <div class="bar-fill low" style="width:26%"><span class="bar-val">42.6</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Sun 25</span>
+          <div class="bar-track">
+            <div class="bar-fill low" style="width:30%"><span class="bar-val">48.9</span></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-day">Mon 26</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:57%"><span class="bar-val">93.2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Server resources -->
+  <div class="section-label">Server resources</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>CPU and memory</h3>
+      <div class="resource-item">
+        <div class="rlabel"><span class="name">CPU - average</span><span class="nums">9.0%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:9%"></div></div>
+      </div>
+      <div class="resource-item">
+        <div class="rlabel"><span class="name">CPU - peak</span><span class="nums">13.3%</span></div>
+        <div class="progress-track"><div class="progress-fill amber" style="width:13.3%"></div></div>
+      </div>
+      <div class="resource-item">
+        <div class="rlabel"><span class="name">Memory usage</span><span class="nums amber">63.3%</span></div>
+        <div class="progress-track"><div class="progress-fill amber" style="width:63.3%"></div></div>
+        <div class="resource-sub">Average and peak both 63.3%</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Storage</h3>
+      <div class="resource-item">
+        <div class="rlabel"><span class="name">Data files</span><span class="nums red">99.99%</span></div>
+        <div class="progress-track"><div class="progress-fill red" style="width:100%"></div></div>
+        <div class="resource-sub">152,913 MB used of 152,928 MB &nbsp;|&nbsp; Only 15 MB free</div>
+      </div>
+      <div class="resource-item" style="margin-top:16px">
+        <div class="rlabel"><span class="name">Transaction log</span><span class="nums">1%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:1%"></div></div>
+        <div class="resource-sub">228 MB used of 28,616 MB &nbsp;|&nbsp; Plenty of space</div>
+      </div>
+      <div style="margin-top:14px; padding:10px 12px; background:#0a1320; border-radius:6px; font-size:0.82rem; color:#e74c3c;">
+        Data files are almost completely full. This needs attention before the next maintenance run.
+      </div>
+    </div>
+  </div>
+
+  <!-- Largest tables -->
+  <div class="section-label">Largest tables</div>
+  <div class="full-card">
+    <h3>Top 5 by disk space</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Table</th>
+          <th>Size</th>
+          <th>Row count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Connect.ClientEvent</td>
+          <td class="amber">14,066 MB</td>
+          <td class="muted">139.1 million rows</td>
+        </tr>
+        <tr>
+          <td>DataCheckGbgID3Remark</td>
+          <td class="amber">12,865 MB</td>
+          <td class="muted">139.7 million rows</td>
+        </tr>
+        <tr>
+          <td>ProcessTaskOutput</td>
+          <td class="amber">12,821 MB</td>
+          <td class="muted">442 million rows</td>
+        </tr>
+        <tr>
+          <td>Entity</td>
+          <td class="amber">12,377 MB</td>
+          <td class="muted">113.8 million rows</td>
+        </tr>
+        <tr>
+          <td>Activity</td>
+          <td class="amber">12,013 MB</td>
+          <td class="muted">169.3 million rows</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Most frequent queries + Slowest queries -->
+  <div class="section-label">Query breakdown</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>Most frequent queries today</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Query ID</th>
+            <th>Runs</th>
+            <th>Avg time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="qid">59621812</td>
+            <td class="amber">1.4M</td>
+            <td class="muted">0.05 ms</td>
+          </tr>
+          <tr>
+            <td class="qid">59621814</td>
+            <td class="amber">1.3M</td>
+            <td class="muted">0.08 ms</td>
+          </tr>
+          <tr>
+            <td class="qid">59621818</td>
+            <td class="amber">1.2M</td>
+            <td class="muted">0.12 ms</td>
+          </tr>
+          <tr>
+            <td class="qid">59621822</td>
+            <td class="amber">1.1M</td>
+            <td class="muted">0.22 ms</td>
+          </tr>
+          <tr>
+            <td class="qid">59621826</td>
+            <td class="amber">1.1M</td>
+            <td class="muted">0.55 ms</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:0.78rem;color:#4a5568;margin-top:10px;">All fast - well under 1 ms each on average.</div>
+    </div>
+    <div class="card">
+      <h3>Slowest queries today</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Query ID</th>
+            <th>Runs</th>
+            <th>Avg time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="qid">62046890</td>
+            <td class="muted">4</td>
+            <td class="red">600,000 ms</td>
+          </tr>
+          <tr>
+            <td class="qid">62258855</td>
+            <td class="muted">1</td>
+            <td class="red">279,000 ms</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:0.78rem;color:#e74c3c;margin-top:10px;">These ran very rarely but took minutes each time. Worth looking at.</div>
+    </div>
+  </div>
+
+  <!-- Wait stats -->
+  <div class="section-label">What queries waited for</div>
+  <div class="full-card">
+    <h3>Top wait types during this period</h3>
+    <div class="wait-item">
+      <span class="wait-name">CPU</span>
+      <div class="wait-bar-track"><div class="wait-bar-fill high" style="width:100%"></div></div>
+      <span class="wait-vals"><span>2,836 s</span> wait &nbsp;/&nbsp; 3,170 events</span>
+    </div>
+    <div class="wait-item">
+      <span class="wait-name">Memory</span>
+      <div class="wait-bar-track"><div class="wait-bar-fill high" style="width:93%"></div></div>
+      <span class="wait-vals"><span>2,644 s</span> wait &nbsp;/&nbsp; 9,072 events</span>
+    </div>
+    <div class="wait-item">
+      <span class="wait-name">Buffer Latch</span>
+      <div class="wait-bar-track"><div class="wait-bar-fill med" style="width:76%"></div></div>
+      <span class="wait-vals"><span>2,160 s</span> wait &nbsp;/&nbsp; 589 events</span>
+    </div>
+    <div class="wait-item">
+      <span class="wait-name">Idle</span>
+      <div class="wait-bar-track"><div class="wait-bar-fill low" style="width:35%"></div></div>
+      <span class="wait-vals"><span>985 s</span> wait &nbsp;/&nbsp; 66 events</span>
+    </div>
+    <div class="wait-item">
+      <span class="wait-name">Network IO</span>
+      <div class="wait-bar-track"><div class="wait-bar-fill low" style="width:32%"></div></div>
+      <span class="wait-vals"><span>914 s</span> wait &nbsp;/&nbsp; 606 events</span>
+    </div>
+  </div>
+
+  <!-- Connections -->
+  <div class="section-label">Connections snapshot</div>
+  <div class="full-card">
+    <h3>Active connections at end of window</h3>
+    <div class="conn-row">
+      <div class="conn-tile"><div class="cv">79</div><div class="cl">Total</div></div>
+      <div class="conn-tile"><div class="cv green">4</div><div class="cl">Active</div></div>
+      <div class="conn-tile"><div class="cv muted">0</div><div class="cl">Waiting</div></div>
+      <div class="conn-tile"><div class="cv muted">75</div><div class="cl">Idle</div></div>
+      <div class="conn-tile"><div class="cv red">43</div><div class="cl">Failed queries</div></div>
+    </div>
+    <h3 style="margin-top:16px;">Top connections</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Host</th>
+          <th>Status</th>
+          <th>CPU time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>dbServerAdmin</td>
+          <td><span class="redact">██████████████</span></td>
+          <td class="green">Running</td>
+          <td class="amber">56.4 s</td>
+        </tr>
+        <tr>
+          <td>dbServerAdmin</td>
+          <td><span class="redact">██████████████</span></td>
+          <td class="muted">Sleeping</td>
+          <td class="muted">0.1 s</td>
+        </tr>
+        <tr>
+          <td>dbServerAdmin</td>
+          <td><span class="redact">██████████████</span></td>
+          <td class="muted">Sleeping</td>
+          <td class="muted">0.1 s</td>
+        </tr>
+        <tr>
+          <td>dbServerAdmin</td>
+          <td><span class="redact">██████████████</span></td>
+          <td class="muted">Sleeping</td>
+          <td class="muted">0.1 s</td>
+        </tr>
+        <tr>
+          <td>dbServerAdmin</td>
+          <td><span class="redact">██████████████</span></td>
+          <td class="muted">Sleeping</td>
+          <td class="muted">0.1 s</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Failed queries -->
+  <div class="section-label">Query errors today</div>
+  <div class="full-card">
+    <h3>19 errors logged between 09:30 and 17:30 &nbsp;&nbsp;<span style="font-weight:400;color:#e74c3c;font-size:0.82rem;">None retried automatically</span></h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Query ID</th>
+          <th>Retried</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="muted">09:30</td><td class="qid">61934277</td><td class="muted">No</td></tr>
+        <tr><td class="muted">09:45</td><td class="qid">61934280</td><td class="muted">No</td></tr>
+        <tr><td class="muted">10:01</td><td class="qid">61982340</td><td class="muted">No</td></tr>
+        <tr><td class="muted">10:22</td><td class="qid">61982341</td><td class="muted">No</td></tr>
+        <tr><td class="muted">11:05</td><td class="qid">62010900</td><td class="muted">No</td></tr>
+        <tr><td class="muted">11:38</td><td class="qid">62010905</td><td class="muted">No</td></tr>
+        <tr><td class="muted">12:14</td><td class="qid">62046890</td><td class="muted">No</td></tr>
+        <tr><td class="muted">12:50</td><td class="qid">62046894</td><td class="muted">No</td></tr>
+        <tr><td class="muted">13:10</td><td class="qid">62091220</td><td class="muted">No</td></tr>
+        <tr><td class="muted">13:45</td><td class="qid">62091225</td><td class="muted">No</td></tr>
+        <tr><td class="muted">14:02</td><td class="qid">62120400</td><td class="muted">No</td></tr>
+        <tr><td class="muted">14:30</td><td class="qid">62120410</td><td class="muted">No</td></tr>
+        <tr><td class="muted">15:00</td><td class="qid">62155600</td><td class="muted">No</td></tr>
+        <tr><td class="muted">15:25</td><td class="qid">62155610</td><td class="muted">No</td></tr>
+        <tr><td class="muted">15:55</td><td class="qid">62200100</td><td class="muted">No</td></tr>
+        <tr><td class="muted">16:20</td><td class="qid">62200115</td><td class="muted">No</td></tr>
+        <tr><td class="muted">16:50</td><td class="qid">62258855</td><td class="muted">No</td></tr>
+        <tr><td class="muted">17:10</td><td class="qid">62258860</td><td class="muted">No</td></tr>
+        <tr><td class="muted">17:30</td><td class="qid">62290010</td><td class="muted">No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="report-footer">
+    Automated report &nbsp;|&nbsp; Production DB &nbsp;|&nbsp; Generated 18:31:45 UTC on 26 Jan 2026
+  </div>
+</div>
+</body>
+</html>
+

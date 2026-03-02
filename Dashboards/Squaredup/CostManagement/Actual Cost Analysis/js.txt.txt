@@ -1,0 +1,268 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 0,
+      "i": "7e22eaff-8ddf-4c6d-96be-485543446183",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-NXzotmy1elB2FaGxjVOr"
+        ],
+        "dataStream": {
+          "name": "serviceCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "ActualCost"
+          },
+          "id": "datastream-PBM2Tc1Hy0fI2vh91Gj2",
+          "sort": {
+            "top": 10,
+            "by": [
+              [
+                "cost_sum",
+                "desc"
+              ]
+            ]
+          },
+          "group": {
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "cost"
+                ]
+              }
+            ],
+            "by": [
+              "serviceFamily",
+              "uniqueValues"
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "Top 10",
+        "title": "Cost per Service Family",
+        "visualisation": {
+          "type": "data-stream-bar-chart",
+          "config": {
+            "data-stream-bar-chart": {
+              "yAxisLabel": "",
+              "horizontalLayout": "vertical",
+              "showValue": false,
+              "xAxisGroup": "none",
+              "showLegend": false,
+              "range": {
+                "type": "auto"
+              },
+              "xAxisLabel": "",
+              "legendPosition": "bottom",
+              "showGrid": true,
+              "grouping": false,
+              "displayMode": "actual",
+              "xAxisData": "auto"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 2,
+      "i": "0f1377bf-6e0d-42fc-8d94-9a6c5a048765",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-NXzotmy1elB2FaGxjVOr"
+        ],
+        "dataStream": {
+          "name": "serviceCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "ActualCost"
+          },
+          "id": "datastream-PBM2Tc1Hy0fI2vh91Gj2",
+          "sort": {
+            "top": 10,
+            "by": [
+              [
+                "cost",
+                "desc"
+              ]
+            ]
+          },
+          "group": {
+            "aggregate": []
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "Top 10",
+        "title": "Cost per Service",
+        "visualisation": {
+          "type": "data-stream-bar-chart",
+          "config": {
+            "data-stream-bar-chart": {
+              "xAxisGroup": "none",
+              "showLegend": false,
+              "range": {
+                "type": "auto"
+              },
+              "showGrid": true,
+              "grouping": false,
+              "displayMode": "actual",
+              "xAxisData": "serviceName",
+              "yAxisLabel": "",
+              "horizontalLayout": "vertical",
+              "showValue": false,
+              "xAxisColumn": "serviceName",
+              "xAxisLabel": "",
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 4,
+      "i": "9daace47-71b1-4d02-b3dc-45226527eda9",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-NXzotmy1elB2FaGxjVOr"
+        ],
+        "dataStream": {
+          "name": "locationCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "ActualCost"
+          },
+          "id": "datastream-dqeecvo7vcz0S3qS7M0O"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost by Location",
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 3,
+      "h": 3,
+      "x": 3,
+      "i": "8403db9a-e3da-4a91-9d16-3a3c78a3aa68",
+      "y": 3,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-NXzotmy1elB2FaGxjVOr"
+        ],
+        "dataStream": {
+          "name": "customCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "filter": [],
+            "groupBy": "ResourceGroupName",
+            "metric": "ActualCost",
+            "granularity": "None"
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost per Resource Group",
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 3,
+      "h": 3,
+      "x": 0,
+      "i": "c23b66d9-af7b-405d-94cd-4e7306ad8c9b",
+      "y": 3,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-NXzotmy1elB2FaGxjVOr"
+        ],
+        "dataStream": {
+          "name": "customCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "filter": [],
+            "groupBy": "SubscriptionName",
+            "metric": "ActualCost",
+            "granularity": "None"
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost per Subscription",
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 161,
+  "columns": 6
+}

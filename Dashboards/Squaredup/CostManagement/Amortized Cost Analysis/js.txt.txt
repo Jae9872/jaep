@@ -1,0 +1,345 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 0,
+      "i": "7e22eaff-8ddf-4c6d-96be-485543446183",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-QUu8DFr0NcPADxA0VWcB"
+        ],
+        "dataStream": {
+          "name": "serviceCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "AmortizedCost"
+          },
+          "id": "datastream-PBM2Tc1Hy0fI2vh91Gj2",
+          "sort": {
+            "top": 10,
+            "by": [
+              [
+                "cost_sum",
+                "desc"
+              ]
+            ]
+          },
+          "group": {
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "cost"
+                ]
+              }
+            ],
+            "by": [
+              "serviceFamily",
+              "uniqueValues"
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "Top 10",
+        "title": "Cost per Service Family",
+        "visualisation": {
+          "type": "data-stream-bar-chart",
+          "config": {
+            "data-stream-bar-chart": {
+              "yAxisLabel": "",
+              "horizontalLayout": "vertical",
+              "showValue": false,
+              "showLegend": false,
+              "range": {
+                "type": "auto"
+              },
+              "xAxisLabel": "",
+              "legendPosition": "bottom",
+              "showGrid": true,
+              "grouping": false,
+              "displayMode": "actual"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 2,
+      "i": "0f1377bf-6e0d-42fc-8d94-9a6c5a048765",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-QUu8DFr0NcPADxA0VWcB"
+        ],
+        "dataStream": {
+          "name": "serviceCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "AmortizedCost"
+          },
+          "id": "datastream-PBM2Tc1Hy0fI2vh91Gj2",
+          "sort": {
+            "top": 10,
+            "by": [
+              [
+                "cost",
+                "desc"
+              ]
+            ]
+          },
+          "group": {
+            "aggregate": []
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "Top 10",
+        "title": "Cost per Service",
+        "visualisation": {
+          "type": "data-stream-bar-chart",
+          "config": {
+            "data-stream-bar-chart": {
+              "xAxisGroup": "none",
+              "showLegend": false,
+              "range": {
+                "type": "auto"
+              },
+              "showGrid": true,
+              "grouping": false,
+              "displayMode": "actual",
+              "xAxisData": "serviceName",
+              "yAxisLabel": "",
+              "horizontalLayout": "vertical",
+              "showValue": false,
+              "xAxisColumn": "serviceName",
+              "xAxisLabel": "",
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 3,
+      "x": 4,
+      "i": "9daace47-71b1-4d02-b3dc-45226527eda9",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost by Location",
+        "dataStream": {
+          "name": "locationCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "metric": "AmortizedCost"
+          },
+          "id": "datastream-dqeecvo7vcz0S3qS7M0O"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 6,
+      "h": 3,
+      "x": 0,
+      "i": "9dd2ae42-1713-4c23-9b80-a0bf43534edf",
+      "y": 3,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Actual vs Amortized Costs",
+        "dataStream": {
+          "pluginConfigId": "config-00000000000000000000",
+          "dataSourceConfig": {
+            "tables": [
+              {
+                "config": {
+                  "dataStream": {
+                    "name": "customCost",
+                    "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+                    "dataSourceConfig": {
+                      "filter": [],
+                      "groupBy": [],
+                      "metric": "AmortizedCost",
+                      "granularity": "Daily"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs"
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "Amortized"
+              },
+              {
+                "config": {
+                  "_type": "tile/data-stream",
+                  "dataStream": {
+                    "name": "customCost",
+                    "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+                    "dataSourceConfig": {
+                      "filter": [],
+                      "groupBy": [],
+                      "metric": "ActualCost",
+                      "granularity": "Daily"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs"
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "Actual"
+              }
+            ],
+            "sql": "SELECT date, cost, 'Amortized' as type FROM Amortized\r\nUNION\r\nSELECT date, cost, 'Actual' as type FROM Actual"
+          },
+          "id": "datastream-sql"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "visualisation": {
+          "type": "data-stream-bar-chart",
+          "config": {
+            "data-stream-bar-chart": {
+              "yAxisLabel": "",
+              "horizontalLayout": "vertical",
+              "showValue": false,
+              "showLegend": false,
+              "range": {
+                "type": "auto"
+              },
+              "xAxisLabel": "",
+              "legendPosition": "bottom",
+              "showGrid": true,
+              "grouping": false,
+              "displayMode": "actual"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 3,
+      "h": 3,
+      "x": 0,
+      "i": "d8d95d4d-ea06-41bd-bd54-b09c873dd97d",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost per Subscription",
+        "dataStream": {
+          "name": "customCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "filter": [],
+            "groupBy": "SubscriptionName",
+            "metric": "AmortizedCost",
+            "granularity": "None"
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 3,
+      "h": 3,
+      "x": 3,
+      "i": "d4c0d428-df18-439f-a96a-2a95cc565831",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Cost per Resource Group",
+        "dataStream": {
+          "name": "customCost",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "dataSourceConfig": {
+            "filter": [],
+            "groupBy": "ResourceGroupName",
+            "metric": "AmortizedCost",
+            "granularity": "None"
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "visualisation": {
+          "type": "data-stream-donut-chart",
+          "config": {
+            "data-stream-donut-chart": {
+              "legendMode": "table",
+              "legendPosition": "auto"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 126,
+  "columns": 6
+}

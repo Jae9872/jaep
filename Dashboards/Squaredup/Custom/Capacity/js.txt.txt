@@ -1,0 +1,612 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 0,
+      "i": "5e0caac0-25f7-45f7-9745-6f9a53fe0d38",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_M3jFlAVJxV3l3bGAjApJ))",
+          "bindings": {
+            "ids_M3jFlAVJxV3l3bGAjApJ": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| summarize count()",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Today's Total Requests",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {
+              "comparisonColumn": "none",
+              "label": "",
+              "value": "500Count",
+              "labelPosition": "top",
+              "formatted": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 1,
+      "y": 0,
+      "i": "69e9dd11-2efc-4ee8-9044-04513201b522",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_EuC9SuPxSKDUQAELCLHU))",
+          "bindings": {
+            "ids_EuC9SuPxSKDUQAELCLHU": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| summarize averageresponsetime = avg(todouble(timeTaken_s))",
+            "apiVersion": ""
+          },
+          "metadata": [
+            {
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 3
+                }
+              ],
+              "name": "averageresponsetime"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "monitorOld": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [
+              "timeseries.data.average_mean"
+            ],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    1000
+                  ]
+                },
+                "error",
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    500
+                  ]
+                },
+                "warning"
+              ]
+            }
+          },
+          "_type": "simple",
+          "column": "timeseries.data.average_mean",
+          "aggregation": "top",
+          "groupBy": "__group_by_none__",
+          "frequency": 15
+        },
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Today's Avg Response Time",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "averageresponsetime"
+                ]
+              },
+              "minimum": 0.34411083119384384,
+              "maximum": 0.34411083119384384
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 2,
+      "y": 0,
+      "i": "5b2c303c-c812-48c5-aaa5-d5eef3ee6d34",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d-1d",
+          "type": "custom",
+          "end": "@d-"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_M3jFlAVJxV3l3bGAjApJ))",
+          "bindings": {
+            "ids_M3jFlAVJxV3l3bGAjApJ": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| summarize count()",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Yesterday's Total Requests",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {
+              "comparisonColumn": "none",
+              "label": "",
+              "value": "500Count",
+              "labelPosition": "top",
+              "formatted": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 3,
+      "y": 0,
+      "i": "d9630ceb-0b9e-4c20-839f-88535357d8ad",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "@d-1d",
+          "type": "custom",
+          "end": "@d"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_ngxVwvbcnVto0xelcu89))",
+          "bindings": {
+            "ids_ngxVwvbcnVto0xelcu89": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| summarize averageresponsetime = avg(todouble(timeTaken_s))",
+            "apiVersion": ""
+          },
+          "metadata": [
+            {
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 3
+                }
+              ],
+              "name": "averageresponsetime"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "monitorOld": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [
+              "timeseries.data.average_mean"
+            ],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    1000
+                  ]
+                },
+                "error",
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    500
+                  ]
+                },
+                "warning"
+              ]
+            }
+          },
+          "_type": "simple",
+          "column": "timeseries.data.average_mean",
+          "aggregation": "top",
+          "groupBy": "__group_by_none__",
+          "frequency": 15
+        },
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Yesterday's Avg Response Time",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "averageresponsetime"
+                ]
+              },
+              "minimum": 0.33879600900577483,
+              "maximum": 0.33879600900577483
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 2,
+      "moved": false,
+      "h": 3,
+      "x": 0,
+      "y": 2,
+      "i": "4864f963-d294-45e3-9fc6-ee9b2f3d3a29",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_702ZX6wfSnyWv6Kq2T03))",
+          "bindings": {
+            "ids_702ZX6wfSnyWv6Kq2T03": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where requestUri_s contains \"/details\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend WeekBlock = bin(TimeGenerated, 7d)\r\n| summarize \r\n    TotalRequests = count(),\r\n    AvgResponseTime = avg(todouble(timeTaken_s))\r\n    by WeekBlock\r\n| order by WeekBlock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "/process/{guid}/details",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Process Details",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "columnOrder": [
+                "WeekBlock",
+                "TotalRequests",
+                "AvgResponseTime"
+              ],
+              "hiddenColumns": [
+                "scopeName",
+                "scopeId"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 2,
+      "moved": false,
+      "h": 3,
+      "x": 2,
+      "y": 2,
+      "i": "8288d387-7ee0-45fc-ba59-73123dffb69a",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_702ZX6wfSnyWv6Kq2T03))",
+          "bindings": {
+            "ids_702ZX6wfSnyWv6Kq2T03": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where requestUri_s contains \"/entities/search\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend WeekBlock = bin(TimeGenerated, 7d)\r\n| summarize \r\n    TotalRequests = count(),\r\n    AvgResponseTime = avg(todouble(timeTaken_s))\r\n    by WeekBlock\r\n| order by WeekBlock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "/entities/search",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Individuals List",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "columnOrder": [
+                "WeekBlock",
+                "TotalRequests",
+                "AvgResponseTime"
+              ],
+              "hiddenColumns": [
+                "scopeName",
+                "scopeId"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 2,
+      "moved": false,
+      "h": 3,
+      "x": 0,
+      "y": 5,
+      "i": "2ff04970-4f5a-4024-b407-990cacb2f3b0",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_702ZX6wfSnyWv6Kq2T03))",
+          "bindings": {
+            "ids_702ZX6wfSnyWv6Kq2T03": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where requestUri_s contains \"/pdf-export\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend WeekBlock = bin(TimeGenerated, 7d)\r\n| summarize \r\n    TotalRequests = count(),\r\n    AvgResponseTime = avg(todouble(timeTaken_s))\r\n    by WeekBlock\r\n| order by WeekBlock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "/pdf-export",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "PDF Export",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "columnOrder": [
+                "WeekBlock",
+                "TotalRequests",
+                "AvgResponseTime"
+              ],
+              "hiddenColumns": [
+                "scopeName",
+                "scopeId"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "44301bfe-107e-4588-82df-92789a553f0d",
+      "y": 8,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_4wcTaBWSNYXFNYHojZHw))",
+          "bindings": {
+            "ids_4wcTaBWSNYXFNYHojZHw": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize \r\n    averageresponsetime = avg(todouble(timeTaken_s))\r\n    by dayblock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Average Response Time By Day",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "averageresponsetime"
+            }
+          }
+        }
+      },
+      "w": 4
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "8ab316bd-98f5-4404-90f6-c33df28fa4b5",
+      "y": 10,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_oYg2CbZDV8aO0orFXCI4))",
+          "bindings": {
+            "ids_oYg2CbZDV8aO0orFXCI4": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "crepr"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize capacity = count() by dayblock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Request Count By Day",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "capacity"
+            }
+          }
+        }
+      },
+      "w": 4
+    }
+  ],
+  "version": 80,
+  "columns": 4
+}

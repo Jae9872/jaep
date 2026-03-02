@@ -1,0 +1,902 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 1,
+      "x": 0,
+      "y": 0,
+      "i": "1",
+      "z": 0,
+      "config": {
+        "timeframe": "none",{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 6,
+      "h": 2,
+      "x": 0,
+      "i": "d0e78f0d-0d4b-4291-931a-0644cdc06ac9",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "TotalBillableExecutions",
+            "aggregation": "Total",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Total Billable Executions",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 4,
+      "i": "1cb33c3f-8ded-4344-a58b-7aec0714fb1e",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "TriggerLatency",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "seconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Trigger Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "8fec1e52-25c3-4f96-8a2c-858ed173291c",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "RunLatency",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "seconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Run Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "8e81a7f4-49a2-4ec5-9967-58ca48c5a104",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ActionLatency",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "seconds",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Action Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 4,
+      "i": "cb2b4d0d-9cc0-4a1b-9319-0b97875bb37e",
+      "y": 4,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "TriggersFailed",
+            "aggregation": "Total",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Triggers Failed",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "e4f59ddf-8b65-4dfa-b168-1466250fed11",
+      "y": 4,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "RunsFailed",
+            "aggregation": "Total",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "Number of workflow runs failed.",
+        "title": "Runs Failed",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "b81744f8-60b3-465e-a23c-bae66c0ece4e",
+      "y": 4,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ActionsFailed",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "Number of workflow actions failed.",
+        "title": "Action Failed",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "9c92b38e-3515-466f-9afd-3cf42de4e2a1",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ActionThrottledEvents",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "Number of workflow action throttled events.",
+        "title": "Action Throttled Events",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "7cb3fa07-d298-44f5-a78c-c8f28dd995ac",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "RunThrottledEvents",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "Number of workflow action or trigger throttled events.",
+        "title": "Run Throttled Events",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 4,
+      "i": "b04c2f4b-df36-43ac-bbc3-cc5b1f5905d9",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-FMly5MDqVINzutKHnv70"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "TriggerThrottledEvents",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-2jHxCZDxwwWL115V6HGc"
+        },
+        "_type": "tile/data-stream",
+        "description": "Number of workflow trigger throttled events.",
+        "title": "Trigger Throttled Events",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 141,
+  "columns": 6
+}
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "health",
+          "id": "datastream-health"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "title": "Health",
+        "visualisation": {
+          "type": "data-stream-blocks",
+          "config": {
+            "data-stream-blocks": {
+              "blockHeight": "50",
+              "sublabel": "data.sourceId"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 3,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 1,
+      "i": "b2fa181e-e76e-4ded-9820-5f3b83497ca0",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-5m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_VMlCogs1Tir3K1Qb0xYA))",
+          "bindings": {
+            "ids_VMlCogs1Tir3K1Qb0xYA": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconconnect"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "cpu_percent",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "CPU Percentage in the last 5 minutes",
+        "monitor": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [
+              "timeseries.data.average_mean"
+            ],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    70
+                  ]
+                },
+                "error",
+                {
+                  ">": [
+                    {
+                      "var": "top"
+                    },
+                    40
+                  ]
+                },
+                "warning"
+              ]
+            }
+          },
+          "_type": "simple",
+          "column": "timeseries.data.average_mean",
+          "aggregation": "top",
+          "groupBy": "__group_by_none__",
+          "frequency": 15
+        },
+        "title": "CPU Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "maximum": 4.616666666666666,
+              "maximumColumn": "__fixed__",
+              "label": "%",
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "timeseries.data.average_mean"
+                ]
+              },
+              "minimum": 4.616666666666666,
+              "minimumColumn": "__fixed__"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 3,
+      "i": "6f341bd0-e7b0-45e4-bafe-1997e6c3b377",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "cpu_percent",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "CPU Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 5,
+      "i": "4df72ab2-b090-42e9-b9fa-0472c5c47952",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricSelectionType": "single",
+            "metricNames": "cpu_percent",
+            "aggregation": "Maximum",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "CPU Percentage (Max)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "seriesColumn": "resource",
+              "legendPosition": "bottom",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": [
+                "timeseries.data.maximum"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 7,
+      "i": "ab18eb4b-2869-4ded-9d7b-41f367bdac99",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "connection_successful",
+            "aggregation": "Count",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "value",
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Successful Connections",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 9,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 9,
+      "i": "c1e7b339-8d1e-4c62-bf70-ffaaa9ea2bf7",
+      "z": 0,
+      "config": {
+        "variables": [
+          "var-1TpxCZVJpJr8Lsb9NLro"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "workers_percent",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-KE5JLd8aOSryGbxJd8T0"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Workers Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 208,
+  "columns": 9
+}

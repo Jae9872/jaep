@@ -1,0 +1,242 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "03c628a2-e3bd-4172-8fba-59a8fd872c6d",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "variables": [
+          "var-AHync1gkmbfo6c1ioE0b"
+        ],
+        "title": "Availability %",
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Availability",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-sAPtN8j4fMtCZdJuO5OI"
+        },
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "h": 2,
+      "x": 2,
+      "i": "f8021d59-35ee-4056-9371-f3e0868ff35a",
+      "y": 0,
+      "config": {
+        "variables": [
+          "var-AHync1gkmbfo6c1ioE0b"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "SaturationShoebox",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-sAPtN8j4fMtCZdJuO5OI"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Vault Capacity Used %",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      },
+      "w": 2
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "dbcd570f-f82c-4cc3-b5fc-cb064f22fbbb",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "_type": "tile/data-stream",
+        "variables": [
+          "var-AHync1gkmbfo6c1ioE0b"
+        ],
+        "title": "Total Service Api Hits",
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ServiceApiHit",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-sAPtN8j4fMtCZdJuO5OI"
+        },
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      }
+    },
+    {
+      "h": 2,
+      "x": 2,
+      "i": "816341d0-29c6-486f-9143-51692ab94913",
+      "y": 2,
+      "config": {
+        "variables": [
+          "var-AHync1gkmbfo6c1ioE0b"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ServiceApiLatency",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.average",
+              "shape": [
+                "milliseconds",
+                {
+                  "formatDuration": false,
+                  "decimalPlaces": 2
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-sAPtN8j4fMtCZdJuO5OI"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Overall Service Api Latency",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      },
+      "w": 2
+    },
+    {
+      "h": 2,
+      "x": 0,
+      "i": "306a916d-6f56-4710-a2e5-be366ce081cf",
+      "y": 4,
+      "config": {
+        "variables": [
+          "var-AHync1gkmbfo6c1ioE0b"
+        ],
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "ServiceApiResult",
+            "aggregation": [],
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "timeseries.data.count",
+              "shape": [
+                "number",
+                {
+                  "decimalPlaces": 0
+                }
+              ]
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-sAPtN8j4fMtCZdJuO5OI"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Total Service Api Results",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": true,
+              "legendPosition": "bottom"
+            }
+          }
+        }
+      },
+      "w": 4
+    }
+  ],
+  "version": 15,
+  "columns": 4
+}

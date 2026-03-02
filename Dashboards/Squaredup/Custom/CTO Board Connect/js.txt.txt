@@ -1,0 +1,473 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 0,
+      "i": "06f17a4a-4e68-4818-80ea-024bbf9d72cd",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_4wcTaBWSNYXFNYHojZHw))",
+          "bindings": {
+            "ids_4wcTaBWSNYXFNYHojZHw": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize \r\n    averageresponsetime = avg(todouble(timeTaken_s))\r\n    by dayblock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "Seconds",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Average Response Time",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "averageresponsetime"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 2,
+      "i": "f4a15bde-20be-4526-9146-c94362a73f1e",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_oYg2CbZDV8aO0orFXCI4))",
+          "bindings": {
+            "ids_oYg2CbZDV8aO0orFXCI4": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "crepr"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "AzureDiagnostics\r\n| where Category == \"FrontDoorAccessLog\"\r\n| where requestUri_s !contains \".css\" and requestUri_s !contains \".js\" and requestUri_s !contains \".svg\" and requestUri_s !contains \".woff\"\r\n| where sni_s == \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) !contains \"4\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize capacity = count() by dayblock",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Request Count By Day",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "capacity"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 4,
+      "i": "35d895f1-3047-47be-a063-87a7b6a60b5b",
+      "z": 0,
+      "config": {
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "cpu_percent",
+            "aggregation": "Average",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_4SgDFHWujYZN3VPrmIcd))",
+          "bindings": {
+            "ids_4SgDFHWujYZN3VPrmIcd": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Database CPU Percentage (Avg)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": false,
+              "seriesColumn": "resource",
+              "legendPosition": "bottom",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": [
+                "timeseries.data.average"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 6,
+      "i": "6fc411f2-98ac-4133-89b8-b383aeb9c331",
+      "z": 0,
+      "config": {
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricSelectionType": "single",
+            "metricNames": "cpu_percent",
+            "aggregation": "Maximum",
+            "split": false
+          },
+          "metadata": [
+            {
+              "name": "name",
+              "sourceId": "id",
+              "role": "label",
+              "shape": "string"
+            },
+            {
+              "name": "id",
+              "role": "sourceId",
+              "visible": "false",
+              "shape": "string"
+            },
+            {
+              "name": "value",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 2
+                }
+              ]
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_JKbXlcS1j3Kk2QMh5j29))",
+          "bindings": {
+            "ids_JKbXlcS1j3Kk2QMh5j29": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jvRqPnKl6MB7EAH0MvkVDbziPJoz9Vcu6NAzYcB9zwKktAb7wwjYkdO2ghgllrqXHM5pejAEUnErZKKN7wPMUs1Y7qlOpHKEfxlrXmpCqJjXVjhiz69GLI40BbKOgMzDaEFdsZrAhg9cOqCcJMJEPVn7z43xPKdSSePueGwpZVouAp3tJXZOlolycszqRQmJE7Te2uw4edAyx7TnFQfN0uNA3BXZxodIV8MUxg1pn6r-z67odZL5aG8yVuWltCpZ"
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "Database CPU Percentage (Max)",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "showLegend": false,
+              "seriesColumn": "resource",
+              "legendPosition": "bottom",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": [
+                "timeseries.data.maximum"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 4,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 8,
+      "i": "3d2a5beb-2e20-40b9-8406-c177b9664ba1",
+      "z": 0,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_M3jFlAVJxV3l3bGAjApJ))",
+          "bindings": {
+            "ids_M3jFlAVJxV3l3bGAjApJ": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprod"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| where tostring(httpStatusCode_d) contains \"500\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize 500Count = count() by dayblock\r\n",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "500 Errors",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "500Count"
+            }
+          }
+        }
+      }
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "1a4b5d6c-bf6b-49be-9b51-ac20bd5a8599",
+      "y": 10,
+      "config": {
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "split": "show",
+            "top": 10,
+            "metricSelectionType": "single",
+            "sort": "desc",
+            "dimension": "Instance",
+            "rollUp": "true"
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_VEYglsexCbtqZEQlcCyg))",
+          "bindings": {
+            "ids_VEYglsexCbtqZEQlcCyg": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaq"
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "South",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "App CPU %",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "timeseries.metadata.Instance",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": "timeseries.data.average"
+            }
+          }
+        }
+      },
+      "w": 4
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "9d4cee94-2abc-444f-ac78-9377d8732154",
+      "y": 12,
+      "config": {
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "split": "show",
+            "top": 10,
+            "metricSelectionType": "single",
+            "sort": "desc",
+            "dimension": "Instance",
+            "rollUp": "true"
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_tbaSin9BmVP5e9uHSrse))",
+          "bindings": {
+            "ids_tbaSin9BmVP5e9uHSrse": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaquaukw"
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "West",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "App CPU %",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "timeseries.metadata.Instance",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": "timeseries.data.average"
+            }
+          }
+        }
+      },
+      "w": 4
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "51bb5299-1a85-49de-b255-381ad7de635f",
+      "y": 14,
+      "config": {
+        "scope": {
+          "query": "g.V().has('id', within(ids_TTmVi5cAlboPeSdZ6ODi))",
+          "bindings": {
+            "ids_TTmVi5cAlboPeSdZ6ODi": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-dkyX4vOTbDH7snIpVroRrf7eyz6OhZmHBgdACrdlgL2o2egVQgknHeJJsCcp3wOBitzt1geJVveT0htxhiijUAjyqkMRzYRfPvnFGopF1FOfhembYHGRTrwdwKPMHHcM0A6QpZCod3aaWGwVqjTRWkLTlxF6F6ilbUteSi0l8BC0DSBqB4reQIFZWFCMKwySeTnmXssvsgu64g5BJ2NvYg16RQX7j3R-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodcon"
+          }
+        },
+        "dataStream": {
+          "name": "logAnalyticsQueryScopedToWorkspace",
+          "dataSourceConfig": {
+            "timeframe": "",
+            "query": "search *\r\n| where sni_s contains \"portal.credas.com\"\r\n| extend dayblock = bin(TimeGenerated, 1d)\r\n| summarize\r\n    totalSuccessfulRequests = countif(httpStatusCode_d == 200),\r\n    totalRequests = count(),\r\n    totalApplicationErrors = countif(tostring(httpStatusCode_d) contains \"50\")\r\n    by dayblock\r\n| extend successRate = round(1.0*totalSuccessfulRequests/(totalSuccessfulRequests + totalApplicationErrors), 4) * 100\r\n| project dayblock, successRate",
+            "apiVersion": ""
+          },
+          "id": "datastream-KoVZz6vEBC0HbuqvbI2J"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "activePluginConfigIds": [
+          "config-z67odZL5aG8yVuWltCpZ"
+        ],
+        "title": "SLA %",
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "scopeName",
+              "xAxisColumn": "dayblock",
+              "yAxisColumn": "successRate"
+            }
+          }
+        }
+      },
+      "w": 4
+    }
+  ],
+  "version": 103,
+  "columns": 4
+}

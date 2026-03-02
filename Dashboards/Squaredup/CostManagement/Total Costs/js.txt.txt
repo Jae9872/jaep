@@ -1,0 +1,687 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 0,
+      "i": "59b46695-13cd-4e1f-a9c1-e5bcf6c8eba5",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "timeframe": "thisMonth",
+        "variables": [
+          "var-4AFYuK4Y5vsHHKMQoQLZ"
+        ],
+        "dataStream": {
+          "name": "customCost",
+          "dataSourceConfig": {
+            "metric": "ActualCost",
+            "granularity": "None",
+            "groupBy": []
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Current Month-to-Date",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {}
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 2,
+      "x": 2,
+      "i": "b1ee7d1e-5ade-44f1-9dcf-e5508fbf19e4",
+      "y": 0,
+      "z": 0,
+      "config": {
+        "timeframe": "lastMonth",
+        "variables": [
+          "var-4AFYuK4Y5vsHHKMQoQLZ"
+        ],
+        "dataStream": {
+          "name": "customCost",
+          "dataSourceConfig": {
+            "metric": "ActualCost",
+            "granularity": "None",
+            "groupBy": []
+          },
+          "id": "datastream-crEkfSEQg70QXlyK3oXs"
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "title": "Last Month's Total",
+        "visualisation": {
+          "type": "data-stream-scalar",
+          "config": {
+            "data-stream-scalar": {}
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 4,
+      "x": 0,
+      "i": "fd397687-f8c6-496d-a3b6-ccf7270633c3",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "dataStream": {
+          "dataSourceConfig": {
+            "tables": [
+              {
+                "config": {
+                  "dataStream": {
+                    "name": "properties",
+                    "id": "datastream-properties"
+                  },
+                  "scope": {
+                    "bindings": {
+                      "plugins_EFEWpSxhMT2cIX9PYgvu": [
+                        "config-z67odZL5aG8yVuWltCpZ"
+                      ],
+                      "types_afdb4qsQ83o83Nc7n5Pp": [
+                        "resource group"
+                      ]
+                    },
+                    "query": "g.V().or(__.has('__configId', within(plugins_EFEWpSxhMT2cIX9PYgvu))).has('type', within(types_afdb4qsQ83o83Nc7n5Pp)).order().by('__name').hasNot('__canonicalType').limit(500)",
+                    "queryDetail": {
+                      "plugins": [
+                        {
+                          "value": "config-z67odZL5aG8yVuWltCpZ"
+                        }
+                      ],
+                      "types": [
+                        {
+                          "value": "resource group"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "tableName": "Properties"
+              },
+              {
+                "config": {
+                  "timeframe": "thisMonth",
+                  "variables": [
+                    "var-4AFYuK4Y5vsHHKMQoQLZ"
+                  ],
+                  "dataStream": {
+                    "name": "customCost",
+                    "dataSourceConfig": {
+                      "metric": "ActualCost",
+                      "granularity": "None",
+                      "groupBy": "SubscriptionName"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs",
+                    "group": {
+                      "aggregate": [
+                        {
+                          "type": "sum",
+                          "names": [
+                            "cost"
+                          ]
+                        }
+                      ],
+                      "by": [
+                        [
+                          "grouping",
+                          "uniqueValues"
+                        ],
+                        [
+                          "currency",
+                          "uniqueValues"
+                        ]
+                      ]
+                    }
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "CurrentMonth"
+              },
+              {
+                "config": {
+                  "timeframe": "lastMonth",
+                  "variables": [
+                    "var-4AFYuK4Y5vsHHKMQoQLZ"
+                  ],
+                  "dataStream": {
+                    "name": "customCost",
+                    "dataSourceConfig": {
+                      "metric": "ActualCost",
+                      "granularity": "None",
+                      "groupBy": "SubscriptionName"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs",
+                    "group": {
+                      "aggregate": [
+                        {
+                          "type": "sum",
+                          "names": [
+                            "cost"
+                          ]
+                        }
+                      ],
+                      "by": [
+                        [
+                          "grouping",
+                          "uniqueValues"
+                        ],
+                        [
+                          "currency",
+                          "uniqueValues"
+                        ]
+                      ]
+                    }
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "LastMonth"
+              }
+            ],
+            "sql": "SELECT  \r\n    cm.grouping_uniqueValues, \r\n    cm.cost_sum AS current_month_cost_sum, \r\n    lm.cost_sum AS last_month_cost_sum,\r\n    cm.cost_sum - lm.cost_sum AS difference_in_amount,\r\n    cm.currency_uniqueValues,\r\n    CASE \r\n        WHEN lm.cost_sum = 0 THEN NULL\r\n        ELSE ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100\r\n    END AS percentage_difference,\r\n    CASE \r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 10 THEN 'error'\r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 5 THEN 'warning'\r\n        ELSE 'success'\r\n    END AS State,\r\n    'https://app.squaredup.com/drilldown/node/' + IFNULL(CAST(p.id AS STRING), '') AS Link\r\nFROM \r\n    CurrentMonth cm\r\nJOIN \r\n    LastMonth lm \r\nON \r\n    cm.grouping_uniqueValues = lm.grouping_uniqueValues\r\nLEFT JOIN \r\n    Properties p\r\nON \r\n    LOWER(cm.grouping_uniqueValues) = LOWER(p.name)\r\nORDER BY \r\n    (CASE WHEN (cm.cost_sum - lm.cost_sum) > 10 THEN -1 ELSE 1 END) * (cm.cost_sum - lm.cost_sum);\r\n"
+          },
+          "metadata": [
+            {
+              "name": "grouping_uniqueValues",
+              "displayName": "Subscription"
+            },
+            {
+              "name": "current_month_cost_sum",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Current Month (amount)"
+            },
+            {
+              "name": "last_month_cost_sum",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Last Month (amount)"
+            },
+            {
+              "name": "difference_in_amount",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Difference (amount)"
+            },
+            {
+              "name": "percentage_difference",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 1
+                }
+              ],
+              "displayName": "Difference (%)"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-sql"
+        },
+        "scope": {
+          "bindings": {
+            "plugins_ZkvWD7rvJ7hBuNKqyr45": [
+              "config-z67odZL5aG8yVuWltCpZ"
+            ],
+            "types_ozlLihmN0pRmVhFN0jvP": [
+              "resource group"
+            ]
+          },
+          "query": "g.V().or(__.has('__configId', within(plugins_ZkvWD7rvJ7hBuNKqyr45))).has('type', within(types_ozlLihmN0pRmVhFN0jvP)).order().by('__name').hasNot('__canonicalType').limit(500)",
+          "queryDetail": {
+            "plugins": [
+              {
+                "value": "config-z67odZL5aG8yVuWltCpZ"
+              }
+            ],
+            "types": [
+              {
+                "value": "resource group"
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "Amber = Current Month >5% Last Month, Red = Current Month >10% Last Month",
+        "monitorOld": {
+          "tileRollsUp": true,
+          "monitorType": "threshold",
+          "condition": {
+            "columns": [],
+            "logic": {
+              "if": [
+                {
+                  ">": [
+                    {
+                      "var": "count"
+                    },
+                    0
+                  ]
+                },
+                "error"
+              ]
+            }
+          },
+          "_type": "simple",
+          "aggregation": "count",
+          "groupBy": "difference_in_amount",
+          "frequency": 720
+        },
+        "baseTile": "data-stream-base-tile",
+        "dataStreamDraft": {
+          "dataSourceConfig": {
+            "sql": "SELECT  \r\n    cm.grouping_uniqueValues, \r\n    cm.cost_sum AS current_month_cost_sum, \r\n    lm.cost_sum AS last_month_cost_sum,\r\n    cm.cost_sum - lm.cost_sum AS difference_in_amount,\r\n    cm.currency_uniqueValues,\r\n    CASE \r\n        WHEN lm.cost_sum = 0 THEN NULL\r\n        ELSE ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100\r\n    END AS percentage_difference,\r\n    CASE \r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 10 THEN 'error'\r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 5 THEN 'warning'\r\n        ELSE 'success'\r\n    END AS State,\r\n    'https://app.squaredup.com/drilldown/node/' + IFNULL(CAST(p.id AS STRING), '') AS Link\r\nFROM \r\n    CurrentMonth cm\r\nJOIN \r\n    LastMonth lm \r\nON \r\n    cm.grouping_uniqueValues = lm.grouping_uniqueValues\r\nLEFT JOIN \r\n    Properties p\r\nON \r\n    LOWER(cm.grouping_uniqueValues) = LOWER(p.name)\r\nORDER BY \r\n    (CASE WHEN (cm.cost_sum - lm.cost_sum) > 10 THEN -1 ELSE 1 END) * (cm.cost_sum - lm.cost_sum);\r\n"
+          }
+        },
+        "title": "Subscriptions: Current vs Last Month",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "hiddenColumns": [
+                "Link",
+                "currency_uniqueValues"
+              ],
+              "columnDisplayNames": {},
+              "columnOrder": [
+                "grouping_uniqueValues",
+                "current_month_cost_sum",
+                "last_month_cost_sum",
+                "difference_in_amount",
+                "percentage_difference",
+                "State"
+              ],
+              "resizedColumns": {
+                "columnWidths": {
+                  "State": 132
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 2,
+      "h": 4,
+      "x": 2,
+      "i": "bf80a247-bb18-4f48-ab2f-42b0cdac1b9b",
+      "y": 2,
+      "z": 0,
+      "config": {
+        "dataStream": {
+          "dataSourceConfig": {
+            "tables": [
+              {
+                "config": {
+                  "timeframe": "none",
+                  "dataStream": {
+                    "name": "properties",
+                    "id": "datastream-properties"
+                  },
+                  "scope": {
+                    "bindings": {
+                      "plugins_EFEWpSxhMT2cIX9PYgvu": [
+                        "config-z67odZL5aG8yVuWltCpZ"
+                      ],
+                      "types_afdb4qsQ83o83Nc7n5Pp": [
+                        "resource group"
+                      ]
+                    },
+                    "query": "g.V().or(__.has('__configId', within(plugins_EFEWpSxhMT2cIX9PYgvu))).has('type', within(types_afdb4qsQ83o83Nc7n5Pp)).order().by('__name').hasNot('__canonicalType').limit(500)",
+                    "queryDetail": {
+                      "plugins": [
+                        {
+                          "value": "config-z67odZL5aG8yVuWltCpZ"
+                        }
+                      ],
+                      "types": [
+                        {
+                          "value": "resource group"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "tableName": "Properties"
+              },
+              {
+                "config": {
+                  "timeframe": "thisMonth",
+                  "variables": [
+                    "var-4AFYuK4Y5vsHHKMQoQLZ"
+                  ],
+                  "dataStream": {
+                    "name": "customCost",
+                    "dataSourceConfig": {
+                      "metric": "ActualCost",
+                      "granularity": "None",
+                      "groupBy": "ResourceGroupName"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs",
+                    "group": {
+                      "aggregate": [
+                        {
+                          "type": "sum",
+                          "names": [
+                            "cost"
+                          ]
+                        }
+                      ],
+                      "by": [
+                        [
+                          "grouping",
+                          "uniqueValues"
+                        ],
+                        [
+                          "currency",
+                          "uniqueValues"
+                        ]
+                      ]
+                    }
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "CurrentMonth"
+              },
+              {
+                "config": {
+                  "timeframe": "lastMonth",
+                  "variables": [
+                    "var-4AFYuK4Y5vsHHKMQoQLZ"
+                  ],
+                  "dataStream": {
+                    "name": "customCost",
+                    "dataSourceConfig": {
+                      "metric": "ActualCost",
+                      "granularity": "None",
+                      "groupBy": "ResourceGroupName"
+                    },
+                    "id": "datastream-crEkfSEQg70QXlyK3oXs",
+                    "group": {
+                      "aggregate": [
+                        {
+                          "type": "sum",
+                          "names": [
+                            "cost"
+                          ]
+                        }
+                      ],
+                      "by": [
+                        [
+                          "grouping",
+                          "uniqueValues"
+                        ],
+                        [
+                          "currency",
+                          "uniqueValues"
+                        ]
+                      ]
+                    }
+                  },
+                  "scope": {
+                    "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+                    "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+                  }
+                },
+                "tableName": "LastMonth"
+              }
+            ],
+            "sql": "SELECT  \r\n    cm.grouping_uniqueValues, \r\n    cm.cost_sum AS current_month_cost_sum, \r\n    lm.cost_sum AS last_month_cost_sum,\r\n    cm.cost_sum - lm.cost_sum AS difference_in_amount,\r\n    cm.currency_uniqueValues,\r\n    CASE \r\n        WHEN lm.cost_sum = 0 THEN NULL\r\n        ELSE ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100\r\n    END AS percentage_difference,\r\n    CASE \r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 10 THEN 'error'\r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 5 THEN 'warning'\r\n        ELSE 'success'\r\n    END AS State,\r\n    'https://app.squaredup.com/drilldown/node/' + IFNULL(CAST(p.id AS STRING), '') AS Link\r\nFROM \r\n    CurrentMonth cm\r\nJOIN \r\n    LastMonth lm \r\nON \r\n    cm.grouping_uniqueValues = lm.grouping_uniqueValues\r\nLEFT JOIN \r\n    Properties p\r\nON \r\n    LOWER(cm.grouping_uniqueValues) = LOWER(p.name)\r\nORDER BY \r\n    (CASE WHEN (cm.cost_sum - lm.cost_sum) > 10 THEN -1 ELSE 1 END) * (cm.cost_sum - lm.cost_sum);\r\n"
+          },
+          "metadata": [
+            {
+              "name": "grouping_uniqueValues",
+              "displayName": "Resource Group"
+            },
+            {
+              "name": "current_month_cost_sum",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Current Month (amount)"
+            },
+            {
+              "name": "last_month_cost_sum",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Last Month (amount)"
+            },
+            {
+              "name": "difference_in_amount",
+              "shape": [
+                "currency",
+                {
+                  "code": "{{column.currency_uniqueValues}}",
+                  "decimalPlaces": 2
+                }
+              ],
+              "displayName": "Difference (amount)"
+            },
+            {
+              "name": "percentage_difference",
+              "shape": [
+                "percent",
+                {
+                  "decimalPlaces": 1
+                }
+              ],
+              "displayName": "Difference (%)"
+            },
+            {
+              "pattern": ".*"
+            }
+          ],
+          "id": "datastream-sql"
+        },
+        "scope": {
+          "bindings": {
+            "plugins_ZkvWD7rvJ7hBuNKqyr45": [
+              "config-z67odZL5aG8yVuWltCpZ"
+            ],
+            "types_ozlLihmN0pRmVhFN0jvP": [
+              "resource group"
+            ]
+          },
+          "query": "g.V().or(__.has('__configId', within(plugins_ZkvWD7rvJ7hBuNKqyr45))).has('type', within(types_ozlLihmN0pRmVhFN0jvP)).order().by('__name').hasNot('__canonicalType').limit(500)",
+          "queryDetail": {
+            "plugins": [
+              {
+                "value": "config-z67odZL5aG8yVuWltCpZ"
+              }
+            ],
+            "types": [
+              {
+                "value": "resource group"
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "Amber = Current Month >5% Last Month, Red = Current Month >10% Last Month",
+        "baseTile": "data-stream-base-tile",
+        "dataStreamDraft": {
+          "dataSourceConfig": {
+            "sql": "SELECT  \r\n    cm.grouping_uniqueValues, \r\n    cm.cost_sum AS current_month_cost_sum, \r\n    lm.cost_sum AS last_month_cost_sum,\r\n    cm.cost_sum - lm.cost_sum AS difference_in_amount,\r\n    cm.currency_uniqueValues,\r\n    CASE \r\n        WHEN lm.cost_sum = 0 THEN NULL\r\n        ELSE ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100\r\n    END AS percentage_difference,\r\n    CASE \r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 10 THEN 'error'\r\n        WHEN lm.cost_sum > 0 AND ((cm.cost_sum - lm.cost_sum) / lm.cost_sum) * 100 >= 5 THEN 'warning'\r\n        ELSE 'success'\r\n    END AS State,\r\n    'https://app.squaredup.com/drilldown/node/' + IFNULL(CAST(p.id AS STRING), '') AS Link\r\nFROM \r\n    CurrentMonth cm\r\nJOIN \r\n    LastMonth lm \r\nON \r\n    cm.grouping_uniqueValues = lm.grouping_uniqueValues\r\nLEFT JOIN \r\n    Properties p\r\nON \r\n    LOWER(cm.grouping_uniqueValues) = LOWER(p.name)\r\nORDER BY \r\n    (CASE WHEN (cm.cost_sum - lm.cost_sum) > 10 THEN -1 ELSE 1 END) * (cm.cost_sum - lm.cost_sum);\r\n"
+          }
+        },
+        "title": "Resource Groups: Current vs Last Month",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "hiddenColumns": [
+                "Link",
+                "currency_uniqueValues"
+              ],
+              "columnDisplayNames": {
+                "last_month_cost_sum": "Last Month (Amount)",
+                "current_month_cost_sum": "Current Month (Amount)",
+                "difference_in_amount": "Difference (Amount)"
+              },
+              "columnOrder": [
+                "grouping_uniqueValues",
+                "current_month_cost_sum",
+                "last_month_cost_sum",
+                "difference_in_amount",
+                "percentage_difference",
+                "State"
+              ],
+              "resizedColumns": {
+                "columnWidths": {
+                  "State": 132
+                }
+              },
+              "rowLinkColumnName": {
+                "value": "Link",
+                "label": "Link"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "moved": false,
+      "w": 4,
+      "h": 2,
+      "x": 0,
+      "i": "1",
+      "y": 6,
+      "z": 0,
+      "config": {
+        "timeframe": "thisYear",
+        "variables": [
+          "var-4AFYuK4Y5vsHHKMQoQLZ"
+        ],
+        "dataStream": {
+          "name": "invoiceHistory",
+          "pluginConfigId": "config-z67odZL5aG8yVuWltCpZ",
+          "id": "datastream-ZBsrrcTaBZ0SX3l45e0s",
+          "sort": {
+            "by": [
+              [
+                "properties.invoiceDate",
+                "desc"
+              ]
+            ]
+          }
+        },
+        "scope": {
+          "workspace": "space-5qRkQHgKVYnHVcXEJqHh",
+          "scope": "scope-hVIqU6SKu8pW3OoaFkmT"
+        },
+        "_type": "tile/data-stream",
+        "description": "",
+        "baseTile": "data-stream-base-tile",
+        "title": "Invoice History",
+        "visualisation": {
+          "type": "data-stream-table",
+          "config": {
+            "data-stream-table": {
+              "columnOrder": [
+                "properties.status",
+                "name",
+                "properties.invoiceDate",
+                "properties.dueDate",
+                "properties.amountDue.value",
+                "properties.azurePrepaymentApplied.value",
+                "properties.billedAmount.value",
+                "properties.creditAmount.value",
+                "properties.freeAzureCreditApplied.value",
+                "properties.subTotal.value",
+                "properties.taxAmount.value",
+                "properties.totalAmount.value"
+              ],
+              "resizedColumns": {
+                "columnWidths": {
+                  "properties.taxAmount.value": 99,
+                  "properties.amountDue.value": 105,
+                  "properties.azurePrepaymentApplied.value": 148,
+                  "properties.freeAzureCreditApplied.value": 131,
+                  "properties.billedAmount.value": 114,
+                  "name": 98,
+                  "properties.dueDate": 148,
+                  "properties.subTotal.value": 91,
+                  "properties.creditAmount.value": 119,
+                  "properties.totalAmount.value": 110,
+                  "properties.invoiceDate": 135,
+                  "properties.status": 47
+                }
+              },
+              "hiddenColumns": [
+                "id",
+                "properties.totalAmount.currency",
+                "properties.invoicePeriodStartDate",
+                "properties.invoicePeriodEndDate",
+                "properties.isMonthlyInvoice"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "version": 220,
+  "columns": 4
+}

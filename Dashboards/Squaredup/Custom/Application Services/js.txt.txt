@@ -1,0 +1,605 @@
+{
+  "_type": "layout/grid",
+  "contents": [
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 0,
+      "i": "4ed6ddd2-16ec-4d9c-9cde-deab91880895",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "aggregation": "Average",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_NdDEPQk9ZHXcG6hfDSXw))",
+          "bindings": {
+            "ids_NdDEPQk9ZHXcG6hfDSXw": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaquauks"
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "Last 15 minutes (south)",
+        "title": "App Service CPU %",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "timeseries.data.average_mean"
+                ]
+              },
+              "minimum": 13.442460317460318,
+              "maximum": 13.442460317460318
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 1,
+      "y": 0,
+      "i": "3d7d1e21-dd28-4f67-abc4-8f6daba9ff92",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "aggregation": "Average",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "mean",
+                "names": [
+                  "timeseries.data.average"
+                ]
+              }
+            ]
+          }
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_xo7MQ1QXRKtNr6Y4u6CR))",
+          "bindings": {
+            "ids_xo7MQ1QXRKtNr6Y4u6CR": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaquaukw"
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "Last 15 minutes (west)",
+        "title": "App Service CPU %",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": {
+                "type": "mean",
+                "columns": [
+                  "timeseries.data.average_mean"
+                ]
+              },
+              "minimum": 13.442460317460318,
+              "maximum": 13.442460317460318
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 2,
+      "y": 2,
+      "i": "5b287d2f-e17b-48e0-a768-6185d426cf78",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_kszD9aBCcW2lbIqHin6x))",
+          "bindings": {
+            "ids_kszD9aBCcW2lbIqHin6x": [
+              "node-1I5oDxFZ9TMBfuRDAwV4TquJtZyd8ZDgQZALQzF79x8rrLEypjhDqjyDm0iaZL6RF3cXW8ysQoBqLel48ReiCfJa9buc96s0MKgB4pfFdb73YR8XxuiX2dNrmfquDRMit1P4e6FF4BAPvetOMLr1LhssF1aRwxXEzMW979bnsMgJvC8NH0a4YCBXEmXMJgtpLrO2xoHgDV-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-1I5oDxFZ9TMBfuRDAwV4TquJtZyd8ZDgQZALQzF79x8rrLEypjhDqjyDm0iaZL6RF3cXW8ysQoBqLel48ReiCfJa9buc96s0MKgB4pfFdb73YR8XxuiX2dNrmfquDRMit1P4e6FF4BAPvetOMLr1LhssF1aRwxXEzMW979bnsMgJvC8NH0a4YCBXEmXMJgtpLrO2xoHgDV-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconen"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (uks)",
+        "title": "Data Connector Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 1,
+      "y": 2,
+      "i": "d7ef65f5-576a-4966-b3a2-4a3279f9c919",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_ICdxIRDRJ7UrVHW46UA9))",
+          "bindings": {
+            "ids_ICdxIRDRJ7UrVHW46UA9": [
+              "node-4fzq4nbttFYJVmYDDTeuvGtCm7P9j73fhePbIQbhDmCatCVIEUbwdfsyCXLUh1heDgTyfSMzfaTnMSCHE1sU2lNCSQ5crCvCKIbGGa6IWL2ThAp0QSKKhEUNl6F5zyIqDecmDNRzsnL2xWUzuHEDg1ueZpW2Qk89cuOY5HYnAiSLidYgjaxYLcYTGz9-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-4fzq4nbttFYJVmYDDTeuvGtCm7P9j73fhePbIQbhDmCatCVIEUbwdfsyCXLUh1heDgTyfSMzfaTnMSCHE1sU2lNCSQ5crCvCKIbGGa6IWL2ThAp0QSKKhEUNl6F5zyIqDecmDNRzsnL2xWUzuHEDg1ueZpW2Qk89cuOY5HYnAiSLidYgjaxYLcYTGz9-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconclient"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (uks)",
+        "title": "Entity Portal Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 2,
+      "i": "54859453-b8e7-4f5b-b9a6-8e11ba46b011",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_YdRsiRoyWhX48EDud8ki))",
+          "bindings": {
+            "ids_YdRsiRoyWhX48EDud8ki": [
+              "node-4fzq4nbttFYJVmYDDTeuvGtCm7P9j73fhePbIQbhDmCatCVIEUbwdfsyCXLUh1heDgTyfSMzfaTnMSCHE1sU2lNCSQ5crCvCKIbGGa6IWL2ThAp0QSKKhEUNl6F5zyIqDecmDNRzsnL2xWUzuHEDg1ueZpW2Qk89cuOY5HYnAiSLidYfB2ja5OnerFp-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-4fzq4nbttFYJVmYDDTeuvGtCm7P9j73fhePbIQbhDmCatCVIEUbwdfsyCXLUh1heDgTyfSMzfaTnMSCHE1sU2lNCSQ5crCvCKIbGGa6IWL2ThAp0QSKKhEUNl6F5zyIqDecmDNRzsnL2xWUzuHEDg1ueZpW2Qk89cuOY5HYnAiSLidYfB2ja5OnerFp-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconcl"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (uks)",
+        "title": "Client Portal Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 2,
+      "y": 4,
+      "i": "b7913050-01c6-41c3-962a-32c1543b6c9f",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_zmjsD8iUwSILbuzN3ESy))",
+          "bindings": {
+            "ids_zmjsD8iUwSILbuzN3ESy": [
+              "node-pGXJq4Q6KVMJTqyi380HsdfRhkouKTwEVxBK9Bz9zDlb5f9iISa20RqY3WEryaRGovIxWg6141jyGHQPycFjV5BOF2X814QvbcJN1gS3FVpFnwGvQrLfXlzj1oiXNWR9lzAuUd2Kv7REw6NaI10Jq5udGoZUyTuUh3k9S1v4NJUrmHmdOxl0NddebXI6cJOIwwEHo2PB-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-pGXJq4Q6KVMJTqyi380HsdfRhkouKTwEVxBK9Bz9zDlb5f9iISa20RqY3WEryaRGovIxWg6141jyGHQPycFjV5BOF2X814QvbcJN1gS3FVpFnwGvQrLfXlzj1oiXNWR9lzAuUd2Kv7REw6NaI10Jq5udGoZUyTuUh3k9S1v4NJUrmHmdOxl0NddebXI6cJOIwwEHo2PB-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaq"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (ukw)",
+        "title": "Data Connector Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 1,
+      "y": 4,
+      "i": "a025ca9b-3f9e-4ef7-a5d8-3dbd37f62d19",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_ZpBoyeyZR7bVf3eJbbrq))",
+          "bindings": {
+            "ids_ZpBoyeyZR7bVf3eJbbrq": [
+              "node-11PGDOb0QewDdpqjhTw5s15eCimyHRxeQ7WTDratWsf3vorxA3V2tmDmUU8d8XT25DrZ5MCT2dMhRYHhlNLcBnGx9pcSQdGx7raA0wtIN6y7zK71EU2lEOkUYKQur1GDyxLcna9udtLRkDVitFqj1wLjz0DcLTi8f7EvOduHdEnCUG2zMoR4hilRfF-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-11PGDOb0QewDdpqjhTw5s15eCimyHRxeQ7WTDratWsf3vorxA3V2tmDmUU8d8XT25DrZ5MCT2dMhRYHhlNLcBnGx9pcSQdGx7raA0wtIN6y7zK71EU2lEOkUYKQur1GDyxLcna9udtLRkDVitFqj1wLjz0DcLTi8f7EvOduHdEnCUG2zMoR4hilRfF-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconentity"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (ukw)",
+        "title": "Entity Portal Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "static": false,
+      "w": 1,
+      "moved": false,
+      "h": 2,
+      "x": 0,
+      "y": 4,
+      "i": "32c3e14b-0781-46ec-a4e7-4994c25b7dca",
+      "z": 0,
+      "config": {
+        "timeframe": {
+          "start": "-15m",
+          "type": "custom",
+          "end": "now"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_Uq65x8K9bCvBCcDK3k6b))",
+          "bindings": {
+            "ids_Uq65x8K9bCvBCcDK3k6b": [
+              "node-11PGDOb0QewDdpqjhTw5s15eCimyHRxeQ7WTDratWsf3vorxA3V2tmDmUU8d8XT25DrZ5MCT2dMhRYHhlNLcBnGx9pcSQdGx7raA0wtIN6y7zK71EU2lEOkUYKQur1GDyxLcna9udtLRkDVitFqj1wLjz0DcLTi8f7EvOduHdEnCUG1REa2oSGGClV-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-11PGDOb0QewDdpqjhTw5s15eCimyHRxeQ7WTDratWsf3vorxA3V2tmDmUU8d8XT25DrZ5MCT2dMhRYHhlNLcBnGx9pcSQdGx7raA0wtIN6y7zK71EU2lEOkUYKQur1GDyxLcna9udtLRkDVitFqj1wLjz0DcLTi8f7EvOduHdEnCUG1REa2oSGGClV-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconcl"
+          }
+        },
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "Requests",
+            "aggregation": "Total",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf",
+          "group": {
+            "by": [],
+            "aggregate": [
+              {
+                "type": "sum",
+                "names": [
+                  "timeseries.data.total"
+                ]
+              }
+            ]
+          }
+        },
+        "_type": "tile/data-stream",
+        "description": "In last 15 minutes (ukw)",
+        "title": "Client Portal Requests",
+        "visualisation": {
+          "type": "data-stream-gauge",
+          "config": {
+            "data-stream-gauge": {
+              "value": "timeseries.data.total"
+            }
+          }
+        }
+      }
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "51f7a529-f1c0-441e-9040-dc6a4c224a55",
+      "y": 6,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "Last 24h (south)",
+        "title": "App CPU %",
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_VEYglsexCbtqZEQlcCyg))",
+          "bindings": {
+            "ids_VEYglsexCbtqZEQlcCyg": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-jVF0XyvoBQPuMrZw9CxxW9o8nhZ70ShzC7wzARqI0vD9tF4nThliGzIZeUfA8uYz4SXsBbSsvFrSJR09X9TN8ULP2BiLniLOE0yJAPBm2RJZ9pSdj9tqWwPXE9GV7BD6ARDJPqlmvo3VyigjqmPSiaJx6PvafrV5u9GxPczhmKmvbk54TJy7VmQhCvnmRb2P-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaq"
+          }
+        },
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "resource",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": "timeseries.data.average"
+            }
+          }
+        }
+      },
+      "w": 4
+    },
+    {
+      "x": 0,
+      "h": 2,
+      "i": "715a0c7c-7a18-4abd-81a7-cc28e8a3802d",
+      "y": 8,
+      "config": {
+        "_type": "tile/data-stream",
+        "description": "Last 24h (west)",
+        "title": "App CPU %",
+        "dataStream": {
+          "name": "metricSingle",
+          "dataSourceConfig": {
+            "metricNames": "CpuPercentage",
+            "split": false
+          },
+          "id": "datastream-za4NHgcvtEMyevYwzBlf"
+        },
+        "scope": {
+          "query": "g.V().has('id', within(ids_tbaSin9BmVP5e9uHSrse))",
+          "bindings": {
+            "ids_tbaSin9BmVP5e9uHSrse": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ]
+          },
+          "queryDetail": {
+            "ids": [
+              "node-4PgehksUOP3KGJwOTBUyRjI6S4Q63BmF4S8n9px6MyMIr2GevjdonSbny7OgZ9rgfehj2e14XYTFPNad49F7xDU8YcUn67W5008pzyMhrONoYTbFYlTIrgKlPinzQejmP7GRuI78lMYgS2tOpUvTl1CJfzUxESIQowiyxTPVlvNvoFAqxuFoFrFuSRHwRcH-z67odZL5aG8yVuWltCpZ"
+            ],
+            "booleanQuery": "creprodconaquaukw"
+          }
+        },
+        "visualisation": {
+          "type": "data-stream-line-graph",
+          "config": {
+            "data-stream-line-graph": {
+              "seriesColumn": "resource",
+              "xAxisColumn": "timeseries.data.timeStamp",
+              "yAxisColumn": "timeseries.data.average"
+            }
+          }
+        }
+      },
+      "w": 4
+    }
+  ],
+  "version": 60,
+  "columns": 4
+}
