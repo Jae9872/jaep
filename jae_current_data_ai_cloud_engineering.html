@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAE Current | Data, AI & Cloud Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #11162a;
+      --accent: #5eead4;
+      --accent2: #60a5fa;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1f2a44, transparent), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    header span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #131a33, var(--card));
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,.3);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.45);
+    }
+
+    .card h3 {
+      margin-bottom: .5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .tag {
+      font-size: .75rem;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      background: rgba(94,234,212,.15);
+      color: var(--accent);
+    }
+
+    .timeline {
+      border-left: 2px solid #1f2a44;
+      padding-left: 2rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+    }
+
+    .timeline-item span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .shot {
+      background: #0f172a;
+      border-radius: 1rem;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: .9rem;
+      border: 1px dashed #1f2a44;
+    }
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid #1f2a44;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JAE <span>Current</span></h1>
+    <p>
+      Data, AI & Cloud Engineering consultancy delivering modern, secure, and scalable solutions.
+      From SQL Server estates to Azure-native analytics platforms and AI-powered agents — we build
+      the data backbone businesses rely on.
+    </p>
+  </header>
+
+  <section>
+    <h2>What We Do</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Data & Analytics Engineering</h3>
+        <p>Designing, modernising, and optimising data platforms using SQL Server, SSMS, Azure Analytics, and cloud-native architectures.</p>
+        <div class="tags">
+          <span class="tag">SQL Server</span><span class="tag">SSMS</span><span class="tag">Azure</span><span class="tag">Data Analytics</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Business Intelligence & Dashboards</h3>
+        <p>Clear, actionable dashboards that transform raw data into insight for leadership, operations, and engineering teams.</p>
+        <div class="tags">
+          <span class="tag">BI</span><span class="tag">Reporting</span><span class="tag">Performance</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>AI Solutions & Agents</h3>
+        <p>Designing AI agents and intelligent workflows to automate operations, analytics, and decision-making.</p>
+        <div class="tags">
+          <span class="tag">AI Agents</span><span class="tag">Automation</span><span class="tag">LLMs</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Cloud & Platform Engineering</h3>
+        <p>Secure, scalable cloud solutions across Azure — built for performance, reliability, and future growth.</p>
+        <div class="tags">
+          <span class="tag">Azure SQL</span><span class="tag">Cloud Migration</span><span class="tag">Security</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>SQL Server Consultancy Services</h2>
+    <div class="grid">
+      <div class="card"><h3>Ongoing Support</h3><p>Proactive support tailored to your environment, typically reducing operational costs by 40–70%.</p></div>
+      <div class="card"><h3>Health Checks</h3><p>Comprehensive reviews to identify weaknesses, risks, and performance bottlenecks — with fixes available.</p></div>
+      <div class="card"><h3>SQL Server in the Cloud</h3><p>Expert guidance for seamless migration to Azure and modern cloud architectures.</p></div>
+      <div class="card"><h3>Disaster Recovery</h3><p>Resilient backup and recovery strategies so your data is protected when it matters most.</p></div>
+      <div class="card"><h3>Upgrades</h3><p>Version upgrades that maximise performance, scalability, and security.</p></div>
+      <div class="card"><h3>Consolidation</h3><p>Reduce licensing, compute, and management overhead by consolidating and modernising estates.</p></div>
+      <div class="card"><h3>BI, Analytics & Reporting</h3><p>Unlock insights across performance, scalability, and security with advanced analytics.</p></div>
+      <div class="card"><h3>High Availability</h3><p>Architectures designed to keep downtime to an absolute minimum.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Senior Data & Cloud Engineer</h3>
+        <span>Enterprise & Consultancy Projects</span>
+        <p>Led SQL Server modernisation, Azure migrations, analytics platforms, and AI-driven solutions for multiple organisations.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Data & BI Specialist</h3>
+        <span>Corporate & High-Scale Environments</span>
+        <p>Designed dashboards, reporting systems, and performance-tuned databases supporting critical business operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected Work</h2>
+    <p style="color: var(--muted); margin-bottom: 1.5rem;">Example dashboards, architectures, and analytics platforms delivered.</p>
+    <div class="screenshots">
+      <div class="shot">Dashboard Screenshot</div>
+      <div class="shot">Azure Architecture Diagram</div>
+      <div class="shot">Analytics & Reporting View</div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>JAE Current</strong> — Data, AI & Cloud Engineering</p>
+    <p>Modern. Secure. Intelligent.</p>
+  </footer>
+
+</body>
+</html>

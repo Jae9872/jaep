@@ -1,0 +1,626 @@
+Received: from LO0P123MB8056.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:406::5)
+ by LO2P123MB6080.GBRP123.PROD.OUTLOOK.COM with HTTPS; Sun, 25 Jan 2026
+ 04:29:32 +0000
+Received: from CWLP123MB6427.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:1d0::13)
+ by LO0P123MB8056.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:406::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.14; Sun, 25 Jan
+ 2026 04:29:30 +0000
+Received: from CWLP123MB6427.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::cca0:2b8e:2315:dd57]) by CWLP123MB6427.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::cca0:2b8e:2315:dd57%4]) with mapi id 15.20.9542.010; Sun, 25 Jan 2026
+ 04:29:30 +0000
+From: DB Reports <dbreports@credas.com>
+To: Tech Alerts <techalerts@credas.com>
+Subject: Database Maintenance SUCCESS - creprodconconnectuks
+Thread-Topic: Database Maintenance SUCCESS - creprodconconnectuks
+Thread-Index: AQHcjbMyAboNTTOpLUCUfgT5ccPuhQ==
+Date: Sun, 25 Jan 2026 04:29:30 +0000
+Message-ID:
+	<CWLP123MB6427EAD3DF69E1D1023FACBBCC92A@CWLP123MB6427.GBRP123.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: CWLP123MB6427.GBRP123.PROD.OUTLOOK.COM
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-Network-Message-Id:
+	69d811b2-effb-49ec-ce42-08de5bca5520
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+x-ms-mail-application: Azure Logic Apps; User-Agent: azure-logic-apps/1.0
+ (workflow 184e46faef59490daf7e39c217571520; version 08584333678451005185)
+x-ms-mail-operation-type: Send
+x-ms-mail-workflow: x-ms-workflow-name: creproddbmonitor;
+ x-ms-workflow-run-id: 08584322915166326120816018845CU00;
+ x-ms-client-request-id: 7c154f13-71e2-41cd-914a-4030c6b392c9;
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930201)(20251009114)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	gqSs+IKgVr2hK+SVdVQ1lDMKZrK6FSA1TYsg9aBBFbSE2GYLY7P4Rd2kF1fMezqg0lCsRSLsa7Cz4Qy/OEdb5jJwX6ETDBcnLou+AsBlD6gIP1BPdwW3EWAYTkKXZgTgHJfuaeCfg6D861bBqWhwx2jpca/wTDo1zvhXV62SrHTdNw2RVzlS01Gq6MGc88ZnNpVZtfn0sjZk10gMfV9LclpujP81wSd3p6RnnKBbeM1i2ZRGImeC2i9GWUGeyTlftveh0Hf+N5AkqSuCOuzS8I5iodyBZDn7cUxJFV/ISUSzROUXpI47vF/M4ki/dgBABEDSSP1zkCU/aVQGNljSkFlHoYi6gwE299k4mcMpRMor8FJUpYnqo6o++ZU4ygg3WlYsiQhbMa92c0rsJDEIsbQ/56IkTLTDAD55Cc5HhZJzD7hH04U4V6tbInnKOmhJng802rTbR5EKB4BepE4v5N6aIewImFa/rByK/85B52ZPYVS6euNUMJ5/OXOZrBtU4RC5Lg8k6MTg7JPXjIx/vE6OETnUk5imUWvlT5Z8vQZeSjOBhBaBK89/fZjI13y1i0AV45Rmj77EPIs9bryl5Xc2RiGzGKPUCjKCSvS2rX6ZxUcEyEkl2CfWwsxtrB+SRXivdoDGQAx8fHBOaKToBYNJJm+l04SpKAUPhc4c5nvbdHdzXatyaqgOhRZwm5JaCa4pizR/CgVSn1mZlj4psMtqLLYHZeCYUdWnuWWBvWlc8/HIObh4BQyo0v0kUONx1UULW1MTKLIk2p//08t5pS+Jr7jp9gNcBc7l4jByjT0=
+Content-Type: multipart/alternative;
+	boundary="_000_CWLP123MB6427EAD3DF69E1D1023FACBBCC92ACWLP123MB6427GBRP_"
+MIME-Version: 1.0
+
+--_000_CWLP123MB6427EAD3DF69E1D1023FACBBCC92ACWLP123MB6427GBRP_
+Content-Type: text/plain; charset="windows-1256"
+Content-Transfer-Encoding: quoted-printable
+
+Completed Successfully | Duration: 00:28:45 | Indexes: 14 rebuilt, 49 reorg=
+anized | Stats: 788 updated =9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=
+=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=
+=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D
+C
+CREDAS
+Maintenance Report
+Completed Successfully
+This job defragments indexes and refreshes statistics so the database runs =
+faster and uses less space.
+Execution Summary
+Database        creprodconconnectuks
+Server  creprodconconnectdbuks.database.windows.net
+Mode    Full Maintenance
+Test Mode       NO
+Duration        00:28:45
+Start   2026-01-25 04:00:43
+End     2026-01-25 04:29:28
+Operations Performed
+14
+Indexes Rebuilt
+fixed heavy fragmentation
+49
+Indexes Reorganized
+fixed light fragmentation
+788
+Statistics Updated
+speeds up queries
+Storage Impact
+Before Maintenance
+Total Used
+150,576 MB      83%
+Allocated 181,352 MB - Free 30,776 MB
+After Maintenance
+Total Used
+159,291 MB      88%
+Allocated 181,352 MB - Free 22,061 MB
+Impact   Increased by 8714.31 MB (5.8% increase)
+Data Files (tables & indexes)
+Before
+150,184 MB      98%
+Allocated 152,736 MB - Free 2,552 MB
+After
+149,334 MB      98%
+Allocated 152,736 MB - Free 3,402 MB
+Transaction Log (change history)
+Before
+392 MB  1%
+Allocated 28,616 MB - Free 28,224 MB
+After
+9,956 MB        35%
+Allocated 28,616 MB - Free 18,660 MB
+Metric  Before  After   Change
+Total Allocated (reserved space)        181,352 MB      181,352 MB      0 M=
+B
+Total Used (actual data)        150,576 MB      159,291 MB      8714 MB
+Usage % (how full)      83.03%  87.84%  4.81%
+Automated notification from Azure Automation - creprodconconnectuks
+
+--_000_CWLP123MB6427EAD3DF69E1D1023FACBBCC92ACWLP123MB6427GBRP_
+Content-Type: text/html; charset="windows-1256"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dwindows-1=
+256">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+</head>
+<body style=3D"font-family:'Segoe UI','Roboto',sans-serif;color:#E6E9F2;lin=
+e-height:1.7;margin:0;padding:32px 20px;background:#0A1320;">
+<!-- Preheader text for inbox preview - hidden from email body -->
+<div style=3D"display:none;font-size:1px;color:#0A1320;line-height:1px;max-=
+height:0;max-width:0;opacity:0;overflow:hidden;">
+Completed Successfully | Duration: 00:28:45 | Indexes: 14 rebuilt, 49 reorg=
+anized | Stats: 788 updated =9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=
+=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D=
+=9D=9D=9D=9D=9D=9D=9D=9D=9D=9D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-widt=
+h:760px;margin:0 auto;">
+<tbody>
+<tr>
+<td>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"backgrou=
+nd:#0E1A2B;border-radius:18px;border:1px solid #1D2C44;overflow:hidden;">
+<!-- HEADER -->
+<tbody>
+<tr>
+<td style=3D"padding:28px 32px;background:linear-gradient(135deg,rgba(14,26=
+,43,.95),rgba(10,19,32,.95));border-bottom:1px solid #1F2F4B;">
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td style=3D"vertical-align:middle;">
+<table cellpadding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:56px;height:56px;border-radius:50%;background:#E5A93B;te=
+xt-align:center;vertical-align:middle;">
+<span style=3D"color:#0A1320;font-size:26px;font-weight:700;line-height:56p=
+x;">C</span>
+</td>
+<td style=3D"padding-left:16px;vertical-align:middle;">
+<div style=3D"font-size:20px;font-weight:600;letter-spacing:.3em;color:#8A8=
+A8A;">CREDAS</div>
+<div style=3D"font-size:13px;color:#B1BAD4;text-transform:uppercase;letter-=
+spacing:.2em;">
+Maintenance Report</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"text-align:right;vertical-align:middle;"><span style=3D"paddin=
+g:10px 18px;border-radius:999px;border:1px solid #5BE188;color:#5BE188;font=
+-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;di=
+splay:inline-block;">Completed Successfully</span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- TEST MODE BANNER --><!-- CONTENT -->
+<tr>
+<td style=3D"padding:32px;"><!-- WHAT THIS DOES -->
+<div style=3D"font-size:12px;color:#6B7A99;margin-bottom:24px;padding:14px =
+16px;background:rgba(255,255,255,.02);border-radius:10px;border-left:3px so=
+lid #E5A93B;">
+This job defragments indexes and refreshes statistics so the database runs =
+faster and uses less space.
+</div>
+<!-- EXECUTION SUMMARY -->
+<div style=3D"margin-bottom:32px;">
+<div style=3D"font-size:12px;font-weight:600;text-transform:uppercase;color=
+:#8A8A8A;letter-spacing:.32em;margin-bottom:18px;">
+Execution Summary</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:12px;overflow:hidden;">
+<tbody>
+<tr style=3D"background:rgba(255,255,255,.03);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Database</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+creprodconconnectuks</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.01);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Server</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+creprodconconnectdbuks.database.windows.net</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.03);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Mode</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+Full Maintenance</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.01);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Test Mode</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+NO</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.03);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Duration</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:700=
+;text-align:right;">
+00:28:45</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.01);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+Start</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+2026-01-25 04:00:43</td>
+</tr>
+<tr style=3D"background:rgba(255,255,255,.03);">
+<td style=3D"padding:14px 18px;font-size:12px;color:#8A8A8A;letter-spacing:=
+.1em;text-transform:uppercase;">
+End</td>
+<td style=3D"padding:14px 18px;font-size:13px;color:#F3F5FA;font-weight:500=
+;text-align:right;">
+2026-01-25 04:29:28</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- OPERATIONS -->
+<div style=3D"margin-bottom:32px;">
+<div style=3D"font-size:12px;font-weight:600;text-transform:uppercase;color=
+:#8A8A8A;letter-spacing:.32em;margin-bottom:18px;">
+Operations Performed</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:33%;padding-right:8px;">
+<div style=3D"padding:16px;border-radius:12px;background:rgba(255,255,255,.=
+03);border:1px solid #1D2C44;text-align:center;">
+<div style=3D"font-size:24px;font-weight:700;color:#E5A93B;">14</div>
+<div style=3D"font-size:11px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-top:6px;">
+Indexes Rebuilt</div>
+<div style=3D"font-size:10px;color:#6B7A99;margin-top:4px;">fixed heavy fra=
+gmentation</div>
+</div>
+</td>
+<td style=3D"width:33%;padding:0 4px;">
+<div style=3D"padding:16px;border-radius:12px;background:rgba(255,255,255,.=
+03);border:1px solid #1D2C44;text-align:center;">
+<div style=3D"font-size:24px;font-weight:700;color:#E5A93B;">49</div>
+<div style=3D"font-size:11px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-top:6px;">
+Indexes Reorganized</div>
+<div style=3D"font-size:10px;color:#6B7A99;margin-top:4px;">fixed light fra=
+gmentation</div>
+</div>
+</td>
+<td style=3D"width:33%;padding-left:8px;">
+<div style=3D"padding:16px;border-radius:12px;background:rgba(255,255,255,.=
+03);border:1px solid #1D2C44;text-align:center;">
+<div style=3D"font-size:24px;font-weight:700;color:#E5A93B;">788</div>
+<div style=3D"font-size:11px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-top:6px;">
+Statistics Updated</div>
+<div style=3D"font-size:10px;color:#6B7A99;margin-top:4px;">speeds up queri=
+es</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- STORAGE -->
+<div style=3D"margin-bottom:32px;">
+<div style=3D"font-size:12px;font-weight:600;text-transform:uppercase;color=
+:#8A8A8A;letter-spacing:.32em;margin-bottom:18px;">
+Storage Impact</div>
+<!-- Before/After Total -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:16px;">
+<tbody>
+<tr>
+<td style=3D"width:50%;padding-right:9px;vertical-align:top;">
+<div style=3D"font-size:12px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-bottom:10px;">
+Before Maintenance</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+Total Used</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">150,576 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">83%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"83%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"17%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 181,352 MB - Free 30=
+,776 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"width:50%;padding-left:9px;vertical-align:top;">
+<div style=3D"font-size:12px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-bottom:10px;">
+After Maintenance</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+Total Used</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">159,291 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">88%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"88%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"12%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 181,352 MB - Free 22=
+,061 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Impact Badge -->
+<div style=3D"background:rgba(229,91,91,.12);color:#E55B5B;;font-size:12px;=
+padding:10px 14px;border-radius:12px;display:inline-block;">
+<strong>Impact</strong> &nbsp; Increased by 8714.31 MB (5.8% increase) </di=
+v>
+<!-- Data Files / Transaction Log -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-t=
+op:24px;">
+<tbody>
+<tr>
+<td style=3D"width:50%;padding-right:9px;vertical-align:top;">
+<div style=3D"font-size:12px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-bottom:10px;">
+Data Files <span style=3D"font-size:10px;color:#6B7A99;text-transform:none;=
+">(tables &amp; indexes)</span></div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+Before</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">150,184 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">98%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"98%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"2%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 152,736 MB - Free 2,=
+552 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+After</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">149,334 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">98%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"98%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"2%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 152,736 MB - Free 3,=
+402 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"width:50%;padding-left:9px;vertical-align:top;">
+<div style=3D"font-size:12px;color:#8A8A8A;letter-spacing:.1em;text-transfo=
+rm:uppercase;margin-bottom:10px;">
+Transaction Log <span style=3D"font-size:10px;color:#6B7A99;text-transform:=
+none;">(change history)</span></div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+Before</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">392 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">1%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"1%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"99%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 28,616 MB - Free 28,=
+224 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:16px;background-color:#0A1320;margin-bottom:=
+12px;">
+<tbody>
+<tr>
+<td style=3D"padding:18px;">
+<div style=3D"font-size:12px;letter-spacing:2px;color:#8A8A8A;text-transfor=
+m:uppercase;margin-bottom:8px;">
+After</div>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td style=3D"font-size:20px;font-weight:600;color:#F0F4FF;">9,956 MB</td>
+<td style=3D"font-size:12px;letter-spacing:2px;color:#E5A93B;text-align:rig=
+ht;">35%</td>
+</tr>
+</tbody>
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-b=
+ottom:8px;">
+<tbody>
+<tr>
+<td width=3D"35%" style=3D"height:8px;background-color:#E5A93B;"></td>
+<td width=3D"65%" style=3D"height:8px;background-color:#1D2C44;"></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-size:11px;color:#8A8A8A;">Allocated 28,616 MB - Free 18,=
+660 MB</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Storage Table -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border:1=
+px solid #1D2C44;border-radius:12px;overflow:hidden;font-size:12px;margin-t=
+op:24px;">
+<tbody>
+<tr style=3D"border-bottom:1px solid #1D2C44;">
+<th style=3D"padding:12px 16px;text-transform:uppercase;letter-spacing:.2em=
+;color:#8A8A8A;text-align:left;">
+Metric</th>
+<th style=3D"padding:12px 16px;text-transform:uppercase;letter-spacing:.2em=
+;color:#8A8A8A;text-align:right;">
+Before</th>
+<th style=3D"padding:12px 16px;text-transform:uppercase;letter-spacing:.2em=
+;color:#8A8A8A;text-align:right;">
+After</th>
+<th style=3D"padding:12px 16px;text-transform:uppercase;letter-spacing:.2em=
+;color:#8A8A8A;text-align:right;">
+Change</th>
+</tr>
+<tr style=3D"border-bottom:1px solid rgba(255,255,255,.04);">
+<td style=3D"padding:12px 16px;color:#E6E9F2;font-weight:600;">Total Alloca=
+ted <span style=3D"font-size:10px;color:#6B7A99;font-weight:400;">
+(reserved space)</span></td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">181,352 MB<=
+/td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">181,352 MB<=
+/td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;font-weight:6=
+00;">0 MB</td>
+</tr>
+<tr style=3D"border-bottom:1px solid rgba(255,255,255,.04);">
+<td style=3D"padding:12px 16px;color:#E6E9F2;font-weight:600;">Total Used <=
+span style=3D"font-size:10px;color:#6B7A99;font-weight:400;">
+(actual data)</span></td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">150,576 MB<=
+/td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">159,291 MB<=
+/td>
+<td style=3D"padding:12px 16px;text-align:right;font-weight:600;color:#E55B=
+5B;">8714 MB</td>
+</tr>
+<tr>
+<td style=3D"padding:12px 16px;color:#E6E9F2;font-weight:600;">Usage % <spa=
+n style=3D"font-size:10px;color:#6B7A99;font-weight:400;">
+(how full)</span></td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">83.03%</td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;">87.84%</td>
+<td style=3D"padding:12px 16px;color:#E6E9F2;text-align:right;font-weight:6=
+00;">4.81%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<!-- FOOTER -->
+<tr>
+<td style=3D"padding:20px 32px 28px;border-top:1px solid #1D2C44;background=
+:#0A1320;color:#5E6B84;font-size:11px;letter-spacing:.2em;text-transform:up=
+percase;text-align:center;">
+Automated notification from Azure Automation - creprodconconnectuks </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+
+--_000_CWLP123MB6427EAD3DF69E1D1023FACBBCC92ACWLP123MB6427GBRP_--

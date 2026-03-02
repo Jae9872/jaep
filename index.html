@@ -3,39 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jae Pasha — Cloud, Data & AI Engineering</title>
+  <meta name="description" content="Jae Pasha. Cloud, Data and AI Engineer based in London. SQL reliability, Azure data platforms, AI automation and security-hardened cloud operations." />
+  <meta name="theme-color" content="#06090f" />
+  <meta property="og:title" content="Jae Pasha | Cloud, Data &amp; AI Engineering" />
+  <meta property="og:description" content="Hands-on engineering partner based in London. SQL reliability, Azure data platforms, AI automation and cloud security." />
+  <meta property="og:type" content="website" />
+  <title>Jae Pasha | Cloud, Data &amp; AI Engineering</title>
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
-    /* ── TOKENS ─────────────────────────────────────────────── */
+    /* ── TOKENS ───────────────────────────────────── */
     :root {
-      --black:   #f5f2f0;
-      --s1:      #ffffff;
-      --s2:      #f0ebe8;
-      --s3:      #e8ddd8;
-      --border:  rgba(0,0,0,0.09);
-      --border2: rgba(0,0,0,0.17);
-      --white:   #1a0a0d;
-      --muted:   #7a6060;
-      --muted2:  #5a3040;
-      --cyan:    #8E1B2E;
-      --violet:  #C9A84C;
-      --amber:   #b45309;
-      --green:   #16a34a;
+      --bg:      #06090f;
+      --bg2:     #0c1626;
+      --bg3:     #11203a;
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.14);
+      --text:    #dde5f0;
+      --muted:   #4e6278;
+      --muted2:  #7a95ae;
+      --crimson: #8E1B2E;
+      --gold:    #C9A84C;
+      --green:   #27AE60;
+      --amber:   #D4971A;
       --grad:    linear-gradient(135deg, #8E1B2E 0%, #C9A84C 100%);
       --grad2:   linear-gradient(135deg, #C9A84C 0%, #8E1B2E 100%);
-      --glow:    0 0 80px rgba(142,27,46,0.12);
+      --glow:    0 0 80px rgba(142,27,46,0.18);
     }
 
-    /* ── RESET ──────────────────────────────────────────────── */
+    /* ── RESET ────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: "Inter", sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
       cursor: none;
@@ -43,918 +48,746 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; }
 
-    /* ── SCROLLBAR ──────────────────────────────────────────── */
+    /* ── SCROLLBAR ────────────────────────────────── */
     ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 99px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 99px; }
 
-    /* ── SCROLL PROGRESS ────────────────────────────────────── */
+    /* ── SCROLL PROGRESS ──────────────────────────── */
     #progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      background: var(--grad);
-      width: 0%;
-      z-index: 9999;
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--grad);
+      width: 0%; z-index: 9999;
       transition: width 0.1s linear;
     }
 
-    /* ── CURSOR ─────────────────────────────────────────────── */
+    /* ── CURSOR ───────────────────────────────────── */
     #cursor-dot {
-      position: fixed;
-      width: 8px; height: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
+      position: fixed; width: 7px; height: 7px;
+      background: var(--gold); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
       transition: transform 0.08s ease, opacity 0.3s;
     }
     #cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border: 1px solid rgba(142,27,46,0.45);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9997;
-      transform: translate(-50%, -50%);
-      transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.3s, border-color 0.2s;
+      position: fixed; width: 34px; height: 34px;
+      border: 1px solid rgba(201,168,76,0.4); border-radius: 50%;
+      pointer-events: none; z-index: 9997;
+      transform: translate(-50%,-50%);
+      transition: transform 0.18s ease, width 0.2s, height 0.2s, opacity 0.3s, border-color 0.2s;
     }
-    body:hover #cursor-dot { opacity: 1; }
-    body:hover #cursor-ring { opacity: 1; }
     .cursor-expand #cursor-ring {
-      width: 64px; height: 64px;
-      border-color: rgba(201,168,76,0.7);
+      width: 60px; height: 60px;
+      border-color: rgba(142,27,46,0.6);
     }
 
-    /* ── NAV ────────────────────────────────────────────────── */
+    /* ── NAV ──────────────────────────────────────── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center;
       justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 68px;
+      padding: 0 2.5rem; height: 66px;
       transition: background 0.4s, border-color 0.4s;
     }
     nav.scrolled {
-      background: rgba(240,243,255,0.96);
+      background: rgba(6,9,15,0.92);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(24px);
     }
     .nav-logo {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
+      font-weight: 800; font-size: 1.05rem;
       letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
+      display: flex; align-items: center; gap: 0.55rem;
     }
     .nav-logo-img {
-      height: 26px;
-      width: auto;
-      object-fit: contain;
-      flex-shrink: 0;
-      display: block;
+      height: 26px; width: auto;
+      object-fit: contain; flex-shrink: 0; display: block;
     }
     .nav-links {
-      display: flex;
-      gap: 2.4rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--muted2);
+      display: flex; gap: 2.2rem;
+      font-size: 0.875rem; font-weight: 500; color: var(--muted2);
     }
     .nav-links a { transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--text); }
     .nav-cta {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 0.6rem 1.4rem;
-      border-radius: 99px;
-      background: var(--white);
-      color: var(--black);
+      font-size: 0.84rem; font-weight: 700;
+      padding: 0.55rem 1.3rem; border-radius: 99px;
+      background: var(--grad); color: #fff;
       transition: transform 0.2s, box-shadow 0.2s;
       letter-spacing: 0.2px;
     }
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(142,27,46,0.35); }
 
-    /* ── HERO ───────────────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding: 100px 2.5rem 80px;
-      max-width: 1400px;
-      margin: 0 auto;
+      display: flex; align-items: center;
+      padding: 96px 2.5rem 80px;
+      max-width: 1400px; margin: 0 auto;
       position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+    /* ambient glow behind hero */
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 10%; left: 5%;
+      width: 50%; height: 60%;
+      background: radial-gradient(ellipse, rgba(142,27,46,0.08) 0%, transparent 65%);
+      pointer-events: none;
     }
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 420px;
-      gap: 5rem;
-      align-items: center;
-      width: 100%;
+      gap: 5rem; align-items: center; width: 100%;
+      position: relative; z-index: 1;
     }
     .hero-left { position: relative; }
 
+    /* profile row */
     .hero-profile-row {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-      margin-bottom: 2.6rem;
+      display: flex; align-items: center;
+      gap: 1.4rem; margin-bottom: 2.4rem;
     }
     .hero-avatar {
-      width: 112px; height: 112px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2.5px solid transparent;
-      background: linear-gradient(var(--s1), var(--s1)) padding-box,
-                  var(--grad) border-box;
-      box-shadow: 0 0 0 6px rgba(142,27,46,0.1), 0 20px 60px rgba(0,0,0,0.15);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 108px; height: 108px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+      border: 2px solid transparent;
+      background: linear-gradient(var(--bg2), var(--bg2)) padding-box, var(--grad) border-box;
+      box-shadow: 0 0 0 6px rgba(142,27,46,0.1), 0 20px 50px rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: var(--white);
+      font-weight: 800; font-size: 1.5rem; color: var(--text);
     }
-    .hero-avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .hero-profile-text { display: flex; flex-direction: column; gap: 0.3rem; }
-    .hero-profile-name { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 1rem; }
+    .hero-profile-name { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 0.98rem; }
     .hero-profile-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      color: var(--muted2);
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.75rem; color: var(--muted2);
     }
     .status-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 8px var(--green);
       animation: pulse-dot 2s ease-in-out infinite;
     }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.35} }
 
-    /* ── CERT BADGE ─────────────────────────────────────────── */
-    .cert-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
+    /* cert badges */
+    .cert-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .cert-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.38rem 0.9rem;
-      border-radius: 99px;
-      font-size: 0.71rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      border: 1.5px solid transparent;
-      background: linear-gradient(var(--s1), var(--s1)) padding-box,
-                  var(--grad) border-box;
-      color: var(--muted2);
-      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.35rem 0.85rem; border-radius: 99px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(201,168,76,0.07);
+      color: var(--gold); white-space: nowrap;
     }
-    .cert-badge .cb-icon { line-height: 1; }
 
     .hero-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1.2rem;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      background: var(--grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1.1rem;
     }
     h1.hero-title {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: clamp(3.2rem, 5.5vw, 6rem);
-      font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -2px;
-      margin-bottom: 1.8rem;
-      color: var(--white);
+      font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -2px; margin-bottom: 1.6rem; color: var(--text);
     }
     h1.hero-title .grad-text {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background: var(--grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-desc {
-      font-size: 1.1rem;
-      color: var(--muted2);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 2.4rem;
+      font-size: 1.05rem; color: var(--muted2);
+      max-width: 500px; line-height: 1.75; margin-bottom: 2.4rem;
     }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border-radius: 99px;
-      background: var(--grad);
-      color: var(--black);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.7rem; border-radius: 99px;
+      background: var(--grad); color: #fff;
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.2px;
+      font-weight: 700; font-size: 0.88rem;
+      transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.2px;
     }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(142,27,46,0.25);
-    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(142,27,46,0.35); }
+    button.btn-primary, button.btn-outline { cursor: pointer; }
     .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border-radius: 99px;
-      border: 1px solid var(--border2);
-      background: transparent;
-      color: var(--white);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.7rem; border-radius: 99px;
+      border: 1px solid var(--border2); background: transparent; color: var(--text);
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: 600; font-size: 0.88rem;
       transition: border-color 0.2s, background 0.2s, transform 0.2s;
-      letter-spacing: 0.2px;
+      cursor: pointer; text-align: center;
     }
     .btn-outline:hover {
-      border-color: rgba(70,80,155,0.35);
-      background: rgba(0,0,0,0.04);
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.06);
       transform: translateY(-3px);
     }
 
-    /* Hero right: live dashboard — keeps its own dark palette */
+    /* ── HERO DASHBOARD ───────────────────────────── */
     .hero-dashboard {
-      /* dark scope: these override global light tokens for all children */
-      --s1:      #0c0e23;
-      --s3:      #161b30;
-      --border:  rgba(255,255,255,0.08);
-      --border2: rgba(255,255,255,0.16);
-      --white:   #e8eaff;
-      --muted:   #7b82a0;
-      --muted2:  #9aa5c0;
-      --cyan:    #00d4ff;
-      background: #0c0e23;
-      color: #e8eaff;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 0 80px rgba(0,212,255,0.15), 0 40px 80px rgba(0,0,0,0.5);
+      background: #08111f;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px; overflow: hidden;
+      box-shadow: 0 0 80px rgba(201,168,76,0.07), 0 40px 80px rgba(0,0,0,0.6);
     }
     .db-header {
-      padding: 1rem 1.4rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0.95rem 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: space-between;
     }
     .db-dots { display: flex; gap: 0.4rem; }
-    .db-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-    }
-    .db-dot:nth-child(1) { background: #ff5f57; }
-    .db-dot:nth-child(2) { background: #febc2e; }
-    .db-dot:nth-child(3) { background: #28c840; }
-    .db-title { font-size: 0.72rem; color: var(--muted); font-weight: 500; letter-spacing: 0.5px; }
+    .db-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .db-dot:nth-child(1){background:#ff5f57}
+    .db-dot:nth-child(2){background:#febc2e}
+    .db-dot:nth-child(3){background:#28c840}
+    .db-title { font-size: 0.7rem; color: #4e6278; font-weight: 500; letter-spacing: 0.5px; }
     .db-live {
-      font-size: 0.65rem;
-      color: var(--green);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      letter-spacing: 1px;
+      font-size: 0.62rem; color: var(--green);
+      font-weight: 700; display: flex; align-items: center;
+      gap: 0.3rem; letter-spacing: 1px;
     }
-    .db-body { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.9rem; }
-    .db-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .db-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 1.4rem;
+    }
+    .db-tab-btn {
+      flex: 1; text-align: center;
+      padding: 0.55rem 0.3rem;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 1.1px; text-transform: uppercase;
+      color: #4e6278;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    .db-tab-btn:hover { color: #dde5f0; }
+    .db-tab-btn.active { color: #C9A84C; border-color: #C9A84C; }
+    .db-body { padding: 1.3rem; display: flex; flex-direction: column; gap: 0.85rem; }
+    .db-panel { display: none; flex-direction: column; gap: 0.85rem; }
+    .db-panel.active { display: flex; }
+    .db-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .db-stat {
-      background: var(--s3);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
+      background: #0e1e35; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 0.95rem 1rem;
     }
     .db-stat-val {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 1.6rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.3rem;
+      font-size: 1.55rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem;
     }
-    .db-stat-val.c1 { color: var(--cyan); }
-    .db-stat-val.c2 { color: var(--violet); }
-    .db-stat-val.c3 { color: var(--amber); }
-    .db-stat-val.c4 { color: var(--green); }
-    .db-stat-label { font-size: 0.72rem; color: var(--muted); }
+    .db-stat-val.c1 { color: #00d4ff; }
+    .db-stat-val.c2 { color: #C9A84C; }
+    .db-stat-val.c3 { color: #D4971A; }
+    .db-stat-val.c4 { color: #27AE60; }
+    .db-stat-label { font-size: 0.68rem; color: #4e6278; }
     .db-bar-block {
-      background: var(--s3);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
+      background: #0e1e35; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 0.95rem 1rem;
     }
-    .db-bar-label { font-size: 0.72rem; color: var(--muted2); margin-bottom: 0.6rem; display: flex; justify-content: space-between; }
+    .db-bar-label {
+      font-size: 0.68rem; color: #7a95ae;
+      margin-bottom: 0.5rem; display: flex; justify-content: space-between;
+    }
     .db-bar-track {
-      height: 5px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 0.5rem;
+      height: 5px; background: rgba(255,255,255,0.06);
+      border-radius: 99px; overflow: hidden; margin-bottom: 0.45rem;
     }
     .db-bar-fill {
-      height: 100%;
-      border-radius: 99px;
-      background: var(--grad);
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, #8E1B2E, #C9A84C);
       animation: bar-anim 2.5s ease-in-out infinite alternate;
     }
-    @keyframes bar-anim {
-      from { width: 62%; }
-      to   { width: 78%; }
-    }
-    .db-bar-fill.v2 { background: var(--grad2); animation: bar-anim2 3s ease-in-out infinite alternate; }
-    .db-bar-fill.v3 { background: linear-gradient(90deg, var(--green), #86efac); animation: bar-anim3 2s ease-in-out infinite alternate; }
-    @keyframes bar-anim2 { from { width: 55%; } to { width: 70%; } }
-    @keyframes bar-anim3 { from { width: 80%; } to { width: 92%; } }
+    @keyframes bar-anim { from{width:62%} to{width:78%} }
+    .db-bar-fill.v2 { background: linear-gradient(90deg, #C9A84C, #8E1B2E); animation: bar-anim2 3s ease-in-out infinite alternate; }
+    .db-bar-fill.v3 { background: linear-gradient(90deg, #27AE60, #86efac); animation: bar-anim3 2s ease-in-out infinite alternate; }
+    @keyframes bar-anim2 { from{width:55%} to{width:70%} }
+    @keyframes bar-anim3 { from{width:80%} to{width:92%} }
     .db-ticker {
-      background: var(--s3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.7rem 1rem;
-      font-size: 0.7rem;
-      color: var(--cyan);
-      font-weight: 600;
-      overflow: hidden;
-      white-space: nowrap;
-      letter-spacing: 0.3px;
+      background: #0e1e35; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px; padding: 0.65rem 1rem;
+      font-size: 0.66rem; color: #00d4ff; font-weight: 600;
+      overflow: hidden; white-space: nowrap; letter-spacing: 0.3px;
     }
-    .db-ticker span {
-      display: inline-block;
-      animation: ticker 16s linear infinite;
+    .db-ticker span { display: inline-block; animation: ticker 16s linear infinite; }
+    @keyframes ticker { from{transform:translateX(100%)} to{transform:translateX(-100%)} }
+    .db-cost-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.64rem; }
+    .db-cost-name { color: #7a95ae; width: 72px; flex-shrink: 0; }
+    .db-cost-track { flex:1; height:4px; background:rgba(255,255,255,0.06); border-radius:99px; overflow:hidden; }
+    .db-cost-fill { height:100%; border-radius:99px; }
+    .db-cost-val { color: #4e6278; width: 40px; text-align: right; flex-shrink:0; font-weight:600; }
+    .db-score-ring {
+      width: 76px; height: 76px; border-radius: 50%; flex-shrink: 0;
+      background: conic-gradient(#22c55e 89%, rgba(255,255,255,0.06) 0%);
+      display: flex; align-items: center; justify-content: center;
     }
-    @keyframes ticker {
-      from { transform: translateX(100%); }
-      to   { transform: translateX(-100%); }
-    }
-
-    /* Background grid lines */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    .db-score-inner {
+      width: 56px; height: 56px; border-radius: 50%; background: #0e1e35;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.05rem; font-weight: 800; color: #22c55e;
     }
 
-    /* ── SECTION SHARED ─────────────────────────────────────── */
-    .section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 7rem 2.5rem;
-    }
+    /* ── DIVIDER & SECTION ────────────────────────── */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border2) 30%, var(--border2) 70%, transparent); max-width: 1400px; margin: 0 auto; }
+    .section { max-width: 1400px; margin: 0 auto; padding: 7rem 2.5rem; }
     .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.1rem;
     }
     .section-title {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: clamp(2rem, 3.5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 3.5vw, 3.4rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -1px; margin-bottom: 1rem;
     }
     .section-sub {
-      color: var(--muted2);
-      font-size: 1.05rem;
-      max-width: 600px;
-      line-height: 1.7;
+      color: var(--muted2); font-size: 1.02rem;
+      max-width: 580px; line-height: 1.75;
     }
-    .section-head { margin-bottom: 4rem; }
-
-    /* fade in on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .section-head { margin-bottom: 3.8rem; }
+    .grad-text {
+      background: var(--grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
     }
 
-    /* divider */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── CLIENTS ────────────────────────────────────────────── */
-    .clients-section {
-      padding: 5rem 2.5rem 6rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    /* ── CLIENTS ──────────────────────────────────── */
+    .clients-section { padding: 5rem 2.5rem 6rem; max-width: 1400px; margin: 0 auto; }
     .clients-label {
-      text-align: center;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2.8rem;
+      text-align: center; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 2.6rem;
     }
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-    }
+    .clients-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px,1fr)); gap: 0.85rem; }
     .client-card {
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.2rem 1rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.7rem;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.1rem 0.9rem 1rem;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.65rem; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     }
     .client-card:hover {
-      border-color: rgba(142,27,46,0.2);
+      border-color: rgba(201,168,76,0.25);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4);
     }
     .client-logo-box {
-      width: 100%;
-      height: 46px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 1px solid rgba(85,95,165,0.1);
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 10px;
+      width: 100%; height: 44px; background: #ffffff;
+      border-radius: 7px; border: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center; padding: 5px 10px;
     }
-    .client-logo-box img { max-width: 100%; max-height: 34px; object-fit: contain; }
-    .client-name { font-size: 0.7rem; font-weight: 500; color: var(--muted); text-align: center; line-height: 1.3; }
+    .client-logo-box img { max-width: 100%; max-height: 32px; object-fit: contain; }
+    .client-name { font-size: 0.68rem; font-weight: 500; color: var(--muted); text-align: center; line-height: 1.3; }
 
-    /* ── BENTO SERVICES ─────────────────────────────────────── */
-    .bento {
+    /* ── EVIDENCE GRID ────────────────────────────── */
+    .evidence-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 200px;
-      gap: 1rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.9rem; margin-top: 3rem;
+    }
+    .ev-card {
+      display: block; border-radius: 14px; overflow: hidden;
+      background: var(--bg2); border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; cursor: default; text-decoration: none;
+    }
+    .ev-card.ev-link { cursor: pointer; }
+    .ev-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border-color: rgba(201,168,76,0.2);
+    }
+    .ev-img-wrap {
+      position: relative; width: 100%; height: 120px;
+      overflow: hidden; border-bottom: 1px solid var(--border);
+    }
+    .ev-card img {
+      width: 100%; height: 120px; object-fit: cover; object-position: top;
+      display: block; filter: blur(5px); transform: scale(1.06);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .ev-card:hover img { filter: blur(2px); transform: scale(1.03); }
+    .ev-redact {
+      position: absolute; inset: 0;
+      background: rgba(6,9,15,0.45);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.3rem; transition: opacity 0.35s;
+    }
+    .ev-redact-icon { font-size: 1rem; line-height: 1; }
+    .ev-redact-text {
+      font-size: 0.56rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+    }
+    .ev-card:hover .ev-redact { opacity: 0; }
+    .ev-label {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.7rem; font-weight: 600; color: var(--muted2); line-height: 1.4;
+    }
+    .ev-tag {
+      position: absolute; top: 0.5rem; left: 0.5rem;
+      font-size: 0.55rem; font-weight: 700;
+      padding: 0.14rem 0.44rem; border-radius: 99px;
+      letter-spacing: 0.7px; text-transform: uppercase; z-index: 2;
+    }
+    .ev-tag.cost     { background: rgba(142,27,46,0.88); color: #fff; }
+    .ev-tag.health   { background: rgba(39,174,96,0.85); color: #fff; }
+    .ev-tag.security { background: rgba(201,168,76,0.88); color: #0a0a0a; }
+    .ev-tag.ops      { background: rgba(79,70,229,0.85); color: #fff; }
+    .ev-tag.report   { background: rgba(201,168,76,0.9); color: #0a0a0a; }
+    @media (max-width: 1200px) { .evidence-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 780px)  { .evidence-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* mail preview cards */
+    .ev-mail-wrap {
+      background: #08111f;
+      display: flex; align-items: center; justify-content: center; padding: 0.7rem;
+    }
+    .ev-mail-preview {
+      width: 100%; background: #0c1929;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; padding: 0.8rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .ev-mail-subject { font-size: 0.62rem; font-weight: 700; color: #C9A84C; letter-spacing: 0.5px; text-transform: uppercase; }
+    .ev-mail-stats { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .ev-mail-stats span {
+      font-size: 0.56rem; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
+      padding: 0.12rem 0.35rem; color: #4e6278; white-space: nowrap;
+    }
+    .ev-mail-badge {
+      align-self: flex-start; font-size: 0.56rem; font-weight: 700;
+      letter-spacing: 0.7px; text-transform: uppercase;
+      padding: 0.14rem 0.5rem; border-radius: 99px; border: 1px solid;
+    }
+    .ev-mail-badge.good    { color: #27AE60; border-color: #27AE60; }
+    .ev-mail-badge.success { color: #5BE188; border-color: #5BE188; }
+    .ev-mail-from { font-size: 0.55rem; color: #3a4f60; font-style: italic; }
+
+    /* ── BENTO SERVICES ───────────────────────────── */
+    .bento {
+      display: grid; grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 196px; gap: 0.9rem;
     }
     .bento-card {
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      transition: border-color 0.3s, transform 0.3s;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
-    .bento-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-3px);
-    }
+    .bento-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
     .bento-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 70% 20%, var(--glow-color, rgba(142,27,46,0.06)), transparent 60%);
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 15%, var(--glow-color, rgba(142,27,46,0.07)), transparent 58%);
       pointer-events: none;
     }
-    .bc-1 { grid-column: span 5; grid-row: span 2; --glow-color: rgba(142,27,46,0.08); }
+    .bc-1 { grid-column: span 5; grid-row: span 2; --glow-color: rgba(142,27,46,0.1); }
     .bc-2 { grid-column: span 4; --glow-color: rgba(201,168,76,0.1); }
-    .bc-3 { grid-column: span 3; --glow-color: rgba(245,158,11,0.1); }
-    .bc-4 { grid-column: span 4; --glow-color: rgba(34,197,94,0.08); }
+    .bc-3 { grid-column: span 3; --glow-color: rgba(212,151,26,0.1); }
+    .bc-4 { grid-column: span 4; --glow-color: rgba(39,174,96,0.09); }
     .bc-5 { grid-column: span 3; grid-row: span 2; --glow-color: rgba(201,168,76,0.08); }
-    .bc-6 { grid-column: span 4; --glow-color: rgba(142,27,46,0.06); }
-
-    .bento-icon {
-      font-size: 2.2rem;
-      margin-bottom: auto;
-      filter: drop-shadow(0 0 12px rgba(142,27,46,0.3));
-    }
-    .bento-icon.violet { filter: drop-shadow(0 0 12px rgba(201,168,76,0.4)); }
-    .bento-icon.amber  { filter: drop-shadow(0 0 12px rgba(245,158,11,0.4)); }
-    .bento-icon.green  { filter: drop-shadow(0 0 12px rgba(34,197,94,0.4)); }
-    .bento-card h3 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      line-height: 1.25;
-    }
-    .bc-1 h3 { font-size: 1.5rem; }
-    .bento-card p { font-size: 0.875rem; color: var(--muted2); line-height: 1.55; }
-    .bc-1 p { font-size: 1rem; }
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.8rem;
-    }
+    .bc-6 { grid-column: span 4; --glow-color: rgba(142,27,46,0.07); }
+    .bento-icon { font-size: 2.1rem; margin-bottom: auto; filter: drop-shadow(0 0 12px rgba(142,27,46,0.4)); }
+    .bento-icon.gold   { filter: drop-shadow(0 0 12px rgba(201,168,76,0.45)); }
+    .bento-icon.amber  { filter: drop-shadow(0 0 12px rgba(212,151,26,0.45)); }
+    .bento-icon.green  { filter: drop-shadow(0 0 12px rgba(39,174,96,0.45)); }
+    .bento-card h3 { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; line-height: 1.25; }
+    .bc-1 h3 { font-size: 1.45rem; }
+    .bento-card p { font-size: 0.855rem; color: var(--muted2); line-height: 1.55; }
+    .bc-1 p { font-size: 0.98rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 0.75rem; }
     .tag {
-      font-size: 0.65rem;
-      padding: 0.22rem 0.55rem;
-      border-radius: 99px;
-      border: 1px solid rgba(142,27,46,0.25);
-      color: var(--cyan);
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      font-size: 0.63rem; padding: 0.2rem 0.52rem;
+      border-radius: 99px; border: 1px solid rgba(142,27,46,0.28);
+      color: var(--crimson); font-weight: 600; letter-spacing: 0.3px;
+      background: rgba(142,27,46,0.08);
     }
-    .tag.v { border-color: rgba(201,168,76,0.35); color: #8A6A06; }
-    .tag.a { border-color: rgba(245,158,11,0.3); color: var(--amber); }
-    .tag.g { border-color: rgba(34,197,94,0.3); color: var(--green); }
+    .tag.v { border-color: rgba(201,168,76,0.3); color: var(--gold); background: rgba(201,168,76,0.07); }
+    .tag.a { border-color: rgba(212,151,26,0.3); color: var(--amber); background: rgba(212,151,26,0.07); }
+    .tag.g { border-color: rgba(39,174,96,0.3); color: var(--green); background: rgba(39,174,96,0.07); }
 
-    /* ── DOMAINS ────────────────────────────────────────────── */
+    /* ── DOMAINS ──────────────────────────────────── */
     .domains-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0;
+      display: flex; gap: 0.4rem;
+      margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0;
     }
     .domain-tab {
-      padding: 0.7rem 1.4rem;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 600;
-      font-size: 0.875rem;
-      color: var(--muted2);
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
+      padding: 0.65rem 1.3rem;
+      font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; font-size: 0.85rem;
+      color: var(--muted2); border-bottom: 2px solid transparent;
+      margin-bottom: -1px; cursor: pointer; transition: color 0.2s, border-color 0.2s;
     }
-    .domain-tab:hover { color: var(--white); }
-    .domain-tab.active { color: var(--white); border-color: var(--cyan); }
+    .domain-tab:hover { color: var(--text); }
+    .domain-tab.active { color: var(--text); border-color: var(--gold); }
     .domain-panel { display: none; }
-    .domain-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .domain-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
     .domain-case {
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.6rem;
-      transition: border-color 0.2s;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .domain-case:hover { border-color: var(--border2); }
-    .domain-case-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 0.7rem;
-    }
-    .domain-case-tag.cyan  { color: var(--cyan); }
-    .domain-case-tag.v     { color: #8A6A06; }
+    .domain-case:hover { border-color: var(--border2); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .domain-case-tag { font-size: 0.66rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .domain-case-tag.cyan  { color: #00d4ff; }
+    .domain-case-tag.v     { color: var(--gold); }
     .domain-case-tag.amber { color: var(--amber); }
-    .domain-case h4 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-    }
-    .domain-case p { color: var(--muted2); font-size: 0.875rem; line-height: 1.6; }
-    .stack-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .domain-case h4 { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 1.02rem; margin-bottom: 0.45rem; }
+    .domain-case p { color: var(--muted2); font-size: 0.855rem; line-height: 1.6; }
+    .stack-row { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 0.9rem; }
     .stack-chip {
-      font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
-      background: var(--s3);
-      border: 1px solid var(--border);
-      color: var(--muted2);
+      font-size: 0.66rem; padding: 0.18rem 0.52rem;
+      border-radius: 6px; background: var(--bg3);
+      border: 1px solid var(--border); color: var(--muted2);
     }
 
-    /* ── PROJECTS ───────────────────────────────────────────── */
-    .projects-list { display: flex; flex-direction: column; gap: 1px; }
-    .project-row {
-      display: grid;
-      grid-template-columns: 48px 1fr auto;
-      align-items: center;
-      gap: 1.6rem;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-      border-radius: 12px;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      cursor: default;
-    }
-    .project-row:hover { background: var(--s1); }
-    .project-num {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--muted);
-    }
-    .project-info h4 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-    .project-info p { font-size: 0.85rem; color: var(--muted2); }
-    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
-    .project-tag {
-      font-size: 0.65rem;
-      padding: 0.22rem 0.6rem;
-      border-radius: 99px;
-      background: var(--s3);
-      border: 1px solid var(--border);
-      color: var(--muted2);
-    }
-
-    /* ── PACKAGES ────────────────────────────────────────────── */
-    .packages-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: stretch;
-    }
+    /* ── PACKAGES ─────────────────────────────────── */
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
     .pkg-card {
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2.4rem 2rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 22px; padding: 2.3rem 2rem;
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 30px 70px rgba(0,0,0,0.13); }
+    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
     .pkg-featured {
       border-color: transparent;
-      background: linear-gradient(var(--s1), var(--s1)) padding-box,
-                  var(--grad) border-box;
-      box-shadow: 0 0 60px rgba(142,27,46,0.12), 0 30px 60px rgba(0,0,0,0.1);
+      background: linear-gradient(var(--bg2), var(--bg2)) padding-box, var(--grad) border-box;
+      box-shadow: 0 0 60px rgba(142,27,46,0.15), 0 30px 60px rgba(0,0,0,0.4);
     }
     .pkg-featured::before {
-      content: "";
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 220px; height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(142,27,46,0.1), transparent 70%);
-      pointer-events: none;
+      content: ""; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(142,27,46,0.12), transparent 70%); pointer-events: none;
     }
     .pkg-badge {
-      position: absolute;
-      top: 1.8rem; right: 1.8rem;
-      font-size: 0.62rem;
-      font-weight: 800;
-      padding: 0.28rem 0.75rem;
-      border-radius: 99px;
-      background: var(--grad);
-      color: var(--black);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
+      position: absolute; top: 1.6rem; right: 1.6rem;
+      font-size: 0.6rem; font-weight: 800; padding: 0.25rem 0.7rem;
+      border-radius: 99px; background: var(--grad); color: #fff;
+      letter-spacing: 0.8px; text-transform: uppercase;
     }
-    .pkg-tier {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-    .pkg-name {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 1.75rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-      margin-bottom: 0.7rem;
-    }
+    .pkg-tier { font-size: 0.66rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem; }
+    .pkg-name { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 0.65rem; }
     .pkg-duration {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--cyan);
-      background: rgba(142,27,46,0.09);
-      border: 1px solid rgba(142,27,46,0.2);
-      border-radius: 99px;
-      padding: 0.28rem 0.85rem;
-      margin-bottom: 1.3rem;
-      width: fit-content;
+      display: inline-block; font-size: 0.75rem; font-weight: 600; color: #00d4ff;
+      background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 99px; padding: 0.26rem 0.8rem; margin-bottom: 1.2rem; width: fit-content;
     }
-    .pkg-desc {
-      color: var(--muted2);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 1.8rem;
-      flex: 1;
-    }
-    .pkg-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-bottom: 2rem;
-    }
-    .pkg-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      font-size: 0.875rem;
-      color: var(--muted2);
-      line-height: 1.45;
-    }
+    .pkg-desc { color: var(--muted2); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.7rem; flex: 1; }
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; }
+    .pkg-feature { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.855rem; color: var(--muted2); line-height: 1.45; }
     .pkg-check {
-      width: 19px; height: 19px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 0.62rem;
-      font-weight: 700;
-      margin-top: 1px;
+      width: 18px; height: 18px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.6rem; font-weight: 700; margin-top: 1px;
     }
-    .pkg-check.c { background: rgba(142,27,46,0.12); color: var(--cyan); }
-    .pkg-check.v { background: rgba(201,168,76,0.18); color: #8A6A06; }
-    .pkg-check.a { background: rgba(245,158,11,0.14); color: var(--amber); }
+    .pkg-check.c { background: rgba(142,27,46,0.14); color: #ff8099; }
+    .pkg-check.v { background: rgba(201,168,76,0.14); color: var(--gold); }
+    .pkg-check.a { background: rgba(212,151,26,0.12); color: var(--amber); }
     .pkg-cta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.95rem 1.4rem;
-      border-radius: 14px;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid var(--border2);
-      font-size: 0.875rem;
-      font-weight: 700;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      letter-spacing: 0.2px;
-      transition: background 0.2s, transform 0.2s;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.3rem; border-radius: 12px;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border2);
+      font-size: 0.855rem; font-weight: 700;
+      font-family: "Plus Jakarta Sans", sans-serif; letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s; color: var(--text);
     }
-    .pkg-cta:hover { background: rgba(0,0,0,0.06); transform: translateX(3px); }
-    .pkg-featured .pkg-cta {
-      background: var(--grad);
-      color: var(--black);
-      border-color: transparent;
-    }
+    .pkg-cta:hover { background: rgba(255,255,255,0.06); transform: translateX(3px); }
+    .pkg-featured .pkg-cta { background: var(--grad); color: #fff; border-color: transparent; }
     .pkg-featured .pkg-cta:hover { opacity: 0.88; }
     @media (max-width: 1000px) { .packages-grid { grid-template-columns: 1fr; } }
 
-    /* ── PROCESS ────────────────────────────────────────────── */
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    /* ── PROCESS ──────────────────────────────────── */
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
     .process-step {
-      background: var(--s1);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.4rem 2rem;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.3rem 2rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
+    .process-step:hover { border-color: var(--border2); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
     .process-step::after {
-      content: "";
-      position: absolute;
-      bottom: -40px; right: -40px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--step-color, rgba(142,27,46,0.08)), transparent 70%);
+      content: ""; position: absolute; bottom: -40px; right: -40px;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, var(--step-color, rgba(142,27,46,0.1)), transparent 70%);
     }
-    .process-step:nth-child(1) { --step-color: rgba(142,27,46,0.1); }
-    .process-step:nth-child(2) { --step-color: rgba(201,168,76,0.12); }
-    .process-step:nth-child(3) { --step-color: rgba(245,158,11,0.1); }
+    .process-step:nth-child(1) { --step-color: rgba(142,27,46,0.12); }
+    .process-step:nth-child(2) { --step-color: rgba(201,168,76,0.14); }
+    .process-step:nth-child(3) { --step-color: rgba(212,151,26,0.11); }
     .step-num {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 1.2rem;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0.6;
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 3rem; font-weight: 800;
+      line-height: 1; margin-bottom: 1.2rem;
+      background: var(--grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text; opacity: 0.55;
     }
-    .process-step h4 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
-    }
-    .process-step .dur {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--cyan);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.8rem;
-    }
-    .process-step p { font-size: 0.9rem; color: var(--muted2); line-height: 1.65; }
+    .process-step h4 { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 1.13rem; margin-bottom: 0.4rem; }
+    .process-step .dur { font-size: 0.73rem; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 0.8rem; }
+    .process-step p { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
 
-    /* ── CTA ────────────────────────────────────────────────── */
-    .cta-section {
-      margin: 0 2.5rem 6rem;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    /* ── CTA ──────────────────────────────────────── */
+    .cta-section { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem 6rem; }
     .cta-inner {
-      border-radius: 28px;
-      background: linear-gradient(135deg, #0d0f26, #0a0c1e);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 6rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      color: #ffffff;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #0c1626, #080e18);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 6rem 4rem; text-align: center;
+      position: relative; overflow: hidden;
     }
     .cta-inner::before {
-      content: "";
-      position: absolute;
-      top: -80px; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 400px;
-      background: radial-gradient(ellipse, rgba(142,27,46,0.08) 0%, rgba(201,168,76,0.05) 40%, transparent 70%);
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(142,27,46,0.1) 0%, rgba(201,168,76,0.05) 40%, transparent 70%);
       pointer-events: none;
     }
     .cta-inner h2 {
       font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
+      font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1.2rem; color: var(--text);
     }
-    .cta-inner p {
-      color: var(--muted2);
-      font-size: 1.1rem;
-      max-width: 500px;
-      margin: 0 auto 2.4rem;
-      line-height: 1.7;
-    }
-    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-inner p { color: var(--muted2); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.4rem; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
 
-    /* ── FOOTER ─────────────────────────────────────────────── */
+    /* ── FOOTER ───────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1400px;
-      margin: 0 auto;
+      border-top: 1px solid var(--border); padding: 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1400px; margin: 0 auto;
     }
-    footer .f-logo {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-    }
-    footer .f-links { display: flex; gap: 2rem; font-size: 0.85rem; color: var(--muted); }
-    footer .f-links a:hover { color: var(--white); }
-    footer .f-copy { font-size: 0.8rem; color: var(--muted); }
+    footer .f-logo { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 0.95rem; }
+    footer .f-links { display: flex; gap: 2rem; font-size: 0.84rem; color: var(--muted); }
+    footer .f-links a:hover { color: var(--text); }
+    footer .f-copy { font-size: 0.78rem; color: var(--muted); }
 
-    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    /* ── RESPONSIVE ───────────────────────────────── */
+    /* ── HERO ORBS ─────────────────────────────────── */
+    .hero-orb {
+      position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(90px);
+    }
+    .hero-orb-1 {
+      width: 500px; height: 500px; top: -10%; left: -10%;
+      background: radial-gradient(circle, rgba(142,27,46,0.18) 0%, transparent 65%);
+      animation: orb-f1 10s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 340px; height: 340px; bottom: 5%; right: 2%;
+      background: radial-gradient(circle, rgba(201,168,76,0.11) 0%, transparent 65%);
+      animation: orb-f2 13s ease-in-out infinite;
+    }
+    @keyframes orb-f1 {
+      0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(35px,-28px) scale(1.06)} 70%{transform:translate(-18px,22px) scale(0.95)}
+    }
+    @keyframes orb-f2 {
+      0%,100%{transform:translate(0,0) scale(1)} 35%{transform:translate(-28px,18px) scale(1.05)} 65%{transform:translate(22px,-15px) scale(0.96)}
+    }
+
+    /* ── STATS STRIP ─────────────────────────────── */
+    .stats-strip { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem 4.5rem; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      border: 1px solid var(--border); border-radius: 18px; overflow: hidden; gap: 1px;
+      background: var(--border);
+    }
+    .stat-item {
+      background: var(--bg2); padding: 1.75rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+      transition: background 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .stat-item::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.025) 50%, transparent 60%);
+      transform: translateX(-100%); transition: transform 0.55s ease; pointer-events: none;
+    }
+    .stat-item:hover { background: var(--bg3); }
+    .stat-item:hover::after { transform: translateX(100%); }
+    .stat-num {
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 2rem; font-weight: 800; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; font-weight: 500; color: var(--text); margin-top: 0.1rem; }
+    .stat-note { font-size: 0.68rem; color: var(--muted); }
+
+    /* ── MOBILE NAV ──────────────────────────────── */
+    .nav-burger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 4px; z-index: 101; background: none; border: none;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--text); border-radius: 99px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-nav {
+      position: fixed; inset: 0; z-index: 98;
+      background: rgba(6,9,15,0.97); backdrop-filter: blur(28px);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2.2rem; pointer-events: none; opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 2rem;
+      font-weight: 800; color: var(--text); letter-spacing: -0.5px;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav .m-cta {
+      margin-top: 0.8rem; padding: 0.85rem 2rem;
+      background: var(--grad); border-radius: 99px; font-size: 1rem;
+      color: #fff; font-weight: 700;
+    }
+
+    /* ── SCROLL TO TOP ───────────────────────────── */
+    #scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 90;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--grad); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.1rem;
+      box-shadow: 0 6px 24px rgba(142,27,46,0.4);
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+      pointer-events: none;
+    }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    #scroll-top:hover { box-shadow: 0 10px 32px rgba(142,27,46,0.55); transform: translateY(-3px); }
+
+    /* ── CARD SHIMMER ────────────────────────────── */
+    .shimmer-host { isolation: isolate; }
+    .shimmer-host::after {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.035) 50%, transparent 65%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+      pointer-events: none;
+    }
+    .shimmer-host:hover::after { transform: translateX(100%); }
+
     @media (max-width: 1100px) {
+      .stats-grid { grid-template-columns: repeat(3, 1fr); }
       .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
       .hero-dashboard { max-width: 500px; }
       .bento { grid-template-columns: repeat(6, 1fr); }
@@ -969,16 +802,16 @@
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
-      .hero { padding: 90px 1.5rem 60px; }
+      .nav-burger { display: flex; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 88px 1.5rem 60px; }
       .section { padding: 5rem 1.5rem; }
       .clients-section { padding: 4rem 1.5rem; }
       .bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
-      .bento-card { padding: 1.6rem; min-height: 160px; }
-      .bc-1, .bc-2, .bc-3, .bc-4, .bc-5, .bc-6 { grid-column: span 1; grid-row: span 1; }
+      .bento-card { padding: 1.55rem; min-height: 156px; }
+      .bc-1,.bc-2,.bc-3,.bc-4,.bc-5,.bc-6 { grid-column: span 1; grid-row: span 1; }
       .domain-panel.active { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; }
-      .project-row { grid-template-columns: 36px 1fr; }
-      .project-tags { display: none; }
       .cta-inner { padding: 4rem 1.8rem; }
       footer { flex-direction: column; gap: 1.5rem; text-align: center; }
       #cursor-dot, #cursor-ring { display: none; }
@@ -988,32 +821,43 @@
 </head>
 <body>
 
-  <!-- Scroll progress -->
   <div id="progress-bar"></div>
-
-  <!-- Custom cursor -->
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#clients" class="mobile-link">Clients</a>
+    <a href="#evidence" class="mobile-link">Evidence</a>
+    <a href="#domains" class="mobile-link">Domains</a>
+    <a href="#projects" class="mobile-link">Packages</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="mailto:pasha.jamal@icloud.com" class="m-cta mobile-link">Start a project</a>
+  </div>
 
   <!-- ── NAV ── -->
   <nav id="main-nav">
     <div class="nav-logo">
-      <img src="images/logo.png" alt="Logo" class="nav-logo-img"
-        onerror="this.style.display='none'" />
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img" onerror="this.style.display='none'" />
       Jae Pasha
     </div>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#clients">Clients</a>
+      <a href="#evidence">Evidence</a>
       <a href="#domains">Domains</a>
-      <a href="#projects">Projects</a>
+      <a href="#projects">Packages</a>
       <a href="#contact">Contact</a>
     </div>
     <a class="nav-cta hover-target" href="mailto:pasha.jamal@icloud.com">Start a project</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ── HERO ── -->
   <header class="hero" id="top">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
     <div class="hero-grid">
       <div class="hero-left">
         <div class="hero-profile-row">
@@ -1025,116 +869,288 @@
             <span class="hero-profile-name">Jae Pasha</span>
             <span class="hero-profile-tag">
               <span class="status-dot"></span>
-              Available for projects &mdash; London, UK
+              Available for projects · London, UK
             </span>
           </div>
         </div>
-        <!-- Certification badge -->
         <div class="cert-row">
-          <span class="cert-badge"><span class="cb-icon">🏅</span> Certified Expert Cloud Solutions Architect</span>
+          <span class="cert-badge"><span>✦</span> Certified Expert Cloud Solutions Architect</span>
         </div>
         <p class="hero-eyebrow">Cloud · Data · AI · Security</p>
         <h1 class="hero-title">
-          Build systems<br>
-          that <span class="grad-text">never break.</span>
+          Build systems<br>that <span class="grad-text">never break.</span>
         </h1>
         <p class="hero-desc">
-          Hands-on engineering partner delivering SQL reliability, Azure data platforms, AI automation, and security-hardened cloud operations — auditable, fast, and resilient under real production load.
+          Hands-on engineering partner delivering SQL reliability, Azure data platforms, AI automation, and security-hardened cloud operations. Fast, auditable, and resilient under real production load.
         </p>
         <div class="hero-actions">
           <a class="btn-primary hover-target" href="#projects">See my work</a>
+          <button class="btn-outline hover-target" onclick="Calendly.initPopupWidget({url:'https://calendly.com/pasha-jamal'});return false;">Book a call</button>
           <a class="btn-outline hover-target" href="#services">Explore services</a>
         </div>
       </div>
 
-      <div class="hero-dashboard">
+      <div class="hero-dashboard" id="hero-dash">
         <div class="db-header">
-          <div class="db-dots">
-            <div class="db-dot"></div>
-            <div class="db-dot"></div>
-            <div class="db-dot"></div>
-          </div>
-          <span class="db-title">SYSTEM DASHBOARD</span>
+          <div class="db-dots"><div class="db-dot"></div><div class="db-dot"></div><div class="db-dot"></div></div>
+          <span class="db-title">AZURE LIVE MONITOR</span>
           <span class="db-live"><span class="status-dot"></span>LIVE</span>
         </div>
+        <div class="db-tabs">
+          <div class="db-tab-btn active" data-dpanel="cost">Cost</div>
+          <div class="db-tab-btn" data-dpanel="health">Health</div>
+          <div class="db-tab-btn" data-dpanel="security">Security</div>
+          <div class="db-tab-btn" data-dpanel="capacity">Capacity</div>
+        </div>
         <div class="db-body">
-          <div class="db-stat-row">
-            <div class="db-stat">
-              <div class="db-stat-val c1" data-count-target="5" data-suffix=" min">0</div>
-              <div class="db-stat-label">Alert detection</div>
+
+          <!-- Cost panel -->
+          <div class="db-panel active" id="dpanel-cost">
+            <div class="db-stat-row">
+              <div class="db-stat">
+                <div class="db-stat-val c1" data-count-target="42" data-prefix="£" data-suffix="k">0</div>
+                <div class="db-stat-label">Monthly spend</div>
+              </div>
+              <div class="db-stat">
+                <div class="db-stat-val c4" data-count-target="18" data-prefix="-" data-suffix="%">0</div>
+                <div class="db-stat-label">Cost reduction</div>
+              </div>
             </div>
-            <div class="db-stat">
-              <div class="db-stat-val c2" data-count-target="730" data-suffix=" days">0</div>
-              <div class="db-stat-label">Log retention</div>
+            <div class="db-bar-block">
+              <div class="db-bar-label" style="margin-bottom:0.65rem"><span style="font-size:0.65rem;color:#4e6278">Spend by resource type</span></div>
+              <div class="db-cost-item">
+                <span class="db-cost-name">SQL Databases</span>
+                <div class="db-cost-track"><div class="db-cost-fill" style="width:68%;background:#00d4ff"></div></div>
+                <span class="db-cost-val">£28.4k</span>
+              </div>
+              <div class="db-cost-item" style="margin-top:0.4rem">
+                <span class="db-cost-name">Storage</span>
+                <div class="db-cost-track"><div class="db-cost-fill" style="width:24%;background:#C9A84C"></div></div>
+                <span class="db-cost-val">£9.8k</span>
+              </div>
+              <div class="db-cost-item" style="margin-top:0.4rem">
+                <span class="db-cost-name">Logic Apps</span>
+                <div class="db-cost-track"><div class="db-cost-fill" style="width:9%;background:#27AE60"></div></div>
+                <span class="db-cost-val">£3.8k</span>
+              </div>
             </div>
-            <div class="db-stat">
-              <div class="db-stat-val c3" data-count-target="20" data-prefix="+" data-suffix="%">0</div>
-              <div class="db-stat-label">CPU gain</div>
-            </div>
-            <div class="db-stat">
-              <div class="db-stat-val c4" data-count-target="18" data-suffix=" mo">0</div>
-              <div class="db-stat-label">Capacity mapped</div>
-            </div>
+            <div class="db-ticker"><span>▸ Budget: 74% used &nbsp;|▸ Savings from tiering: £7.2k &nbsp;|▸ Reserved instances active &nbsp;|▸ Amortized cost stable &nbsp;&nbsp;&nbsp;&nbsp;</span></div>
           </div>
-          <div class="db-bar-block">
-            <div class="db-bar-label"><span>SQL Health Index</span><span style="color:var(--cyan)">72%</span></div>
-            <div class="db-bar-track"><div class="db-bar-fill" style="width:72%"></div></div>
-            <div class="db-bar-label"><span>Pipeline Stability</span><span style="color:#a78bfa">61%</span></div>
-            <div class="db-bar-track"><div class="db-bar-fill v2" style="width:61%"></div></div>
-            <div class="db-bar-label" style="margin-top:0.4rem"><span>Automation Coverage</span><span style="color:var(--green)">88%</span></div>
-            <div class="db-bar-track"><div class="db-bar-fill v3" style="width:88%"></div></div>
+
+          <!-- Health panel -->
+          <div class="db-panel" id="dpanel-health">
+            <div class="db-stat-row">
+              <div class="db-stat"><div class="db-stat-val c4" data-count-target="99.8" data-suffix="%">0</div><div class="db-stat-label">SQL uptime</div></div>
+              <div class="db-stat"><div class="db-stat-val c1" data-count-target="5" data-suffix=" min">0</div><div class="db-stat-label">Alert detection</div></div>
+              <div class="db-stat"><div class="db-stat-val c3" data-count-target="0" data-suffix=" fails">0</div><div class="db-stat-label">Jobs failed (7d)</div></div>
+              <div class="db-stat"><div class="db-stat-val c2" data-count-target="6" data-suffix=" rules">0</div><div class="db-stat-label">Alert rules live</div></div>
+            </div>
+            <div class="db-bar-block">
+              <div class="db-bar-label"><span>Index maintenance</span><span style="color:#00d4ff">88%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill" style="width:88%"></div></div>
+              <div class="db-bar-label"><span>CPU improvement</span><span style="color:#C9A84C">+20%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill v2" style="width:65%"></div></div>
+              <div class="db-bar-label"><span>Log Analytics coverage</span><span style="color:#27AE60">100%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill v3" style="width:100%"></div></div>
+            </div>
+            <div class="db-ticker"><span>▸ SQL health email sent &nbsp;|▸ KQL export complete &nbsp;|▸ ADLS ingest stable &nbsp;|▸ Power BI refresh OK &nbsp;|▸ Index rebuild scheduled &nbsp;&nbsp;&nbsp;&nbsp;</span></div>
           </div>
-          <div class="db-ticker">
-            <span>▸ SQL health email sent &nbsp;|&nbsp; ▸ KQL export complete &nbsp;|&nbsp; ▸ ADLS ingest stable &nbsp;|&nbsp; ▸ Power BI refresh OK &nbsp;|&nbsp; ▸ Alert rules active &nbsp;|&nbsp; ▸ Index rebuild scheduled &nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+          <!-- Security panel -->
+          <div class="db-panel" id="dpanel-security">
+            <div class="db-bar-block" style="display:flex;align-items:center;gap:1.1rem">
+              <div class="db-score-ring"><div class="db-score-inner">89</div></div>
+              <div style="flex:1">
+                <div style="font-size:0.65rem;color:#4e6278;margin-bottom:0.3rem">Microsoft Secure Score</div>
+                <div style="font-size:1.45rem;font-weight:800;color:#22c55e;font-family:'Plus Jakarta Sans',sans-serif;line-height:1">89<span style="font-size:0.85rem;font-weight:600;opacity:0.55"> / 100</span></div>
+                <div style="font-size:0.62rem;color:#4e6278;margin-top:0.3rem">↑ from 76 at engagement start</div>
+              </div>
+            </div>
+            <div class="db-stat-row">
+              <div class="db-stat"><div class="db-stat-val c4" data-count-target="47">0</div><div class="db-stat-label">RBAC roles audited</div></div>
+              <div class="db-stat"><div class="db-stat-val c1" data-count-target="12">0</div><div class="db-stat-label">Private endpoints</div></div>
+              <div class="db-stat"><div class="db-stat-val c3" data-count-target="0">0</div><div class="db-stat-label">Active threats</div></div>
+              <div class="db-stat"><div class="db-stat-val c1" data-count-target="100" data-suffix="%">0</div><div class="db-stat-label">Key Vault compliant</div></div>
+            </div>
+            <div class="db-ticker"><span>▸ Defender for Cloud: active &nbsp;|▸ Managed identities enforced &nbsp;|▸ Zero public SQL endpoints &nbsp;|▸ NSG rules reviewed &nbsp;&nbsp;&nbsp;&nbsp;</span></div>
           </div>
+
+          <!-- Capacity panel -->
+          <div class="db-panel" id="dpanel-capacity">
+            <div class="db-stat-row">
+              <div class="db-stat"><div class="db-stat-val c1" data-count-target="486" data-suffix="M">0</div><div class="db-stat-label">Records managed</div></div>
+              <div class="db-stat"><div class="db-stat-val c4" data-count-target="18" data-suffix=" mo">0</div><div class="db-stat-label">Storage runway</div></div>
+              <div class="db-stat"><div class="db-stat-val c2" data-count-target="362">0</div><div class="db-stat-label">Tables documented</div></div>
+              <div class="db-stat"><div class="db-stat-val c3" data-count-target="730" data-suffix="d">0</div><div class="db-stat-label">Log retention</div></div>
+            </div>
+            <div class="db-bar-block">
+              <div class="db-bar-label"><span>Storage utilisation</span><span style="color:#00d4ff">67%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill" style="width:67%"></div></div>
+              <div class="db-bar-label"><span>Monthly growth rate</span><span style="color:#C9A84C">7%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill v2" style="width:35%"></div></div>
+              <div class="db-bar-label"><span>Forecast model accuracy</span><span style="color:#27AE60">94%</span></div>
+              <div class="db-bar-track"><div class="db-bar-fill v3" style="width:94%"></div></div>
+            </div>
+            <div class="db-ticker"><span>▸ Capacity report to CTO board &nbsp;|▸ 12-mo forecast delivered &nbsp;|▸ Tiering plan approved &nbsp;|▸ Archive policy active &nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+          </div>
+
         </div>
       </div>
     </div>
   </header>
+
+  <!-- ── STATS ── -->
+  <div class="stats-strip reveal">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num">486M</span>
+        <span class="stat-label">Records managed</span>
+        <span class="stat-note">Across production databases</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">99.8%</span>
+        <span class="stat-label">SQL uptime delivered</span>
+        <span class="stat-note">With 5-min alert detection</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">18mo</span>
+        <span class="stat-label">Storage runway</span>
+        <span class="stat-note">Forecasted &amp; capacity-planned</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">89/100</span>
+        <span class="stat-label">Secure Score</span>
+        <span class="stat-note">Up from 76 at engagement start</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">362</span>
+        <span class="stat-label">Tables documented</span>
+        <span class="stat-note">With dependency graphs &amp; glossary</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ── CLIENTS ── -->
   <div class="divider"></div>
   <div class="clients-section reveal" id="clients">
     <div class="clients-label">Teams I have supported</div>
     <div class="clients-grid">
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/google.png" alt="Google"></div>
-        <span class="client-name">Google</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/software-ag.png" alt="Software AG"></div>
-        <span class="client-name">Software AG</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/dye-durham.png" alt="Dye and Durham"></div>
-        <span class="client-name">Dye & Durham</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/credas.png" alt="Credas"></div>
-        <span class="client-name">Credas</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/kemet.png" alt="KEMET Electronics"></div>
-        <span class="client-name">KEMET Electronics</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/mondi.png" alt="Mondi Group"></div>
-        <span class="client-name">Mondi Group</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/bg-foods.png" alt="BG Foods"></div>
-        <span class="client-name">BG Foods</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/house-of-qami.png" alt="House of qAmi"></div>
-        <span class="client-name">House of qAmi</span>
-      </div>
-      <div class="client-card hover-target">
-        <div class="client-logo-box"><img src="images/logos/huxan.png" alt="Huxan Holdings"></div>
-        <span class="client-name">Huxan Holdings</span>
-      </div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/google.png" alt="Google"></div><span class="client-name">Google</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/software-ag.png" alt="Software AG"></div><span class="client-name">Software AG</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/dye-durham.png" alt="Dye and Durham"></div><span class="client-name">Dye &amp; Durham</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/credas.png" alt="Credas"></div><span class="client-name">Credas</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/kemet.png" alt="KEMET Electronics"></div><span class="client-name">KEMET Electronics</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/mondi.png" alt="Mondi Group"></div><span class="client-name">Mondi Group</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/bg-foods.png" alt="BG Foods"></div><span class="client-name">BG Foods</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/house-of-qami.png" alt="House of qAmi"></div><span class="client-name">House of qAmi</span></div>
+      <div class="client-card hover-target"><div class="client-logo-box"><img src="images/logos/huxan.png" alt="Huxan Holdings"></div><span class="client-name">Huxan Holdings</span></div>
     </div>
   </div>
+  <div class="divider"></div>
+
+  <!-- ── EVIDENCE ── -->
+  <section class="section" id="evidence">
+    <div class="section-head reveal">
+      <div class="section-label">Live evidence</div>
+      <h2 class="section-title">Real dashboards.<br><span class="grad-text">Real production environments.</span></h2>
+      <p class="section-sub">SquaredUp monitoring dashboards built and maintained across cost, SQL health, security, and capacity. All running live inside Azure at enterprise scale. Includes automated reports delivered by Azure Logic Apps. Company details are blurred to protect client confidentiality; hover to preview structure.</p>
+    </div>
+    <div class="evidence-grid reveal">
+      <div class="ev-card hover-target">
+        <span class="ev-tag ops">Executive</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/Custom/CTO Board Connect/SquaredUp CTO Board Connect 27_01_2026, 11_14_13.png" alt="CTO Board Connect dashboard" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">CTO Board Connect Overview</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag cost">Cost</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/CostManagement/Total Costs/SquaredUp Total Costs 27_01_2026, 11_20_22.png" alt="Total Costs dashboard" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Total Azure Cost Management</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag cost">Cost</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/CostManagement/Database Costs (last month)/SquaredUp Database Costs (last month) 27_01_2026, 11_21_03.png" alt="Database Costs" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Database Cost Analysis (Last Month)</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag health">Health</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/Alerts/SquaredUp Alerts 27_01_2026, 11_17_42.png" alt="Alerts dashboard" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Azure Monitor Alert Rules &amp; Status</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag health">SQL</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/AzureMonitor/SQLdB/SquaredUp SQL Databases 27_01_2026, 11_24_11.png" alt="SQL Databases" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">SQL Database Health &amp; Performance</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag ops">Capacity</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/Custom/Capacity/SquaredUp Capacity 27_01_2026, 11_38_54.png" alt="Capacity planning" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Storage Capacity &amp; Growth Forecast</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag security">Security</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/AzureMonitor/Key Vaults/SquaredUp Key Vaults 27_01_2026, 11_28_30.png" alt="Key Vaults" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Key Vault Access &amp; Compliance</div>
+      </div>
+      <div class="ev-card hover-target">
+        <span class="ev-tag ops">Ops</span>
+        <div class="ev-img-wrap">
+          <img src="Dashboards/Squaredup/Custom/Connect Overview/SquaredUp Connect Overview 27_01_2026, 11_32_29.png" alt="Connect Overview" />
+          <div class="ev-redact"><span class="ev-redact-icon">🔒</span><span class="ev-redact-text">Confidential</span></div>
+        </div>
+        <div class="ev-label">Environment Connect Overview</div>
+      </div>
+      <a class="ev-card ev-link hover-target" href="reports/db-performance-report.html" target="_blank">
+        <span class="ev-tag report">Report</span>
+        <div class="ev-img-wrap ev-mail-wrap">
+          <div class="ev-mail-preview">
+            <div class="ev-mail-subject">Daily Performance Report</div>
+            <div class="ev-mail-stats">
+              <span>P95: 56.17ms</span><span>32.5M queries</span><span>CPU: 9.0%</span><span>Mem: 63.3%</span>
+            </div>
+            <div class="ev-mail-badge good">Good</div>
+            <div class="ev-mail-from">Automated via Azure Logic Apps · Mon 26 Jan 2026</div>
+          </div>
+        </div>
+        <div class="ev-label">DB Daily Performance Report: Production DB</div>
+      </a>
+      <a class="ev-card ev-link hover-target" href="reports/db-maintenance-report.html" target="_blank">
+        <span class="ev-tag ops">Automation</span>
+        <div class="ev-img-wrap ev-mail-wrap">
+          <div class="ev-mail-preview">
+            <div class="ev-mail-subject">Database Maintenance</div>
+            <div class="ev-mail-stats">
+              <span>14 rebuilt</span><span>49 reorganised</span><span>788 stats</span><span>28m 45s</span>
+            </div>
+            <div class="ev-mail-badge success">Completed Successfully</div>
+            <div class="ev-mail-from">Automated via Azure Logic Apps · Sun 25 Jan 2026 04:00</div>
+          </div>
+        </div>
+        <div class="ev-label">DB Maintenance Report: Production DB</div>
+      </a>
+    </div>
+  </section>
+
   <div class="divider"></div>
 
   <!-- ── SERVICES ── -->
@@ -1142,10 +1158,10 @@
     <div class="section-head reveal">
       <div class="section-label">What I do</div>
       <h2 class="section-title">Engineering depth across<br>every layer.</h2>
-      <p class="section-sub">From SQL reliability to AI automation and zero-trust cloud security — end-to-end ownership with real production outcomes.</p>
+      <p class="section-sub">From SQL reliability to AI automation and zero-trust cloud security. End-to-end ownership with real production outcomes.</p>
     </div>
     <div class="bento reveal">
-      <div class="bento-card bc-1 hover-target">
+      <div class="bento-card bc-1 hover-target shimmer-host">
         <div class="bento-icon">⚡</div>
         <h3>Reliability Engineering</h3>
         <p>Automation for health checks, index and stats maintenance, and audit-ready operations on SQL Server and Azure SQL.</p>
@@ -1155,25 +1171,25 @@
           <span class="tag">Runbooks</span>
         </div>
       </div>
-      <div class="bento-card bc-2 hover-target">
-        <div class="bento-icon violet">👁</div>
-        <h3>Observability & Alerting</h3>
+      <div class="bento-card bc-2 hover-target shimmer-host">
+        <div class="bento-icon gold">◉</div>
+        <h3>Observability &amp; Alerting</h3>
         <p>Azure Monitor, Log Analytics, and KQL-driven incident response with 5-minute evaluation windows.</p>
         <div class="tag-row">
           <span class="tag v">Azure Monitor</span>
           <span class="tag v">KQL</span>
         </div>
       </div>
-      <div class="bento-card bc-3 hover-target">
-        <div class="bento-icon amber">🤖</div>
+      <div class="bento-card bc-3 hover-target shimmer-host">
+        <div class="bento-icon amber">✦</div>
         <h3>AI Automation</h3>
-        <p>AI agents for reporting, monitoring, and operational triage — with clear human oversight.</p>
+        <p>AI agents for reporting, monitoring, and operational triage, with clear human oversight.</p>
         <div class="tag-row">
           <span class="tag a">LLM Ops</span>
         </div>
       </div>
-      <div class="bento-card bc-4 hover-target">
-        <div class="bento-icon green">🗄</div>
+      <div class="bento-card bc-4 hover-target shimmer-host">
+        <div class="bento-icon green">⬡</div>
         <h3>Data Platforms</h3>
         <p>Lake to medallion to warehouse using ADLS Gen2, Databricks, ADF, Synapse or Snowflake.</p>
         <div class="tag-row">
@@ -1181,9 +1197,9 @@
           <span class="tag g">Databricks</span>
         </div>
       </div>
-      <div class="bento-card bc-5 hover-target">
-        <div class="bento-icon violet">📊</div>
-        <h3>BI & Analytics</h3>
+      <div class="bento-card bc-5 hover-target shimmer-host">
+        <div class="bento-icon gold">▦</div>
+        <h3>BI &amp; Analytics</h3>
         <p>Power BI reporting with M scripts and KQL exports for long-term performance trends and 2-year forecasting.</p>
         <div class="tag-row">
           <span class="tag v">Power BI</span>
@@ -1191,8 +1207,8 @@
           <span class="tag v">KQL</span>
         </div>
       </div>
-      <div class="bento-card bc-6 hover-target">
-        <div class="bento-icon">🔒</div>
+      <div class="bento-card bc-6 hover-target shimmer-host">
+        <div class="bento-icon">⊗</div>
         <h3>Cloud &amp; Security</h3>
         <p>Zero-trust environments, RBAC, Defender for Cloud, compliance-ready audit logging, and security baseline enforcement.</p>
         <div class="tag-row">
@@ -1223,167 +1239,106 @@
       </div>
       <div class="domain-panel active" id="tab-ai">
         <div class="domain-case">
-          <div class="domain-case-tag cyan">AI & Automation</div>
+          <div class="domain-case-tag cyan">AI &amp; Automation</div>
           <h4>Operational Triage Guides</h4>
           <p>Decision trees linked to KQL and SQL checks for CPU, blocking, and storage incidents. Immediate clarity on what to fix and who owns it.</p>
-          <div class="stack-row">
-            <span class="stack-chip">PowerShell</span>
-            <span class="stack-chip">KQL</span>
-            <span class="stack-chip">Decision Trees</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">PowerShell</span><span class="stack-chip">KQL</span><span class="stack-chip">Decision Trees</span></div>
         </div>
         <div class="domain-case">
-          <div class="domain-case-tag cyan">AI & Automation</div>
+          <div class="domain-case-tag cyan">AI &amp; Automation</div>
           <h4>Human-in-the-Loop Reporting</h4>
-          <p>Automated HTML health summaries with clear owner actions and escalation paths. No noise — just what the team needs to act.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Azure Automation</span>
-            <span class="stack-chip">Logic Apps</span>
-            <span class="stack-chip">LLM Ops</span>
-          </div>
+          <p>Automated HTML health summaries with clear owner actions and escalation paths. No noise, just what the team needs to act.</p>
+          <div class="stack-row"><span class="stack-chip">Azure Automation</span><span class="stack-chip">Logic Apps</span><span class="stack-chip">LLM Ops</span></div>
         </div>
         <div class="domain-case">
-          <div class="domain-case-tag cyan">AI & Automation</div>
+          <div class="domain-case-tag cyan">AI &amp; Automation</div>
           <h4>Automation Foundations</h4>
           <p>PowerShell runbooks and Logic Apps used as the control plane for safe, auditable AI adoption at enterprise scale.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Azure Automation</span>
-            <span class="stack-chip">Logic Apps</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Azure Automation</span><span class="stack-chip">Logic Apps</span></div>
         </div>
         <div class="domain-case">
-          <div class="domain-case-tag cyan">AI & Automation</div>
-          <h4>Automation Foundations</h4>
-          <p>PowerShell runbooks and Logic Apps used as a safe control plane — with full audit trails and human approval gates.</p>
-          <div class="stack-row">
-            <span class="stack-chip">PowerShell</span>
-            <span class="stack-chip">Logic Apps</span>
-            <span class="stack-chip">Azure Automation</span>
-          </div>
+          <div class="domain-case-tag cyan">AI &amp; Automation</div>
+          <h4>Reliable Automation Pipelines</h4>
+          <p>PowerShell runbooks and Logic Apps used as a safe control plane, with full audit trails and human approval gates.</p>
+          <div class="stack-row"><span class="stack-chip">PowerShell</span><span class="stack-chip">Logic Apps</span><span class="stack-chip">Azure Automation</span></div>
         </div>
       </div>
       <div class="domain-panel" id="tab-data">
         <div class="domain-case">
           <div class="domain-case-tag v">Data Engineering</div>
-          <h4>Lake → Medallion → Warehouse</h4>
+          <h4>Lake to Medallion to Warehouse</h4>
           <p>ADLS Gen2 raw layer, Databricks bronze/silver/gold medallion architecture, and ADF-powered silver transformations.</p>
-          <div class="stack-row">
-            <span class="stack-chip">ADLS Gen2</span>
-            <span class="stack-chip">Databricks</span>
-            <span class="stack-chip">ADF</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">ADLS Gen2</span><span class="stack-chip">Databricks</span><span class="stack-chip">ADF</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag v">Data Engineering</div>
           <h4>2-Year Trend Analytics</h4>
           <p>Extended Log Analytics retention to 730 days, KQL exports feeding M scripts for long-term forecasting in Power BI.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Log Analytics</span>
-            <span class="stack-chip">Power BI</span>
-            <span class="stack-chip">M Scripts</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Log Analytics</span><span class="stack-chip">Power BI</span><span class="stack-chip">M Scripts</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag v">Data Engineering</div>
           <h4>CSV Exports for BI</h4>
           <p>Daily performance datasets exported via PowerShell runbooks and delivered to SharePoint through Logic Apps.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Logic Apps</span>
-            <span class="stack-chip">SharePoint</span>
-            <span class="stack-chip">Snowflake</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Logic Apps</span><span class="stack-chip">SharePoint</span><span class="stack-chip">Snowflake</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag v">Data Engineering</div>
           <h4>Production Schema Documentation</h4>
           <p>Documented 362 tables, 486.6M records, and 268 foreign keys with full diagrams, dependency graphs, and a business glossary.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Schema Mapping</span>
-            <span class="stack-chip">Dependency Graphs</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Schema Mapping</span><span class="stack-chip">Dependency Graphs</span></div>
         </div>
       </div>
       <div class="domain-panel" id="tab-cloud">
         <div class="domain-case">
           <div class="domain-case-tag amber">Cloud Engineering</div>
           <h4>Health Monitoring Automation</h4>
-          <p>Daily HTML health emails covering CPU, blocking, deadlocks, failed jobs, and storage — built on Azure Automation and PowerShell.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Azure Automation</span>
-            <span class="stack-chip">PowerShell</span>
-          </div>
+          <p>Daily HTML health emails covering CPU, blocking, deadlocks, failed jobs, and storage, built on Azure Automation and PowerShell.</p>
+          <div class="stack-row"><span class="stack-chip">Azure Automation</span><span class="stack-chip">PowerShell</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag amber">Cloud Engineering</div>
           <h4>Azure Monitor Alert Rules</h4>
           <p>6 alert rules, 5-minute evaluation windows, SMS and email action groups, and full incident playbooks per alert type.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Azure Monitor</span>
-            <span class="stack-chip">Action Groups</span>
-            <span class="stack-chip">SLA</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Azure Monitor</span><span class="stack-chip">Action Groups</span><span class="stack-chip">SLA</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag amber">Cloud Engineering</div>
           <h4>Capacity Planning</h4>
-          <p>Historical growth analysis with 12–18 month runway projections, tiering recommendations, and cost modelling options.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Forecasting</span>
-            <span class="stack-chip">Tiering</span>
-            <span class="stack-chip">FinOps</span>
-          </div>
+          <p>Historical growth analysis with 12 to 18 month runway projections, tiering recommendations, and cost modelling options.</p>
+          <div class="stack-row"><span class="stack-chip">Forecasting</span><span class="stack-chip">Tiering</span><span class="stack-chip">FinOps</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag amber">Cloud Engineering</div>
           <h4>Ola Hallengren Automation</h4>
           <p>Index and stats maintenance runbooks with CommandLog audit trails, off-peak scheduling, and integrity check coverage.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Ola Hallengren</span>
-            <span class="stack-chip">CommandLog</span>
-            <span class="stack-chip">Runbooks</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Ola Hallengren</span><span class="stack-chip">CommandLog</span><span class="stack-chip">Runbooks</span></div>
         </div>
       </div>
       <div class="domain-panel" id="tab-security">
         <div class="domain-case">
           <div class="domain-case-tag cyan">Security</div>
           <h4>Zero-Trust Access Control</h4>
-          <p>RBAC design and enforcement across Azure subscriptions — least-privilege roles, managed identities replacing service accounts, and access reviews built into governance runbooks.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Azure RBAC</span>
-            <span class="stack-chip">Managed Identity</span>
-            <span class="stack-chip">Entra ID</span>
-          </div>
+          <p>RBAC design and enforcement across Azure subscriptions. Least-privilege roles, managed identities replacing service accounts, and access reviews built into governance runbooks.</p>
+          <div class="stack-row"><span class="stack-chip">Azure RBAC</span><span class="stack-chip">Managed Identity</span><span class="stack-chip">Entra ID</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag cyan">Security</div>
           <h4>Compliance &amp; Audit Logging</h4>
           <p>Immutable audit trails via Log Analytics, diagnostic settings on all critical resources, and retention policies aligned to ISO/SOC requirements.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Log Analytics</span>
-            <span class="stack-chip">Diagnostic Settings</span>
-            <span class="stack-chip">Azure Policy</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Log Analytics</span><span class="stack-chip">Diagnostic Settings</span><span class="stack-chip">Azure Policy</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag cyan">Security</div>
           <h4>Threat Detection &amp; Response</h4>
           <p>Microsoft Defender for Cloud and Sentinel alert rules with KQL threat queries, action groups, and incident playbooks that keep response time under 5 minutes.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Defender for Cloud</span>
-            <span class="stack-chip">Microsoft Sentinel</span>
-            <span class="stack-chip">KQL</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Defender for Cloud</span><span class="stack-chip">Microsoft Sentinel</span><span class="stack-chip">KQL</span></div>
         </div>
         <div class="domain-case">
           <div class="domain-case-tag cyan">Security</div>
           <h4>Security Baseline &amp; Hardening</h4>
           <p>Azure Security Benchmark alignment, network segmentation with NSGs and Private Endpoints, and automated Secure Score remediation tracking.</p>
-          <div class="stack-row">
-            <span class="stack-chip">Security Benchmark</span>
-            <span class="stack-chip">Private Endpoints</span>
-            <span class="stack-chip">NSG</span>
-          </div>
+          <div class="stack-row"><span class="stack-chip">Security Benchmark</span><span class="stack-chip">Private Endpoints</span><span class="stack-chip">NSG</span></div>
         </div>
       </div>
     </div>
@@ -1396,16 +1351,15 @@
     <div class="section-head reveal">
       <div class="section-label">Engagement packages</div>
       <h2 class="section-title">Three ways to work<br>together.</h2>
-      <p class="section-sub">From rapid discovery to full-scale delivery and ongoing operations — scoped to what you actually need.</p>
+      <p class="section-sub">From rapid discovery to full-scale delivery and ongoing operations, scoped to what you actually need.</p>
     </div>
     <div class="packages-grid reveal">
 
-      <!-- Package 1: Rapid Audit -->
-      <div class="pkg-card hover-target">
+      <div class="pkg-card shimmer-host hover-target">
         <div class="pkg-tier">Discovery</div>
         <div class="pkg-name">Rapid Audit</div>
-        <div class="pkg-duration">2 – 4 weeks</div>
-        <p class="pkg-desc">Start with total clarity. A full environment assessment across SQL, Azure, and data — with a prioritised roadmap of exactly what to fix, in what order, and why.</p>
+        <div class="pkg-duration">2 to 4 weeks</div>
+        <p class="pkg-desc">Start with total clarity. A full environment assessment across SQL, Azure, and data, with a prioritised roadmap of exactly what to fix, in what order, and why.</p>
         <ul class="pkg-features">
           <li class="pkg-feature"><span class="pkg-check c">✓</span>SQL Server &amp; Azure SQL health review</li>
           <li class="pkg-feature"><span class="pkg-check c">✓</span>Telemetry &amp; observability gap analysis</li>
@@ -1417,13 +1371,12 @@
         <a class="pkg-cta hover-target" href="mailto:pasha.jamal@icloud.com">Book a discovery call <span>→</span></a>
       </div>
 
-      <!-- Package 2: Full Delivery (featured) -->
-      <div class="pkg-card pkg-featured hover-target">
+      <div class="pkg-card pkg-featured shimmer-host hover-target">
         <div class="pkg-badge">Most popular</div>
         <div class="pkg-tier">Full Engagement</div>
         <div class="pkg-name">Build &amp; Deliver</div>
-        <div class="pkg-duration" style="color:#8A6A06;background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.28);">4 – 12 weeks</div>
-        <p class="pkg-desc">End-to-end delivery from audit through to production. Monitoring, automation, data pipelines, analytics dashboards, and full documentation — all shipped and tested.</p>
+        <div class="pkg-duration" style="color:#C9A84C;background:rgba(201,168,76,0.09);border-color:rgba(201,168,76,0.25);">4 to 12 weeks</div>
+        <p class="pkg-desc">End-to-end delivery from audit through to production. Monitoring, automation, data pipelines, analytics dashboards, and full documentation, all shipped and tested.</p>
         <ul class="pkg-features">
           <li class="pkg-feature"><span class="pkg-check v">✓</span>Everything in Rapid Audit</li>
           <li class="pkg-feature"><span class="pkg-check v">✓</span>24/7 health monitoring pipeline</li>
@@ -1436,19 +1389,18 @@
         <a class="pkg-cta hover-target" href="mailto:pasha.jamal@icloud.com">Start a project <span>→</span></a>
       </div>
 
-      <!-- Package 3: Ongoing Ops -->
-      <div class="pkg-card hover-target">
+      <div class="pkg-card shimmer-host hover-target">
         <div class="pkg-tier">Retained</div>
         <div class="pkg-name">Ongoing Ops</div>
-        <div class="pkg-duration" style="color:var(--amber);background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.22);">Rolling monthly</div>
-        <p class="pkg-desc">Keep your systems ahead of growth. Regular health reviews, cost tuning, pipeline maintenance, and continuous delivery — on a light, flexible retained basis.</p>
+        <div class="pkg-duration" style="color:#D4971A;background:rgba(212,151,26,0.08);border-color:rgba(212,151,26,0.22);">Rolling monthly</div>
+        <p class="pkg-desc">Keep your systems ahead of growth. Regular health reviews, cost tuning, pipeline maintenance, and continuous delivery on a light, flexible retained basis.</p>
         <ul class="pkg-features">
           <li class="pkg-feature"><span class="pkg-check a">✓</span>Weekly system health &amp; alerting reviews</li>
           <li class="pkg-feature"><span class="pkg-check a">✓</span>Cost &amp; capacity optimisation</li>
           <li class="pkg-feature"><span class="pkg-check a">✓</span>Alert rule &amp; pipeline maintenance</li>
           <li class="pkg-feature"><span class="pkg-check a">✓</span>New feature delivery as needed</li>
           <li class="pkg-feature"><span class="pkg-check a">✓</span>Quarterly planning &amp; forecasting sessions</li>
-          <li class="pkg-feature"><span class="pkg-check a">✓</span>Direct async access — no ticketing system</li>
+          <li class="pkg-feature"><span class="pkg-check a">✓</span>Direct async access, no ticketing system</li>
         </ul>
         <a class="pkg-cta hover-target" href="mailto:pasha.jamal@icloud.com">Get in touch <span>→</span></a>
       </div>
@@ -1463,24 +1415,24 @@
     <div class="section-head reveal">
       <div class="section-label">How we work</div>
       <h2 class="section-title">Clear delivery.<br>Measurable outcomes.</h2>
-      <p class="section-sub">Three phases — from assessment through to continuous operation.</p>
+      <p class="section-sub">Three phases, from assessment through to continuous operation.</p>
     </div>
     <div class="process-grid reveal">
       <div class="process-step">
         <div class="step-num">01</div>
-        <h4>Audit & Roadmap</h4>
-        <div class="dur">2 – 4 weeks</div>
+        <h4>Audit &amp; Roadmap</h4>
+        <div class="dur">2 to 4 weeks</div>
         <p>Environment review, telemetry mapping, risk assessment, and a prioritised delivery plan so you know exactly what's coming before a line of code is written.</p>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
-        <h4>Build & Automate</h4>
-        <div class="dur">4 – 12 weeks</div>
-        <p>Runbooks, alerting, data pipelines, and dashboards shipped to production — with full tests, documentation, and handoff materials at every milestone.</p>
+        <h4>Build &amp; Automate</h4>
+        <div class="dur">4 to 12 weeks</div>
+        <p>Runbooks, alerting, data pipelines, and dashboards shipped to production, with full tests, documentation, and handoff materials at every milestone.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
-        <h4>Operate & Optimise</h4>
+        <h4>Operate &amp; Optimise</h4>
         <div class="dur">Ongoing</div>
         <p>Capacity reviews, cost tuning, and continuous reliability improvements. Your system stays ahead of growth rather than reacting to it.</p>
       </div>
@@ -1490,21 +1442,23 @@
   <!-- ── CTA ── -->
   <section class="cta-section" id="contact">
     <div class="cta-inner reveal">
-      <h2>Ready to build something<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">that lasts?</span></h2>
-      <p>Direct delivery led by Jae Pasha. Cloud and data engineering, end to end — no hand-offs, no fluff.</p>
+      <h2>Ready to build something<br><span class="grad-text">that lasts?</span></h2>
+      <p>Direct delivery led by Jae Pasha. Cloud and data engineering, end to end. No hand-offs, no fluff.</p>
       <div class="cta-btns">
-        <a class="btn-primary hover-target" href="mailto:pasha.jamal@icloud.com">Book a discovery call</a>
+        <button class="btn-primary hover-target" onclick="Calendly.initPopupWidget({url:'https://calendly.com/pasha-jamal'});return false;">Book a discovery call</button>
         <a class="btn-outline hover-target" href="contractor.html">Contractor profile</a>
       </div>
     </div>
   </section>
+
+  <button id="scroll-top" aria-label="Back to top">↑</button>
 
   <!-- ── FOOTER ── -->
   <footer>
     <div class="f-logo">Jae Pasha</div>
     <div class="f-links">
       <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
+      <a href="#projects">Packages</a>
       <a href="contractor.html">CV</a>
       <a href="mailto:pasha.jamal@icloud.com">Email</a>
     </div>
@@ -1512,76 +1466,100 @@
   </footer>
 
   <script>
-    // ── Scroll progress bar ──────────────────────────────
+    // Scroll progress
     const bar = document.getElementById('progress-bar');
+    const scrollTop = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
       const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
       bar.style.width = pct + '%';
+      scrollTop.classList.toggle('visible', window.scrollY > 500);
     });
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // ── Nav scroll class ─────────────────────────────────
+    // Nav scroll
     const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+    // Mobile nav
+    const burger = document.getElementById('nav-burger');
+    const mobileNav = document.getElementById('mobile-nav');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
     });
 
-    // ── Custom cursor ────────────────────────────────────
-    const dot  = document.getElementById('cursor-dot');
+    // Custom cursor
+    const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function animCursor() {
-      dot.style.left  = mx + 'px';
-      dot.style.top   = my + 'px';
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
+    (function animCursor() {
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
       requestAnimationFrame(animCursor);
-    }
-    animCursor();
+    })();
     document.querySelectorAll('.hover-target').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-expand'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-expand'));
     });
 
-    // ── Reveal on scroll ─────────────────────────────────
-    const revealEls = document.querySelectorAll('.reveal');
+    // Reveal on scroll
     const rio = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 60);
-          rio.unobserve(e.target);
-        }
+        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 55); rio.unobserve(e.target); }
       });
-    }, { threshold: 0.08 });
-    revealEls.forEach(el => rio.observe(el));
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(el => rio.observe(el));
 
-    // ── Animated counters ────────────────────────────────
+    // Animated counters
     function animCount(el) {
       const target = +el.dataset.countTarget;
       const prefix = el.dataset.prefix || '';
       const suffix = el.dataset.suffix || '';
-      const duration = 1200;
       const start = performance.now();
-      function step(ts) {
-        const p = Math.min((ts - start) / duration, 1);
+      (function step(ts) {
+        const p = Math.min((ts - start) / 1200, 1);
         const ease = 1 - Math.pow(1 - p, 3);
         el.textContent = prefix + Math.round(ease * target) + suffix;
         if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+      })(performance.now());
     }
-    const dashboardObs = new IntersectionObserver(entries => {
+    const dashObs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         document.querySelectorAll('[data-count-target]').forEach(animCount);
-        dashboardObs.disconnect();
+        dashObs.disconnect();
       }
     }, { threshold: 0.4 });
-    const dashboard = document.querySelector('.hero-dashboard');
-    if (dashboard) dashboardObs.observe(dashboard);
+    const dash = document.querySelector('.hero-dashboard');
+    if (dash) dashObs.observe(dash);
 
-    // ── Domain tabs ──────────────────────────────────────
+    // Dashboard tabs
+    document.querySelectorAll('.db-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.db-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.db-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById('dpanel-' + btn.dataset.dpanel);
+        if (panel) {
+          panel.classList.add('active');
+          panel.querySelectorAll('[data-count-target]').forEach(el => {
+            if (el.dataset.counted) return;
+            el.dataset.counted = '1'; animCount(el);
+          });
+        }
+      });
+    });
+
+    // Domain tabs
     document.querySelectorAll('.domain-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.domain-tab').forEach(t => t.classList.remove('active'));
@@ -1591,5 +1569,6 @@
       });
     });
   </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
