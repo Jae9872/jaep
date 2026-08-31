@@ -1,0 +1,23 @@
+# Jae Pasha
+
+> Jae Pasha is a London-based Cloud, Data and AI Engineer and the founder of Cequor.
+
+## Profile
+
+- Website: https://jaepasha.com/
+- Contractor profile: https://jaepasha.com/contractor.html
+- LinkedIn: https://www.linkedin.com/in/jamal-pasha
+- Company: Cequor — https://cequor.com/
+
+## Areas of work
+
+- Azure cloud engineering and security
+- SQL Server and Azure SQL reliability
+- Data platforms, pipelines and analytics
+- Monitoring, alerting and operational automation
+- AI automation with human oversight
+
+## Contact
+
+- Email: pasha.jamal@icloud.com
+- Location: London, UK
