@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Alternate drafts and operational reports carry noindex. They remain crawlable
+# so search engines can see the directive and remove old listings.
+
+Sitemap: https://jaepasha.com/sitemap.xml
